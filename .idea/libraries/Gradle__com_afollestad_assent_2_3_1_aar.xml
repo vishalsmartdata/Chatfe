@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.afollestad:assent:2.3.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50d1e22ba69820609e252037e1fbf16d/jetified-assent-2.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50d1e22ba69820609e252037e1fbf16d/jetified-assent-2.3.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50d1e22ba69820609e252037e1fbf16d/jetified-assent-2.3.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.afollestad/assent/2.3.1/f1cde13d3e7a1041276602dabbad9db108ce70f2/assent-2.3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.afollestad/assent/2.3.1/ba92e857f5379203e6c5fb68b7eecd3068a1a3f1/assent-2.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

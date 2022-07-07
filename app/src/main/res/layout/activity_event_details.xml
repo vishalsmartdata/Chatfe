@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    <import type="com.sdei.chafte.R" />
+    <import type="android.view.View" />
+    <variable
+            name="dVM"
+            type="com.sdei.chafte.ui.home.event_detail.EventDetailVm"/>
+
+        <variable
+            name="list"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+    <ImageView
+            android:id="@+id/imgbanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/demo_pic"
+        />
+
+    <ImageView
+           android:id="@+id/ImgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:src="@drawable/ic_back"
+            android:layout_marginTop="@dimen/_15sdp"
+            />
+
+    <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:background="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:src="@drawable/menu_option_icon"
+            android:layout_marginTop="@dimen/_15sdp"
+            />
+
+    <TextView
+            android:id="@+id/txHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/imgbanner"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+        app:layout_constraintEnd_toStartOf="@+id/imgAdd"
+            android:hint="Avergers Endgame"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            />
+
+    <TextView
+            android:id="@+id/txdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txHeader"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:hint="9am -10am"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColorHint="@color/white"
+            android:drawablePadding="@dimen/_10sdp"
+            android:drawableLeft="@drawable/ic_watch"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            />
+
+    <ImageView
+        android:id="@+id/imgAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            app:layout_constraintTop_toTopOf="@+id/txHeader"
+            app:layout_constraintBottom_toBottomOf="@+id/txHeader"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/ic_add_in_room"
+            />
+
+    <TextView
+            android:id="@+id/txChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txdate"
+            android:drawableLeft="@drawable/ic_chat_icon"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:background="@drawable/text_bg"
+            android:drawablePadding="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:text="@string/chat_room"
+        />
+
+    <TextView
+            android:id="@+id/txAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txChat"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:text="@string/about"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            />
+
+    <TextView
+            android:id="@+id/txAboutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txAbout"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:hint="Engage in discussion involving the ending of Averages Endgames! Spoilers Alerts!!"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSelectedItem"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout="@{R.layout.user_list_adapter}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txAboutText"
+        android:orientation="horizontal"
+        app:onItemClickListener="@{click}"
+        app:recyclerLinearAdapter="@{list}" />
+
+    <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+    <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+        <variable
+            name="cVM"
+            type="com.sdei.chafte.ui.home.create_event.CreateEventVm"/>
+
+        <variable
+            name="list"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="friendlist"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="timelist"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clLayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+            <ImageView
+                android:id="@+id/imgCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cancel"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                 />
+
+            <TextView
+                android:id="@+id/txRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/public_room"
+                android:textSize="@dimen/_18sdp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="@+id/imgCancel"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+                android:layout_marginLeft="@dimen/_20sdp"
+                app:layout_constraintStart_toEndOf="@+id/imgCancel"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/clLayer"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_10sdp"
+            >
+
+        <TextView
+            android:id="@+id/txCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout="@{R.layout.home_item_adapter}"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txCategory"
+            app:horizontal="@{true}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:onItemClickListener="@{click}"
+            app:recyclerLinearAdapter="@{list}" />
+
+        <TextView
+            android:id="@+id/txRoomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/room_name"
+            android:textSize="@dimen/_14sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/edRoomName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txRoomName"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@drawable/blank_bg"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:text="@={cVM.roomNameObserver}"
+            android:drawableTint="@color/light_black"
+            android:hint="@string/the_lord_of_the_rings"
+            android:textColorHint="@color/light_black"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/white"
+            />
+
+            <TextView
+                android:id="@+id/txInvite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invite_friend"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/edRoomName"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <TextView
+                android:id="@+id/txInviteFriend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txInvite"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                android:background="@drawable/button_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:visibility="gone"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:drawableLeft="@drawable/ic_add_date"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:text="@string/invite"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewFriends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout="@{R.layout.friends_item_adapter}"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintTop_toBottomOf="@+id/txInviteFriend"
+                app:horizontal="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{friendlist}" />
+
+            <TextView
+                android:id="@+id/txDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textSize="@dimen/_14sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewFriends"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <TextView
+                android:id="@+id/txDateSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txDate"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                android:background="@drawable/button_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:drawableLeft="@drawable/ic_add_date"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+               android:text="@string/add_date"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/txByEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invite_friend_by_email"
+                android:textSize="@dimen/_14sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/txDateSelected"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <EditText
+                android:id="@+id/edEmails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txByEmail"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:background="@drawable/blank_bg"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="@={cVM.emailObserver}"
+                android:drawableTint="@color/light_black"
+                android:hint="@string/email_for_invite_friend"
+                android:textColorHint="@color/light_black"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+            <RadioGroup
+                android:id="@+id/rgType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/edEmails"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toEndOf="@+id/glright"
+                >
+
+                <RadioButton
+                    android:id="@+id/rbChat"
+                    android:layout_width="match_parent"
+                    android:text="@string/chat"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/rbWatchPart"
+                    android:layout_width="match_parent"
+                    android:text="@string/watch_party"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start_time"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/rgType"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout="@{R.layout.time_item_adapter}"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintTop_toBottomOf="@+id/txTime"
+                app:looping="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{timelist}" />
+
+            <!-- app:horizontal="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+
+            <TextView
+                android:id="@+id/txDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewTime"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <Spinner
+                android:id="@+id/spDuration"
+                android:layout_width="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/txDuration"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:background="@drawable/blank_bg"
+                style="@style/Spinner"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"/>
+
+            <TextView
+                android:id="@+id/txAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintTop_toBottomOf="@+id/spDuration"
+                android:layout_margin="@dimen/_10sdp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                />
+
+            <EditText
+                android:id="@+id/edAbout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txAbout"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:background="@drawable/blank_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:lines="3"
+                android:text="@={cVM.aboutObserver}"
+                android:padding="@dimen/_10sdp"
+                android:hint="@string/write_something_about"
+                android:textColorHint="@color/light_black"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+            <ImageView
+                android:id="@+id/imgEvent"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_120sdp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/edAbout"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                />
+
+            <TextView
+                android:id="@+id/txUploadImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/imgEvent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:maxLength="14"
+                android:layout_margin="@dimen/_15sdp"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                android:text="@string/upload_image"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:onClick="@{() -> cVM.doCreateEventProcess()}"
+                app:layout_constraintTop_toBottomOf="@+id/txUploadImage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:maxLength="14"
+                android:layout_margin="@dimen/_15sdp"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp"
+                android:text="@string/submit"
+                android:textColor="@color/white" />
+
+        <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_10sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

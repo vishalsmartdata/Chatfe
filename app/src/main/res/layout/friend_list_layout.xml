@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sdei.chafte.ui.authentication.registration.RegistrationVM" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="model"
+            type="com.sdei.chafte.model.FriendsArr" />
+
+        <variable
+            name="callback"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <!--android:background="@{model.selected ? @drawable/transparent_bg : @drawable/white_border_bg"-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFriendList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:onClick="@{() -> callback.onItemClick(clFriendList, position)}"
+        android:layout_margin="@dimen/_5sdp"
+        tools:context=".ui.main.MainActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:elevation="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black">
+
+                <ImageView
+                    android:id="@+id/imgSliderPic"
+                    setUserProfImage="@{model.profileImg.image}"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txFriendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.fname+' '+model.lname}"
+            app:layout_constraintTop_toBottomOf="@+id/cvCard"
+            app:layout_constraintStart_toStartOf="@+id/cvCard"
+            app:layout_constraintEnd_toEndOf="@+id/cvCard"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_12ssp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

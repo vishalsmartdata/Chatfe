@@ -1,0 +1,452 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sdei.chafte"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:6:5-67
+11-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:7:5-79
+12-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:7:22-76
+13    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+13-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:8:5-81
+13-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:8:22-78
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:9:5-80
+14-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:9:22-77
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:10:5-81
+15-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:10:22-78
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:11:5-65
+16-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:11:22-62
+17    <uses-permission android:name="android.permission.READ_CALENDAR" />
+17-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:12:5-72
+17-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:12:22-69
+18    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+18-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:13:5-73
+18-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:13:22-70
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:24:5-68
+19-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:24:22-65
+20    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+20-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:25:5-79
+20-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:25:22-76
+21    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+21-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:26:5-110
+21-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:26:22-107
+22
+23    <application
+23-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:15:5-103:19
+24        android:name="com.sdei.chafte.utils.base.BaseApplication"
+24-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:16:9-51
+25        android:allowBackup="false"
+25-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:17:9-36
+26        android:allowClearUserData="true"
+26-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:18:9-42
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.7.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/de65f31fb01cbde33b9b84197c50c20b/core-1.7.0/AndroidManifest.xml:24:18-86
+28        android:debuggable="true"
+29        android:extractNativeLibs="false"
+30        android:icon="@mipmap/app_icon"
+30-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:19:9-40
+31        android:label="@string/app_name"
+31-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:20:9-41
+32        android:largeHeap="true"
+32-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:21:9-33
+33        android:roundIcon="@mipmap/app_icon"
+33-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:22:9-45
+34        android:supportsRtl="true"
+34-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:23:9-35
+35        android:testOnly="true"
+36        android:theme="@style/AppTheme"
+36-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:24:9-40
+37        android:usesCleartextTraffic="true" >
+37-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:25:9-44
+38        <activity
+38-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:27:9-29:40
+39            android:name="com.sdei.chafte.ui.home.notification.NotificationActivity"
+39-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:28:13-70
+40            android:exported="false" />
+40-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:29:13-37
+41        <activity
+41-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:30:9-32:40
+42            android:name="com.sdei.chafte.ui.home.edit_profile.AboutEditActivity"
+42-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:31:13-67
+43            android:exported="false" />
+43-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:32:13-37
+44        <activity
+44-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:33:9-35:40
+45            android:name="com.sdei.chafte.ui.home.filter.FilterActivity"
+45-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:34:13-58
+46            android:exported="false" />
+46-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:35:13-37
+47        <activity
+47-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:37:9-39:40
+48            android:name="com.sdei.chafte.ui.home.setting.webview.WebViewActivity"
+48-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:38:13-68
+49            android:exported="false" />
+49-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:39:13-37
+50        <activity
+50-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:40:9-42:40
+51            android:name="com.sdei.chafte.ui.home.setting.SettingActivity"
+51-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:41:13-60
+52            android:exported="false" />
+52-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:42:13-37
+53        <activity
+53-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:43:9-45:40
+54            android:name="com.sdei.chafte.ui.home.create_event.CreateEventActivity"
+54-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:44:13-69
+55            android:exported="false" />
+55-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:45:13-37
+56        <activity
+56-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:46:9-48:40
+57            android:name="com.sdei.chafte.ui.home.setting.friendlist.FriendListActivity"
+57-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:47:13-74
+58            android:exported="false" />
+58-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:48:13-37
+59        <activity
+59-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:49:9-51:40
+60            android:name="com.sdei.chafte.ui.home.event_detail.EventDetailsActivity"
+60-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:50:13-70
+61            android:exported="false" />
+61-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:51:13-37
+62
+63        <meta-data
+63-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:53:9-55:55
+64            android:name="com.facebook.sdk.ApplicationId"
+64-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:54:13-58
+65            android:value="@string/facebook_app_id" />
+65-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:55:13-52
+66        <meta-data
+66-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:56:9-58:61
+67            android:name="com.facebook.sdk.ClientToken"
+67-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:57:13-56
+68            android:value="@string/facebook_client_token" />
+68-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:58:13-58
+69
+70        <activity
+70-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:60:9-61:58
+71            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+71-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:60:19-82
+72            android:theme="@style/Base.Theme.AppCompat" />
+72-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:61:13-56
+73        <activity android:name="com.sdei.chafte.ui.home.HomeActivity" />
+73-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:63:9-58
+73-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:63:19-55
+74        <activity android:name="com.sdei.chafte.ui.authentication.registration.RegistrationActivity" />
+74-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:64:9-89
+74-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:64:19-86
+75        <activity android:name="com.sdei.chafte.ui.authentication.registration.CompleteRegistrationActivity" />
+75-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:65:9-97
+75-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:65:19-94
+76        <activity android:name="com.sdei.chafte.ui.authentication.forgot_password.ForgotPasswordActivity" />
+76-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:66:9-94
+76-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:66:19-91
+77        <activity android:name="com.sdei.chafte.ui.home.setting.my_events.ViewUserProfileActivity" />
+77-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:67:9-87
+77-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:67:19-84
+78        <activity android:name="com.sdei.chafte.ui.authentication.AuthenticationActivity" >
+78-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:68:9-78:20
+78-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:68:19-75
+79
+80            <!--
+81              <intent-filter>
+82                  <action android:name="android.intent.action.MAIN" />
+83                  <action android:name="android.intent.action.VIEW" />
+84
+85                  <category android:name="android.intent.category.LAUNCHER" />
+86              </intent-filter>
+87            -->
+88        </activity>
+89        <activity
+89-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:79:9-88:20
+90            android:name="com.sdei.chafte.ui.authentication.splash.SplashActivity"
+90-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:80:13-68
+91            android:exported="true" >
+91-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:81:13-36
+92            <intent-filter>
+92-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:82:13-87:29
+93                <action android:name="android.intent.action.MAIN" />
+93-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:83:17-69
+93-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:83:25-66
+94                <action android:name="android.intent.action.VIEW" />
+94-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:84:17-69
+94-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:84:25-66
+95
+96                <category android:name="android.intent.category.LAUNCHER" />
+96-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:86:17-77
+96-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:86:27-74
+97            </intent-filter>
+98        </activity>
+99
+100        <provider
+100-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:90:9-98:20
+101            android:name="androidx.core.content.FileProvider"
+101-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:91:13-62
+102            android:authorities="com.sdei.chafte.provider"
+102-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:92:13-59
+103            android:exported="false"
+103-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:93:13-37
+104            android:grantUriPermissions="true" >
+104-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:94:13-47
+105            <meta-data
+105-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:95:13-97:58
+106                android:name="android.support.FILE_PROVIDER_PATHS"
+106-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:96:17-67
+107                android:resource="@xml/provider_paths" />
+107-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:97:17-55
+108        </provider> <!-- Define your service, make sure to add the permission! -->
+109        <service
+109-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:99:9-102:72
+110            android:name="com.sdei.chafte.repository.networkcheck.NetworkSchedulerService"
+110-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:100:13-76
+111            android:exported="true"
+111-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:101:13-36
+112            android:permission="android.permission.BIND_JOB_SERVICE" />
+112-->/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/AndroidManifest.xml:102:13-69
+113        <service
+113-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:8:9-14:19
+114            android:name="com.google.firebase.components.ComponentDiscoveryService"
+114-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:9:13-84
+115            android:directBootAware="true"
+115-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:35:13-43
+116            android:exported="false" >
+116-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:10:13-37
+117            <meta-data
+117-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:11:13-13:85
+118                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+118-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:12:17-126
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[com.google.firebase:firebase-analytics-ktx:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/221c9d178c55fa6d362a6011e720225e/jetified-firebase-analytics-ktx-20.1.2/AndroidManifest.xml:13:17-82
+120            <meta-data
+120-->[com.google.firebase:firebase-common-ktx:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/357be1422598deb0b4e07860470cbd7c/jetified-firebase-common-ktx-20.1.0/AndroidManifest.xml:15:13-17:85
+121                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+121-->[com.google.firebase:firebase-common-ktx:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/357be1422598deb0b4e07860470cbd7c/jetified-firebase-common-ktx-20.1.0/AndroidManifest.xml:16:17-113
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[com.google.firebase:firebase-common-ktx:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/357be1422598deb0b4e07860470cbd7c/jetified-firebase-common-ktx-20.1.0/AndroidManifest.xml:17:17-82
+123            <meta-data
+123-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:31:13-33:85
+124                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+124-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:32:17-139
+125                android:value="com.google.firebase.components.ComponentRegistrar" />
+125-->[com.google.android.gms:play-services-measurement-api:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d87abed79238e50c7338cf5aa64eb83f/jetified-play-services-measurement-api-20.1.2/AndroidManifest.xml:33:17-82
+126            <meta-data
+126-->[com.google.firebase:firebase-installations:17.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/f22734ada278da847f461d61792cf6e8/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
+127                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+127-->[com.google.firebase:firebase-installations:17.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/f22734ada278da847f461d61792cf6e8/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
+128                android:value="com.google.firebase.components.ComponentRegistrar" />
+128-->[com.google.firebase:firebase-installations:17.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/f22734ada278da847f461d61792cf6e8/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
+129        </service>
+130
+131        <activity
+131-->[com.karumi:dexter:5.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c2ba79f5a5e4942b51b608374bc9cdfa/jetified-dexter-5.0.0/AndroidManifest.xml:27:9-29:72
+132            android:name="com.karumi.dexter.DexterActivity"
+132-->[com.karumi:dexter:5.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c2ba79f5a5e4942b51b608374bc9cdfa/jetified-dexter-5.0.0/AndroidManifest.xml:28:13-60
+133            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+133-->[com.karumi:dexter:5.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c2ba79f5a5e4942b51b608374bc9cdfa/jetified-dexter-5.0.0/AndroidManifest.xml:29:13-69
+134        <activity
+134-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:15:9-17:66
+135            android:name="net.alhazmy13.mediapicker.Image.ImageActivity"
+135-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:16:13-73
+136            android:theme="@style/Theme.AppCompat.Translucent" />
+136-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:17:13-63
+137        <activity
+137-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:18:9-20:66
+138            android:name="net.alhazmy13.mediapicker.Video.VideoActivity"
+138-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:19:13-73
+139            android:theme="@style/Theme.AppCompat.Translucent" />
+139-->[net.alhazmy13.MediaPicker:libary:2.4.4] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7648f30dc339aa83f4038188674694ea/jetified-libary-2.4.4/AndroidManifest.xml:20:13-63
+140        <activity
+140-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:29:9-32:66
+141            android:name="com.facebook.FacebookActivity"
+141-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:30:13-57
+142            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+142-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:31:13-96
+143            android:theme="@style/com_facebook_activity_theme" />
+143-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:32:13-63
+144        <activity android:name="com.facebook.CustomTabMainActivity" />
+144-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:33:9-71
+144-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:33:19-68
+145        <activity android:name="com.facebook.CustomTabActivity" />
+145-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:34:9-67
+145-->[com.facebook.android:facebook-common:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/e69fb3a2ce3e7ba51b7511765bb8b3e8/jetified-facebook-common-4.39.0/AndroidManifest.xml:34:19-64
+146        <activity
+146-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:23:9-27:75
+147            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+147-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:24:13-93
+148            android:excludeFromRecents="true"
+148-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:25:13-46
+149            android:exported="false"
+149-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:26:13-37
+150            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+150-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:27:13-72
+151        <!--
+152            Service handling Google Sign-In user revocation. For apps that do not integrate with
+153            Google Sign-In, this service will never be started.
+154        -->
+155        <service
+155-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:33:9-37:51
+156            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+156-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:34:13-89
+157            android:exported="true"
+157-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:35:13-36
+158            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+158-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:36:13-107
+159            android:visibleToInstantApps="true" />
+159-->[com.google.android.gms:play-services-auth:20.2.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c3550cdc15dec939f14dc7a82610e6d8/jetified-play-services-auth-20.2.0/AndroidManifest.xml:37:13-48
+160
+161        <activity
+161-->[com.google.android.gms:play-services-base:18.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/825bf0829227c2a0a69a3fc125160e6d/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+162            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+162-->[com.google.android.gms:play-services-base:18.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/825bf0829227c2a0a69a3fc125160e6d/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+163            android:exported="false"
+163-->[com.google.android.gms:play-services-base:18.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/825bf0829227c2a0a69a3fc125160e6d/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+164            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+164-->[com.google.android.gms:play-services-base:18.0.1] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/825bf0829227c2a0a69a3fc125160e6d/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+165
+166        <provider
+166-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:26:9-31:39
+167            android:name="com.google.firebase.provider.FirebaseInitProvider"
+167-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:27:13-77
+168            android:authorities="com.sdei.chafte.firebaseinitprovider"
+168-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:28:13-72
+169            android:directBootAware="true"
+169-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:29:13-43
+170            android:exported="false"
+170-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:30:13-37
+171            android:initOrder="100" />
+171-->[com.google.firebase:firebase-common:20.1.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/3ee5b0bbbde437e5f2316f258fc31898/jetified-firebase-common-20.1.0/AndroidManifest.xml:31:13-36
+172
+173        <receiver
+173-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:29:9-33:20
+174            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+174-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:30:13-85
+175            android:enabled="true"
+175-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:31:13-35
+176            android:exported="false" >
+176-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:32:13-37
+177        </receiver>
+178
+179        <service
+179-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:35:9-38:40
+180            android:name="com.google.android.gms.measurement.AppMeasurementService"
+180-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:36:13-84
+181            android:enabled="true"
+181-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:37:13-35
+182            android:exported="false" />
+182-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:38:13-37
+183        <service
+183-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:39:9-43:72
+184            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+184-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:40:13-87
+185            android:enabled="true"
+185-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:41:13-35
+186            android:exported="false"
+186-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:42:13-37
+187            android:permission="android.permission.BIND_JOB_SERVICE" />
+187-->[com.google.android.gms:play-services-measurement:20.1.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/7f5a77166ca13f9466fc795f904efe7c/jetified-play-services-measurement-20.1.2/AndroidManifest.xml:43:13-69
+188
+189        <meta-data
+189-->[com.google.android.gms:play-services-basement:18.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/96dc5794e8012892de0bd7c6db81f5f2/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+190            android:name="com.google.android.gms.version"
+190-->[com.google.android.gms:play-services-basement:18.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/96dc5794e8012892de0bd7c6db81f5f2/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+191            android:value="@integer/google_play_services_version" />
+191-->[com.google.android.gms:play-services-basement:18.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/96dc5794e8012892de0bd7c6db81f5f2/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+192
+193        <provider
+193-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+194            android:name="androidx.startup.InitializationProvider"
+194-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+195            android:authorities="com.sdei.chafte.androidx-startup"
+195-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+196            android:exported="false" >
+196-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+197            <meta-data
+197-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+198                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+198-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+199                android:value="androidx.startup" />
+199-->[androidx.emoji2:emoji2:1.0.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/19631945e0bd97bb36bd3661346828fd/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+200            <meta-data
+200-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/8fb45fa862669b4e0322215ae9102503/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+201                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+201-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/8fb45fa862669b4e0322215ae9102503/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+202                android:value="androidx.startup" />
+202-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/8fb45fa862669b4e0322215ae9102503/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+203        </provider>
+204        <provider
+204-->[com.facebook.android:facebook-marketing:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c138a7aee68d546d2e55e6e4d0a20487/jetified-facebook-marketing-4.39.0/AndroidManifest.xml:29:9-32:40
+205            android:name="com.facebook.marketing.internal.MarketingInitProvider"
+205-->[com.facebook.android:facebook-marketing:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c138a7aee68d546d2e55e6e4d0a20487/jetified-facebook-marketing-4.39.0/AndroidManifest.xml:30:13-81
+206            android:authorities="com.sdei.chafte.MarketingInitProvider"
+206-->[com.facebook.android:facebook-marketing:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c138a7aee68d546d2e55e6e4d0a20487/jetified-facebook-marketing-4.39.0/AndroidManifest.xml:31:13-73
+207            android:exported="false" />
+207-->[com.facebook.android:facebook-marketing:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/c138a7aee68d546d2e55e6e4d0a20487/jetified-facebook-marketing-4.39.0/AndroidManifest.xml:32:13-37
+208        <!--
+209         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+210         with the application context. This config is merged in with the host app's manifest,
+211         but there can only be one provider with the same authority activated at any given
+212         point; so if the end user has two or more different apps that use Facebook SDK, only the
+213         first one will be able to use the provider. To work around this problem, we use the
+214         following placeholder in the authority to identify each host application as if it was
+215         a completely different provider.
+216        -->
+217        <provider
+217-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:39:9-42:40
+218            android:name="com.facebook.internal.FacebookInitProvider"
+218-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:40:13-70
+219            android:authorities="com.sdei.chafte.FacebookInitProvider"
+219-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:41:13-72
+220            android:exported="false" />
+220-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:42:13-37
+221
+222        <receiver
+222-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:44:9-50:20
+223            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+223-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:45:13-86
+224            android:exported="false" >
+224-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:46:13-37
+225            <intent-filter>
+225-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:47:13-49:29
+226                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+226-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:48:17-95
+226-->[com.facebook.android:facebook-core:4.39.0] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/20134e9662d559274ea6e25474b9bebc/jetified-facebook-core-4.39.0/AndroidManifest.xml:48:25-92
+227            </intent-filter>
+228        </receiver>
+229
+230        <service
+230-->[androidx.room:room-runtime:2.2.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/b8969b4cf3e7f08bdabbb919ee5476a3/room-runtime-2.2.2/AndroidManifest.xml:25:9-27:40
+231            android:name="androidx.room.MultiInstanceInvalidationService"
+231-->[androidx.room:room-runtime:2.2.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/b8969b4cf3e7f08bdabbb919ee5476a3/room-runtime-2.2.2/AndroidManifest.xml:26:13-74
+232            android:exported="false" />
+232-->[androidx.room:room-runtime:2.2.2] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/b8969b4cf3e7f08bdabbb919ee5476a3/room-runtime-2.2.2/AndroidManifest.xml:27:13-37
+233
+234        <provider
+234-->[com.squareup.picasso:picasso:2.71828] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d728e5111e2bd159356c5efc18f700ab/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+235            android:name="com.squareup.picasso.PicassoProvider"
+235-->[com.squareup.picasso:picasso:2.71828] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d728e5111e2bd159356c5efc18f700ab/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+236            android:authorities="com.sdei.chafte.com.squareup.picasso"
+236-->[com.squareup.picasso:picasso:2.71828] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d728e5111e2bd159356c5efc18f700ab/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+237            android:exported="false" />
+237-->[com.squareup.picasso:picasso:2.71828] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/d728e5111e2bd159356c5efc18f700ab/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+238
+239        <activity
+239-->[com.yashoid:instacropper:1.0.6] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/ed86264f505e33203eb43ef30351dbad/jetified-instacropper-1.0.6/AndroidManifest.xml:12:9-15:51
+240            android:name="com.yashoid.instacropper.InstaCropperActivity"
+240-->[com.yashoid:instacropper:1.0.6] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/ed86264f505e33203eb43ef30351dbad/jetified-instacropper-1.0.6/AndroidManifest.xml:13:13-73
+241            android:label="@string/instacropper_title"
+241-->[com.yashoid:instacropper:1.0.6] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/ed86264f505e33203eb43ef30351dbad/jetified-instacropper-1.0.6/AndroidManifest.xml:14:13-55
+242            android:theme="@style/InstaCropper" />
+242-->[com.yashoid:instacropper:1.0.6] /Users/priya.saini/.gradle/caches/transforms-2/files-2.1/ed86264f505e33203eb43ef30351dbad/jetified-instacropper-1.0.6/AndroidManifest.xml:15:13-48
+243    </application>
+244
+245</manifest>

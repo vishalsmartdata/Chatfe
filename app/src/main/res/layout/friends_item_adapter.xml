@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.sdei.chafte.model.FriendListData" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="callback"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/FriendItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/friend_list_bg"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        >
+
+        <com.sdei.chafte.utils.custom.CircleImageView
+            android:id="@+id/imProfile"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:outlineAmbientShadowColor="@color/light_gray"
+            android:outlineSpotShadowColor="@color/black"
+            setUserProfImage="@{model.profileImg.image}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <!-- android:BindingAdapter="@{AppBindingKt.xloadImages(imProfile,model.dateOfJourney,R.drawable.ic_default_avatar)"
+    -->
+
+        <TextView
+            android:id="@+id/txUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="@{model.fname+' '+model.lname}"
+            app:layout_constraintTop_toTopOf="@+id/imProfile"
+            app:layout_constraintBottom_toBottomOf="@+id/imProfile"
+            app:layout_constraintStart_toEndOf="@+id/imProfile"
+            />
+
+        <ImageView
+            android:id="@+id/imgCancel"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            app:layout_constraintStart_toEndOf="@+id/txUserName"
+            app:layout_constraintTop_toTopOf="@+id/imProfile"
+            android:layout_margin="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:onClick="@{() -> callback.onItemClick(imgCancel, position)}"
+            app:layout_constraintBottom_toBottomOf="@+id/imProfile"
+            android:src="@drawable/ic_cancel_friend"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

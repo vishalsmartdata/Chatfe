@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="avVM"
+            type="com.sdei.chafte.ui.home.setting.SettingVm"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_black"
+        android:paddingTop="@dimen/_10sdp"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+        <ImageView
+            android:id="@+id/imgCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_cancel"/>
+
+        <TextView
+            android:id="@+id/txSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_visibility"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_5sdp"
+            android:textSize="@dimen/_20ssp"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@+id/imgCancel"
+            app:layout_constraintTop_toTopOf="@+id/imgCancel"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCancel">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txProfilePicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_picture"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgAccountVisibility"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txProfilePicture"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:checked="true"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/firstView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgAccountVisibility"/>
+
+        <TextView
+            android:id="@+id/txInterestDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/are_you_interested_in_dating"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/firstView"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgInterestindDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txInterestDate"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbInterestAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbInterestFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/SecondView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgInterestindDate"/>
+
+        <TextView
+            android:id="@+id/txIdentify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/i_identify_as"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/SecondView"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgIndentify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txIdentify"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbIndentifyAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbIndentifyFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/ThirdView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgIndentify"/>
+
+        <TextView
+            android:id="@+id/txReligiousBelief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/religious_belief"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/ThirdView"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgReligiousBelief"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txReligiousBelief"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbReligiousBeliefAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbReligiousBeliefFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/FouthView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgReligiousBelief"/>
+
+        <TextView
+            android:id="@+id/txHomeTown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hometown"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/FouthView"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgHomeTown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txHomeTown"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbHomeTownAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbHomeTownFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/FifthView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgHomeTown"/>
+
+        <TextView
+            android:id="@+id/txAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/age"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/FifthView"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txAge"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toEndOf="@+id/glright"
+            >
+
+            <RadioButton
+                android:id="@+id/rbAgeAll"
+                android:layout_width="match_parent"
+                android:text="@string/all"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbAgeFriend"
+                android:layout_width="match_parent"
+                android:text="@string/friend"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorPrimary"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/SixthView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/rgAge"/>
+
+        <TextView
+            android:id="@+id/txSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/SixthView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:maxLength="14"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:textSize="@dimen/_14ssp"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
+
+        <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.sdei.chafte.model.BottomMenu" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="callback"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/lnTimeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/text_bg"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:onClick="@{() -> callback.onItemClick(lnTimeItem, position)}"
+        android:paddingRight="@dimen/_15sdp"
+        android:paddingLeft="@dimen/_15sdp"
+        >
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@{model.selected ? @color/colorPrimary : @color/light_divider }"
+            android:textSize="@dimen/_16ssp"
+            android:text="@{model.title}"
+            tools:text="hello" />
+    </LinearLayout>
+</layout>

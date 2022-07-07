@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "129129476898",
+    "project_id": "chafte",
+    "storage_bucket": "chafte.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129129476898:android:f989a7dfc45a3b5bcfab7b",
+        "android_client_info": {
+          "package_name": "com.sdei.chafte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129129476898-bsmg4sekk9h892pua58gi7uivuri4t8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdei.chafte",
+            "certificate_hash": "2d5808bc23248f7c2e36756770ddd0e276b26b43"
+          }
+        },
+        {
+          "client_id": "129129476898-f37jfiag3g7v97bgki6jvkbfmtqknh38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXPA_YcuZDP1zqBH2ebKW1IiAefUMebBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129129476898-f37jfiag3g7v97bgki6jvkbfmtqknh38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

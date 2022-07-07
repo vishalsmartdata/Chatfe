@@ -1,0 +1,30 @@
+package com.sdei.chafte.ui.authentication.intro
+
+import com.sdei.chafte.R
+import com.sdei.chafte.databinding.FragmentFirstSlideBinding
+import com.sdei.chafte.databinding.FragmentIntroBinding
+import com.sdei.chafte.databinding.FragmentThirdSlideBinding
+import com.sdei.chafte.ui.authentication.AuthenticationActivity
+import com.sdei.chafte.utils.base.BaseFragment
+
+class ThirdSlideFragment : BaseFragment<FragmentThirdSlideBinding, IntroVm>() {
+    override val layoutId: Int
+        get() = R.layout.fragment_third_slide
+    override var viewModel: IntroVm
+        get() = setUpVM(activity as AuthenticationActivity, IntroVm(baseActivity.application))
+        set(value) {}
+    override var binding: FragmentThirdSlideBinding
+        get() = setUpBinding()
+        set(value) {}
+
+    override fun bindData() {
+
+        binding.listener = viewModel
+
+    }
+
+    override fun initListeners() {
+
+    }
+
+}

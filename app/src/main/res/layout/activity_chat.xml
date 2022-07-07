@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="hVM"
+            type="com.sdei.chafte.ui.home.message.chat.ChatVm"/>
+
+        <variable
+            name="list"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/topLayer"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:src="@drawable/ic_back"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Priya Saini"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@id/imageBack"
+                app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageBack"
+                android:paddingLeft="@dimen/_5sdp"
+                />
+
+            <ImageView
+                android:id="@+id/imgMoreOption"
+                android:layout_width="@dimen/_18sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/more_option_icon"
+                app:tint="@color/white"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_height="@dimen/_18sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rlMessage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout="@{R.layout.message_layout}"
+            app:recyclerLinearAdapter="@{list}"
+            app:layout_constraintTop_toBottomOf="@+id/topLayer"
+            app:layout_constraintBottom_toTopOf="@+id/rlBottom"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlBottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blank_bg"
+                android:hint="@string/message"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@+id/txAddPhoto"
+                app:layout_constraintBottom_toBottomOf="@+id/txAddPhoto"
+                app:layout_constraintStart_toEndOf="@+id/txAddPhoto"
+                app:layout_constraintEnd_toStartOf="@+id/txSend"
+                android:textColor="@color/text_colour"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/txAddAttachment"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:src="@drawable/ic_add_attachment"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/_5sdp"
+                />
+
+            <ImageView
+                android:id="@+id/txAddPhoto"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintTop_toTopOf="@+id/txAddAttachment"
+                app:layout_constraintBottom_toBottomOf="@+id/txAddAttachment"
+                app:layout_constraintStart_toEndOf="@+id/txAddAttachment"
+                android:layout_marginLeft="@dimen/_15sdp"
+                />
+
+            <ImageView
+                android:id="@+id/txSend"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:src="@drawable/ic_send_message"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/_5sdp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

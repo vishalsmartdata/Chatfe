@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="cVM"
+            type="com.sdei.chafte.ui.home.calendar_week.CalendarWeekVM"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        >
+
+        <Spinner
+            android:id="@+id/spMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blank_bg"
+            style="@style/Spinner"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#455964"
+            android:gravity="center"
+            android:text="2015年1月"
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <com.guojunustb.library.WeekHeaderView
+            android:id="@+id/weekheaderview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spMonth"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:firstDayOfWeek2="sunday"
+            app:headerBackgroundColor="@color/black"
+            app:headerDayLabelNormalTextColor="@color/light_divider"
+            app:headerDayLabelTextSize="16sp"
+            app:headerDayLabelTodayTextColor="@color/white"
+            app:headerFocusBackgroundColor="@color/white"
+            app:headerFocusSameDayBackgroundColor="#ffffff"
+            app:headerFocusSameDayTextColor="@color/colorPrimary"
+            app:headerFocusTextColor="@color/white"
+            app:headerPaddingTop="16dp"
+            app:headerRowGap="40dp"
+            app:headerWeekLabelTextColor="@color/white"
+            app:headerWeekLabelTextSize="16sp" />
+
+        <com.guojunustb.library.WeekDayView
+            android:id="@+id/weekdayview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/weekheaderview"
+            android:visibility="visible"
+            app:columnGap="8dp"
+            app:dayBackgroundColor="@color/black"
+            app:eventTextColor="@android:color/white"
+            app:headerColumnBackground="@color/black"
+            app:headerColumnPadding="8dp"
+            app:headerColumnTextColor="@color/light_divider"
+            app:headerRowBackgroundColor="@color/white"
+            app:headerRowPadding="12dp"
+            app:hourHeight="60dp"
+            app:noOfVisibleDays="1"
+            app:textSize="12sp"
+            app:todayBackgroundColor="@color/black"
+            app:todayHeaderTextColor="@color/colorPrimary" />
+    </RelativeLayout>
+</layout>

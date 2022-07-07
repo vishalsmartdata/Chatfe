@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+                name="list"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+                name="click"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+        <variable
+                name="vm"
+                type="com.sdei.chafte.ui.authentication.registration.RegistrationVM" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:background="@color/white"
+            tools:context=".ui.main.MainActivity">
+
+        <GridLayout
+                android:id="@+id/glLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+                android:id="@+id/glright"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/_15sdp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> vm.backButtonClick(8)}"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:src="@drawable/ic_back_white_icon"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageBack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintLeft_toRightOf="@+id/glLeft"
+                app:layout_constraintRight_toLeftOf="@+id/glright"
+                android:layout_height="0dp">
+
+
+            <TextView
+                    android:id="@+id/txWhenYourBirth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/what_is_your_favorite_drink"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerDrink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="8dp"
+                    app:horizontal="@{true}"
+                    app:layout="@{R.layout.drink_recycler_item}"
+                    app:onItemClickListener="@{click}"
+                    app:recyclerLinearAdapter="@{list}"
+                   />
+
+            <TextView
+                    android:id="@+id/txContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:maxLength="14"
+                   android:onClick="@{() -> vm.buttonClickForNext(8)}"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/select_drink"
+                    android:textColor="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

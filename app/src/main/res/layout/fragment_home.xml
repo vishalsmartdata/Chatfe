@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+        <variable
+                name="fhVM"
+                type="com.sdei.chafte.ui.home.HomeVM"/>
+
+        <variable
+                name="list"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+                name="listItems"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+                name="click"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout="@{R.layout.home_item_adapter}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:horizontal="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{list}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewSelectedItem"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout="@{R.layout.home_selected_item_adapter}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                android:orientation="horizontal"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{listItems}" />
+
+        <TextView
+            android:id="@+id/txNodataFound"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textSize="@dimen/_18sdp"
+            android:text="@string/no_found_data"
+            android:layout_height="wrap_content"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

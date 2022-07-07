@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="sVM"
+            type="com.sdei.chafte.ui.home.setting.SettingVm"/>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_black"
+        android:paddingTop="@dimen/_10sdp"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+      <ImageView
+          android:id="@+id/imgCancel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintTop_toTopOf="parent"
+          android:layout_margin="@dimen/_5sdp"
+          app:layout_constraintStart_toEndOf="@+id/glLeft"
+          android:src="@drawable/ic_cancel"/>
+
+        <TextView
+            android:id="@+id/txSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_5sdp"
+            android:textSize="@dimen/_20ssp"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@+id/imgCancel"
+            app:layout_constraintTop_toTopOf="@+id/imgCancel"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+            />
+
+        <TextView
+            android:id="@+id/txAccountVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_visibility"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_account_visibility"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/imgCancel"
+            />
+        <View
+            android:id="@+id/firstView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/txAccountVisibility"/>
+
+        <TextView
+            android:id="@+id/txActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_activity"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/firstView"
+            />
+
+        <View
+            android:id="@+id/SecondView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/txActivity"/>
+
+        <TextView
+            android:id="@+id/txCommunityRules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/community_rules"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_cumminity_rules"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/SecondView"
+            />
+
+        <View
+            android:id="@+id/thirdView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/txCommunityRules"/>
+
+        <TextView
+            android:id="@+id/txPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_security"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_privacy_security"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/thirdView"
+            />
+
+        <View
+            android:id="@+id/fourthView"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            android:background="@color/original_black"
+            app:layout_constraintTop_toBottomOf="@+id/txPrivacy"/>
+
+        <TextView
+            android:id="@+id/txHelpSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_supports_faq"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_help_sopport"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/fourthView"
+            />
+
+        <TextView
+            android:id="@+id/txMyEvents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_events"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_resource_public"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:drawableTint="@color/divider"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txHelpSupport"
+            />
+
+        <TextView
+            android:id="@+id/txSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:maxLength="14"
+            android:onClick="@{() -> sVM.doLogoutProcess()}"
+            android:layout_margin="@dimen/_25sdp"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_14ssp"
+            android:text="@string/sign_out"
+            android:textColor="@color/white" />
+
+        <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

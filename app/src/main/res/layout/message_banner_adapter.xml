@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+                name="model"
+                type="String" />
+
+        <variable
+                name="position"
+                type="Integer" />
+
+        <variable
+                name="callback"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp">
+
+        <com.sdei.chafte.utils.custom.CircleImageView
+                android:id="@+id/imProfile"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:outlineAmbientShadowColor="@color/light_gray"
+                android:outlineSpotShadowColor="@color/black"
+                android:defaultFocusHighlightEnabled="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/ic_default_avatar" />
+
+        <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/imProfile"
+                app:layout_constraintStart_toStartOf="@+id/imProfile"
+                app:layout_constraintEnd_toEndOf="@+id/imProfile"
+                android:gravity="center_vertical"
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/_12ssp"
+                android:onClick="@{() -> callback.onItemClick(textView5, position)}"
+                app:concatData="@{String.valueOf(position)}"
+                tools:text="hello" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

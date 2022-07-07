@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+                name="mVM"
+                type="com.sdei.chafte.ui.home.message.MessageVM"/>
+
+        <variable
+                name="list"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+                name="click"
+                type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:paddingTop="@dimen/_5sdp"
+            tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+        <TextView
+                android:id="@+id/txSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/recent_connections"
+                android:textColorHint="@color/light_gray"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewTop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout="@{R.layout.message_banner_adapter}"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                app:layout_constraintTop_toBottomOf="@+id/txSearch"
+                android:orientation="horizontal"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{list}" />
+
+        <TextView
+                android:id="@+id/txRecent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewTop"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+            android:visibility="gone"
+                android:drawableTint="@color/white"
+                android:hint="@string/resents"
+                android:textColorHint="@color/white"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+        <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/txRecent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@color/dark_black"
+                android:layout_height="2dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewItems"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout="@{R.layout.message_adapter}"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                app:layout_constraintTop_toBottomOf="@+id/view1"
+                app:onItemClickListener="@{click}"
+                app:recyclerLinearAdapter="@{list}" />
+
+        <GridLayout
+                android:id="@+id/glLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+                android:id="@+id/glright"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/_15sdp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

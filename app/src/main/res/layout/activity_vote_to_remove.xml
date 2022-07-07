@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="VRVM"
+            type="com.sdei.chafte.ui.home.message.MessageVM"/>
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/topLayer"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:src="@drawable/ic_cancel"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vote_to_remove"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@id/imageBack"
+                app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageBack"
+                android:paddingLeft="@dimen/_5sdp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/topLayer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingTop="@dimen/_15sdp"
+                tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+                <TextView
+                    android:id="@+id/txUserExhibit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/did_user"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <RadioGroup
+                    android:id="@+id/rgUserRacist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/txUserExhibit"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toEndOf="@+id/glright"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbRacistYes"
+                        android:layout_width="match_parent"
+                        android:text="@string/yes"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbRacistNo"
+                        android:layout_width="match_parent"
+                        android:text="@string/friend"
+                        android:checked="true"
+                        android:layout_weight="1"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/firstView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserRacist"/>
+
+                <TextView
+                    android:id="@+id/txUserHarassing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/did_user"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/firstView"/>
+
+                <RadioGroup
+                    android:id="@+id/rgUserHarassing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/txUserHarassing"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toEndOf="@+id/glright"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbHarassingYes"
+                        android:layout_width="match_parent"
+                        android:text="@string/yes"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbHarassingNo"
+                        android:layout_width="match_parent"
+                        android:text="@string/no"
+                        android:checked="true"
+                        android:layout_weight="1"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/colorPrimary"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/SecondView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUserHarassing"/>
+
+                <TextView
+                    android:id="@+id/txContinue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                  app:layout_constraintBottom_toTopOf="@+id/txCancel"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:maxLength="14"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/contiune"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/txCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_bg"
+                    android:gravity="center"
+                    android:alpha=".7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:maxLength="14"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/white" />
+
+                <GridLayout
+                    android:id="@+id/glLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <GridLayout
+                    android:id="@+id/glright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

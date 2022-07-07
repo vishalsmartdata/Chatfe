@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sdei.chafte">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:name=".utils.base.BaseApplication"
+        android:allowBackup="false"
+        android:allowClearUserData="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="allowBackup">
+        <activity
+            android:name=".ui.home.notification.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.edit_profile.AboutEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.filter.FilterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.home.setting.webview.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.create_event.CreateEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.setting.friendlist.FriendListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.event_detail.EventDetailsActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.authentication.registration.RegistrationActivity" />
+        <activity android:name=".ui.authentication.registration.CompleteRegistrationActivity" />
+        <activity android:name=".ui.authentication.forgot_password.ForgotPasswordActivity" />
+        <activity android:name=".ui.home.setting.my_events.ViewUserProfileActivity" />
+        <activity android:name=".ui.authentication.AuthenticationActivity">
+
+            <!--
+              <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+                  <action android:name="android.intent.action.VIEW" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".ui.authentication.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.sdei.chafte.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider> <!-- Define your service, make sure to add the permission! -->
+        <service
+            android:name=".repository.networkcheck.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>

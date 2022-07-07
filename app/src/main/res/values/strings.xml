@@ -1,0 +1,356 @@
+<resources>
+
+
+    <string name="facebook_app_id">1137795293459662</string>
+    <string name="facebook_client_token">8fb1cb520f3db69d95df1a551c8387ac</string>
+
+    <!--<string name="server_client_id">129129476898-lrvpm0m34m60rntffbgacm245iksshc0.apps.googleusercontent.com</string>-->
+    <string name="server_client_id">AIzaSyCXPA_YcuZDP1zqBH2ebKW1IiAefUMebBE</string>
+    <string name="email">Email</string>
+    <string name="public_room">Public Room</string>
+    <string name="filter">Filter</string>
+    <string name="private_room">Private Room</string>
+    <string name="create_room">Create Room</string>
+    <string name="category">Category</string>
+    <string name="start_time">Start Time</string>
+    <string name="sort_by">Sort by</string>
+    <string name="free_on_my_calendar">Free on my calendar</string>
+
+    <string name="duration">Duration</string>
+    <string name="room_name">Room Name</string>
+    <string name="invite_friend_by_email">Invite Friend by Email</string>
+    <string name="date">Date</string>
+    <string name="invite">Invite</string>
+    <string name="friend_public_room">Friend\'Public Room </string>
+    <string name="upcoming_room">Upcoming Room</string>
+    <string name="add_date">Add Date</string>
+    <string name="add_friend">Add Friend</string>
+    <string name="did_user">Did this User exhibited racist behaviour after asked to stop?</string>
+    <string name="match_more">Match More</string>
+    <string name="match_less">Match Less</string>
+    <string name="match_never">Match Never</string>
+    <string name="vote_to_kick">Vote to Kick</string>
+    <string name="invite_friend">Invite Friends</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="sign_in">Sign in</string>
+    <string name="accept_request">Accept</string>
+    <string name="join">Join</string>
+    <string name="reject_request">Reject</string>
+    <string name="submit">Submit</string>
+
+    <string name="upload_image">Upload Image</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="invalid_password">Password length should be between 6 to 20 characters</string>
+    <string name="ok">OK</string>
+    <string name="home">Home</string>
+    <string name="view_profile">View Profile</string>
+    <string name="vote_to_remove">Vote to Remove</string>
+    <string name="friend_list">Friend List</string>
+    <string name="graph">Graph</string>
+    <string name="alarm">Alarm</string>
+    <string name="music">Music</string>
+    <string name="version">Version</string>
+    <string name="post_request">Post Request</string>
+    <string name="search">Search</string>
+    <string name="search_for_chat_room">Search for Chat Room</string>
+    <string name="the_lord_of_the_rings">The Lord of the Rings</string>
+    <string name="email_for_invite_friend">Email for Invite Friends</string>
+    <string name="write_something_about">Write Something About Chat Room</string>
+    <string name="chat">Chat</string>
+    <string name="message">Message</string>
+    <string name="celendar">Calendar</string>
+    <string name="profile">Profile</string>
+
+    <string-array name="menu_array">
+        <item>All</item>
+        <item>Movies</item>
+        <item>TVShows</item>
+        <item>BookShows</item>
+        <!-- <item>Trip Issue</item>-->
+    </string-array>
+
+    <string-array name="sort_array">
+        <item>Alphabetical(A-Z)</item>
+        <item>Earliest to Latest</item>
+        <item>Latest to Earilest</item>
+        <item>Popularity</item>
+        <!-- <item>Trip Issue</item>-->
+    </string-array>
+
+    <string-array name="search_type">
+        <item>Chat Room</item>
+        <item>Watch Party</item>
+        <item>People</item>
+        <!-- <item>Trip Issue</item>-->
+    </string-array>
+
+    <string-array name="time_array">
+        <item>12AM</item>
+        <item>12:30AM</item>
+        <item>1AM</item>
+        <item>01:30AM</item>
+        <item>2AM</item>
+        <item>02:30AM</item>
+        <item>3AM</item>
+        <item>03:30AM</item>
+        <item>4AM</item>
+        <item>04:30AM</item>
+        <item>5AM</item>
+        <item>05:30AM</item>
+        <item>6AM</item>
+        <item>06:30AM</item>
+        <item>7AM</item>
+        <item>07:30AM</item>
+        <item>8AM</item>
+        <item>08:30AM</item>
+        <item>9AM</item>
+        <item>09:30AM</item>
+        <item>10AM</item>
+        <item>10:30AM</item>
+        <item>11AM</item>
+        <item>11:30AM</item>
+        <item>12PM</item>
+        <item>12:30PM</item>
+        <item>1PM</item>
+        <item>01:30PM</item>
+        <item>2PM</item>
+        <item>02:30PM</item>
+        <item>3PM</item>
+        <item>03:30PM</item>
+        <item>4PM</item>
+        <item>04:30PM</item>
+        <item>5PM</item>
+        <item>05:30PM</item>
+        <item>6PM</item>
+        <item>06:30PM</item>
+        <item>7PM</item>
+        <item>07:30PM</item>
+        <item>8PM</item>
+        <item>08:30PM</item>
+        <item>9PM</item>
+        <item>09:30PM</item>
+        <item>10PM</item>
+        <item>10:30PM</item>
+        <item>11PM</item>
+        <item>11:30PM</item>
+
+    </string-array>
+
+
+    <string name="server_taking_too_long_to_respond">Server is taking too long to respond OR something is wrong with your internet connection. Please try again later.</string>
+    <string name="unable_to_connect">Unable to connect with server</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="get_request">Get Request</string>
+    <string name="db_retrieve">Get data from DB</string>
+    <string name="delete_record_from_db">Delete record from DB</string>
+    <string name="no_record_found">No record found</string>
+    <string name="list_items">List Items</string>
+    <string name="back">Back</string>
+
+    <integer-array name="home_tab_items_drawable">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_graph</item>
+        <item>@drawable/ic_alarm</item>
+        <item>@drawable/ic_tab_music</item>
+    </integer-array>
+
+    <string-array name="home_tab_items_name">
+        <item>@string/home</item>
+        <item>@string/graph</item>
+        <item>@string/alarm</item>
+        <item>@string/music</item>
+        <item>@string/version</item>
+    </string-array>
+
+    <string-array name="duration">
+        <item>Select Duration Hours</item>
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+    </string-array>
+
+    <string-array name="new_duration">
+        <item>Select Duration Hours</item>
+        <item>30 min</item>
+        <item>1 hour</item>
+        <item>1.5 hours</item>
+        <item>2 hours</item>
+        <item>2.5 hours</item>
+        <item>3 hours</item>
+        <item>3.5 hours</item>
+        <item>5 hours</item>
+        <item>5.5 hours</item>
+        <item>6 hours</item>
+        <item>6.5 hours</item>
+    </string-array>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <string name="internet_connected">Good! Connected to Internet</string>
+    <string name="internet_not_connected">Sorry! Not connected to internet</string>
+    <string name="menu">Menu</string>
+    <string name="hello_user">Hello User</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="username">Username</string>
+    <string name="email_or_phone_number">Email/PhoneNumber</string>
+    <string name="sign_in_with">Sign in with:</string>
+    <string name="register">Register</string>
+    <string name="or">Or</string>
+    <string name="let_get_you_setup">Let\'s get you setup!</string>
+    <string name="what_is_your_first_name_last_name_email_phone_number">What is your first name, last name, email and phone number?</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="contiune">Continue</string>
+    <string name="finish">Finish</string>
+    <string name="allow">Allow</string>
+    <string name="skip">Skip</string>
+    <string name="when_is_your_birthday">When is your birthday?</string>
+    <string name="birthday">Birthday</string>
+    <string name="visible_to_all">Visible to All</string>
+    <string name="visible_to_friends_only">Visible to Friends Only</string>
+    <string name="how_you_identify_yourself">How do you identify yourself?</string>
+    <string name="are_you_interested_in_dating">Are you Interested in dating?</string>
+    <string name="i_identify_as">I Identify as...</string>
+    <string name="male">Male</string>
+    <string name="open">(</string>
+    <string name="user">User</string>
+    <string name="close">)</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="has_send_you_a_friend_request">has sent you a friend request.</string>
+    <string name="invite_you_to_a_private_room">invited you to a private room.</string>
+    <string name="transgender_female">Transgender Female</string>
+    <string name="transgender_male">Transgender Male</string>
+    <string name="gender_variant">Gender Variant/Non-Conforming</string>
+    <string name="not_listed">Not Listed</string>
+    <string name="prefer_not_to_answer">Prefer Not to Answer</string>
+    <string name="where_is_your_hometown">Where is your Hometown?</string>
+    <string name="hometown">Hometown</string>
+    <string name="age">Age</string>
+    <string name="what_is_your_favorite_drink">What is your favorite drink?</string>
+    <string name="update_profile_picture">Update Profile picture</string>
+    <string name="select_drink">Select Drink</string>
+    <string name="allow_chafte_to_send_you_notification">Allow Chafte to send you notification.</string>
+    <string name="thanks_for_joining">Thanks for joining!</string>
+    <string name="your_profile_is_set_up">Your profile is all set up!</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_library">Choose from gallery</string>
+    <string name="cancel">cancel</string>
+    <string name="send_code_to">Send code to</string>
+    <string name="send_code">Send Code</string>
+    <string name="enter_code">Enter code</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="submit_code">Submit Code</string>
+    <string name="change_password">Change Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="confirm_new_pasword">Confirm New Pasword</string>
+    <string name="password_successfully_changed">Password Successfully Changed</string>
+    <string name="chat_room">Chat Room</string>
+    <string name="about">About</string>
+    <string name="drink">Drink</string>
+    <string name="friend">Friends</string>
+    <string name="choose_friend">Invite Friends</string>
+    <string name="select_friend">Selected</string>
+    <string name="view_all">View All</string>
+    <string name="save">Save</string>
+    <string name="apply">Apply</string>
+    <string name="resents">Recent</string>
+    <string name="recent_connections">Recent Connections</string>
+    <string name="data_not_found">Data Not Found</string>
+    <string name="please_select_option">Please Select Option</string>
+    <string name="please_fill_four_digits_otpn">Please fill four digits OTP</string>
+    <string name="Please_select_profile_image">Please select Profile Image</string>
+    <string name="please_fill_all_required_field">Please Fill All Required Filled</string>
+    <string name="password_match_confirmpassword">Password should match with Confirm Password</string>
+    <string name="please_verify_your_number_or_email">Please Verify Your Phone Number or Email</string>
+    <string name="username_con_not_empty">Username field cannot be empty</string>
+    <string name="password_con_not_empty">Password field cannot be empty</string>
+    <string name="roomname_con_not_empty">Roomname feild cannot be empty</string>
+    <string name="confirm_password_con_not_empty">Confirm Password field cannot be empty</string>
+    <string name="firstname_cannot_be_empty">FirstName field cannot be empty</string>
+    <string name="lastname_cannot_be_empty">Lastname field cannot be empty</string>
+    <string name="phonenumber_cannot_be_empty">PhoneNumber field cannot be empty</string>
+    <string name="Birthdate_cannot_be_empty">Birth date field cannot be empty</string>
+    <string name="about_cannot_be_empty">About field cannot be empty</string>
+    <string name="select_gender">"Please Select Gender"</string>
+    <string name="please_enter_your_hometown">"Please Enter Your Hometown"</string>
+    <string name="friends">"Friends"</string>
+    <string name="all">"All"</string>
+    <string name="select_favouite_drink">"Select Favourite Drink"</string>
+    <string name="please_select_previous_visibilties">"Please Select Visibilites of Showing Particular Items"</string>
+    <string name="please_select_previous_dob">"Please Select Visibilites of DOB"</string>
+    <string name="please_select_previous_hometown">"Please Select Visibilites of HomeTown"</string>
+    <string name="please_select_previous_interesting_date">"Please Select Visibilites of Interested in Date"</string>
+    <string name="please_select_previous_gendar">"Please Select Visibilites of Gender"</string>
+    <string name="please_select_select">"Please Select Date"</string>
+    <string name="please_select_event_image">"Please Select Event Image"</string>
+    <string name="please_select_start_time">"Please Select Start Time"</string>
+    <string name="please_select_duration">"Please Select Duration"</string>
+    <string name="select_prfile_image">"Select Profile Image"</string>
+    <string name="select_interesting_dating">"Select Interesting Dating"</string>
+    <string name="email_cannot_be_empty">Email field cannot be empty</string>
+    <string name="please_enter_correct_password">Please enter correct Password</string>
+    <string name="please_enter_correct_email">Please enter correct Email</string>
+    <string name="Incorrrect_">Email field cannot be empty</string>
+    <string name="you_need_to_verify_your_email_or_phonenumber">You need to verify your Email or PhoneNumber</string>
+    <string name="phonenumber">PhoneNumber</string>
+    <string name="user_name_field_not_empty">Username field cannot be empty</string>
+    <string name="please_select_category">Please Select Category</string>
+    <string name="settings">Settings</string>
+    <string name="notification">Notification</string>
+    <string name="friend_request">Friend Request</string>
+    <string name="Invites">Invites</string>
+    <string name="account_visibility">Account Visibility</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="religious_belief">Religious beliefs</string>
+    <string name="activity">Activity</string>
+    <string name="community_rules">Community Rules</string>
+    <string name="my_events">My Events</string>
+    <string name="privacy_security">Privacy &amp; Security</string>
+    <string name="help_supports_faq">Help &amp; Supports &amp; FAQs</string>
+    <string name="white_something_about_yourself">White something about Yourself</string>
+    <string name="no_found_data">Data Not Found</string>
+    <string name="no_request_found">No Request Found</string>
+    <string name="joined_room_successfully">Joined Room Successfully</string>
+    <string name="cancel_joined_room_successfully">Cancel Joined Room Successfully</string>
+    <string name="delete_room_successfully">Delete Room Successfully</string>
+    <string name="create_room_successfully">Room Created Successfully</string>
+    <string name="update_room_successfully">Update Room Successfully</string>
+    <string name="watch_party">Watch Party</string>
+    <string name="are_you_sure_to_delete_this_room">Are you sure you want to delete this Room?</string>
+    <string name="delete_room">Delete Room</string>
+    <string name="select_option">Select Option</string>
+    <string name="edit_room">Edit Room</string>
+
+
+</resources>

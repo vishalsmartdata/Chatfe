@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.sdei.chafte.ui.authentication.login.LoginVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_15sdp"
+        tools:context=".ui.main.MainActivity">
+
+        <GridLayout
+                android:id="@+id/glLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15sdp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+                android:id="@+id/glright"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/_15sdp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/glLeft"
+            app:layout_constraintRight_toLeftOf="@+id/glright"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/glLeft"
+                app:layout_constraintRight_toLeftOf="@+id/glright"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/txCreateAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+            <TextView
+                    android:id="@+id/txUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/txCreateAccount"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+            <EditText
+                    android:id="@+id/edUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ed_bg"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@+id/txUsername"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:maxLength="14"
+                    android:text="@={vm.usernameObservable}"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:hint="@string/username"
+                    android:textColorHint="@color/black_transparent"
+                    android:textColor="@color/text_colour" />
+
+            <TextView
+                    android:id="@+id/txPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/edUsername"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+            <RelativeLayout
+                android:id="@+id/rlPassword"
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/txPassword"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@drawable/ed_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLength="14"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@={vm.passwordObservable}"
+                    android:textColor="@color/text_colour"
+                    android:textColorHint="@color/black_transparent"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:id="@+id/imgShowHidePassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_full_eye" />
+
+            </RelativeLayout>
+
+
+
+            <TextView
+                    android:id="@+id/txForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/rlPassword"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_16ssp"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/colorPrimary" />
+
+            <TextView
+                    android:id="@+id/txLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/txForgotPassword"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:maxLength="14"
+                    android:onClick="@{() -> vm.doLoginProcess()}"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/sign_in"
+                    android:textColor="@color/white" />
+
+            <TextView
+                    android:id="@+id/txRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/txLogin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/create_an_account"
+                    android:textColor="@color/black" />
+
+            <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txRegister"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/light_gray"
+                    android:layout_height="1dp"/>
+
+            <TextView
+                    android:id="@+id/txSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_in_with"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+
+           <!-- <Button
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View 1"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    app:layout_constraintTop_toBottomOf="@+id/txSignIn"
+                    app:layout_constraintBottom_toTopOf="@+id/view2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+            <Button
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View 2"
+                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:layout_constraintBottom_toTopOf="@+id/view3"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />-->
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/txSignIn"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_height="wrap_content" />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/txSignIn"
+                app:layout_constraintRight_toRightOf="parent"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp" />
+
+            <ImageView
+                    android:id="@+id/goodleImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_google"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/txSignIn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginBottom="@dimen/_5sdp"
+                    app:layout_constraintRight_toLeftOf="@+id/facebookImage"
+                     />
+
+            <ImageView
+                    android:id="@+id/facebookImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_facebook"
+                    android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/txSignIn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/goodleImage"
+
+                    />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

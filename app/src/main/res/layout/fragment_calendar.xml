@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <!--<variable
+            name="hVM"
+            type="com.sdei.chafte.ui.home.calender.CalendarVm"/>-->
+
+        <variable
+            name="list"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:paddingTop="@dimen/_5sdp"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+
+      <!--  <me.jlurena.revolvingweekview.WeekView
+            android:id="@+id/revolving_weekview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:eventTextColor="@android:color/white"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            app:layout_constraintTop_toBottomOf="@+id/calendar"
+            app:hourHeight="@dimen/_40sdp"
+            app:headerColumnPadding="8dp"
+            app:headerColumnTextColor="@color/colorPrimary"
+            app:headerRowPadding="1dp"
+            app:noOfVisibleDays="1"
+            app:headerRowBackgroundColor="@color/black"
+            app:dayBackgroundColor="@color/black"
+            app:todayBackgroundColor="#1848adff"
+            app:todayHeaderTextColor="@color/black"
+            app:headerColumnBackground="@color/white"
+            />
+
+        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+            android:id="@+id/calendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:selectorColor="@android:color/holo_red_dark"
+            app:textColorNormal="@color/light_divider"
+            app:textColorSelected="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright" />-->
+
+      <!--  <com.alamkanak.weekview.WeekView
+            android:id="@+id/weekView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:eventTextColor="@android:color/white"
+            app:textSize="12sp"
+            app:hourHeight="60dp"
+            app:headerColumnPadding="8dp"
+            app:headerColumnTextColor="@color/light_divider"
+            app:headerRowPadding="12dp"
+            app:columnGap="8dp"
+            app:noOfVisibleDays="7"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintEnd_toStartOf="@+id/glright"
+            app:headerRowBackgroundColor="@color/black"
+            app:dayBackgroundColor="@color/black"
+            app:todayBackgroundColor="@color/black"
+            app:headerColumnBackground="@color/black"/>
+-->
+        <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

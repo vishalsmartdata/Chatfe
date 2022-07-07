@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/home"
+            android:title="Home"
+        android:iconTint="@drawable/nav_item_color_state"
+            android:icon="@drawable/ic_home"/>
+    <item android:title="Search"
+            android:id="@+id/search"
+        android:iconTint="@drawable/nav_item_color_state"
+            android:icon="@drawable/ic_search"/>
+    <item android:title="Chat"
+            android:id="@+id/chat"
+        android:iconTint="@drawable/nav_item_color_state"
+            android:icon="@drawable/ic_message"/>
+    <item android:title="Calender"
+            android:id="@+id/calender"
+        android:iconTint="@drawable/nav_item_color_state"
+            android:icon="@drawable/ic_calendar"/>
+    <item
+        android:id="@+id/profile_navigation"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_splash"/>
+
+</menu>

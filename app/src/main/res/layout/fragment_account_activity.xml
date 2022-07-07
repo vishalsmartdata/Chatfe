@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="avVM"
+            type="com.sdei.chafte.ui.home.setting.SettingVm"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_black"
+        android:paddingTop="@dimen/_10sdp"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+        <ImageView
+            android:id="@+id/imgCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_cancel"/>
+
+        <TextView
+            android:id="@+id/txSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_5sdp"
+            android:textSize="@dimen/_20ssp"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@+id/imgCancel"
+            app:layout_constraintTop_toTopOf="@+id/imgCancel"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCancel">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/birthday"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                    <Switch
+                        android:id="@+id/rbbday"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txBirthday"
+                        app:layout_constraintBottom_toBottomOf="@+id/txBirthday"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/select_switch"
+                        android:layout_height="wrap_content"/>
+
+                <View
+                    android:id="@+id/firstView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rbbday"/>
+
+                <TextView
+                    android:id="@+id/txInvite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invite"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/firstView"
+                    />
+
+                    <Switch
+                        android:id="@+id/rbInvite"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txInvite"
+                        app:layout_constraintBottom_toBottomOf="@+id/txInvite"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/select_switch"
+                        android:layout_height="wrap_content"/>
+
+                <View
+                    android:id="@+id/secondView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rbInvite"/>
+
+                <TextView
+                    android:id="@+id/txUpcomingRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upcoming_room"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/secondView"
+                    />
+
+                    <Switch
+                        android:id="@+id/rbUpcoming"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txUpcomingRoom"
+                        app:layout_constraintBottom_toBottomOf="@+id/txUpcomingRoom"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/select_switch"
+                        android:layout_height="wrap_content"/>
+
+                <View
+                    android:id="@+id/thirdView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rbUpcoming"/>
+
+                <TextView
+                    android:id="@+id/txFriendPublicRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/friend_public_room"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintTop_toBottomOf="@+id/thirdView"
+                    />
+
+                    <Switch
+                        android:id="@+id/rbFriendRoom"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txFriendPublicRoom"
+                        app:layout_constraintBottom_toBottomOf="@+id/txFriendPublicRoom"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/select_switch"
+                        android:layout_height="wrap_content"/>
+
+                <View
+                    android:id="@+id/fouthView"
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/glLeft"
+                    app:layout_constraintEnd_toStartOf="@+id/glright"
+                    android:background="@color/original_black"
+                    app:layout_constraintTop_toBottomOf="@+id/rbFriendRoom"/>
+
+
+                <TextView
+                    android:id="@+id/txSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/fouthView"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:maxLength="14"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:textSize="@dimen/_14ssp"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+
+                <GridLayout
+                    android:id="@+id/glLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <GridLayout
+                    android:id="@+id/glright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+        <variable
+            name="nVM"
+            type="com.sdei.chafte.ui.home.notification.NotificationVM"/>
+
+        <variable
+            name="list"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="privateRoomlist"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList" />
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.home.event_detail.EventDetailsActivity">
+
+        <ImageView
+            android:id="@+id/imgCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            android:src="@drawable/ic_cancel"/>
+
+        <TextView
+            android:id="@+id/txSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notification"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_5sdp"
+            android:textSize="@dimen/_20ssp"
+            android:paddingLeft="@dimen/_20sdp"
+            app:layout_constraintStart_toEndOf="@+id/imgCancel"
+            app:layout_constraintTop_toTopOf="@+id/imgCancel"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+            />
+
+        <TextView
+            android:id="@+id/txFriendRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/txSetting"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/friend_request"
+            android:textColor="@color/light_gray"
+            android:textSize="@dimen/_16sdp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSelectedItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout="@{R.layout.user_friend_request_adapter}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txFriendRequest"
+            android:orientation="horizontal"
+            app:onItemClickListener="@{click}"
+            app:recyclerLinearAdapter="@{list}" />
+
+        <TextView
+            android:id="@+id/txInvites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewSelectedItem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/Invites"
+            android:textColor="@color/light_gray"
+            android:textSize="@dimen/_16sdp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerInvite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout="@{R.layout.invite_friends_adapter}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txInvites"
+            android:orientation="horizontal"
+            app:onItemClickListener="@{click}"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:recyclerLinearAdapter="@{privateRoomlist}" />
+
+        <TextView
+            android:id="@+id/txNodataFound"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txSetting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textSize="@dimen/_18sdp"
+            android:text="@string/no_request_found"
+            android:layout_height="wrap_content"
+            />
+
+        <GridLayout
+            android:id="@+id/glLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_15sdp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <GridLayout
+            android:id="@+id/glright"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
