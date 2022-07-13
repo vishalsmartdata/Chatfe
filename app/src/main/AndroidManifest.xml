@@ -33,6 +33,9 @@
         <activity
             android:name=".ui.home.filter.FilterActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.home.message.chat.ChatActivity"
+            android:exported="false" />
 
         <activity
             android:name=".ui.home.setting.webview.WebViewActivity"

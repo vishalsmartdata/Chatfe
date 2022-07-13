@@ -29,7 +29,7 @@ public class FragmentRegistrationFrontPageBindingImpl extends FragmentRegistrati
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback69;
+    private final android.view.View.OnClickListener mCallback70;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -174,7 +174,7 @@ public class FragmentRegistrationFrontPageBindingImpl extends FragmentRegistrati
         this.txLogin.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback69 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback70 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -330,7 +330,7 @@ public class FragmentRegistrationFrontPageBindingImpl extends FragmentRegistrati
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edConfirmPassword, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edConfirmPasswordandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edPassword, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edPasswordandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edUsername, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edUsernameandroidTextAttrChanged);
-            this.txLogin.setOnClickListener(mCallback69);
+            this.txLogin.setOnClickListener(mCallback70);
         }
         if ((dirtyFlags & 0x1aL) != 0) {
             // api target 1

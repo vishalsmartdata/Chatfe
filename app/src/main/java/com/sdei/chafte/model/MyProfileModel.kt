@@ -34,7 +34,8 @@ data class MyProfileData(
     val profileImg: ProfileImgX,
     val status: String,
     val updatedAt: String,
-    val username: String
+    val username: String,
+
 )
 
 @Parcelize

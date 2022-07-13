@@ -57,12 +57,6 @@ import kotlin.collections.ArrayList
 import android.R.attr.data
 import android.R.attr.data
 
-
-
-
-
-
-
 class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEventVm>() , RecyclerCallback {
     override val binding: ActivityCreateEventBinding
         get() = setUpBinding()
@@ -75,7 +69,7 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
         get() = this
 
     val categorylist = ArrayList<CategoryData>()
-
+    var category_name=""
     val timelist = ArrayList<BottomMenu>()
     private val bindList = RecyclerBindingList<CategoryData>()
     private val bindfriendList = RecyclerBindingList<FriendListData>()
@@ -297,7 +291,6 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
 
                 binding.edRoomName.setFocusableInTouchMode(true);
                 binding.edRoomName.requestFocus()
-
             }
         })
 
@@ -347,7 +340,7 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
         binding.edRoomName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-               if(s.toString().length >= 3){
+               if(s.toString().length >= 3 && (category_name.equals("Movies")|| category_name.equals(""))){
                    viewModel.getIMDBData(getData(SessionManager.AUTHENTICATION),s.toString())
                }
             }
@@ -367,6 +360,8 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
             }
             bindList.notifyDataChange()
             viewModel.selected_category_id = categorylist[position]._id
+            category_name=categorylist[position].title
+            searchArrayList.clear()
         }
         else if (view?.id == R.id.lnTimeItem) {
             for (i in timelist.indices) {

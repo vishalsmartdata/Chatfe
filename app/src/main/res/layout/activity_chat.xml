@@ -9,7 +9,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="hVM"
+            name="cVM"
             type="com.sdei.chafte.ui.home.message.chat.ChatVm"/>
 
         <variable
@@ -78,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout="@{R.layout.message_layout}"
+            app:onItemClickListener="@{click}"
             app:recyclerLinearAdapter="@{list}"
             app:layout_constraintTop_toBottomOf="@+id/topLayer"
             app:layout_constraintBottom_toTopOf="@+id/rlBottom"/>
@@ -97,18 +98,20 @@
                 android:background="@drawable/blank_bg"
                 android:hint="@string/message"
                 android:padding="@dimen/_10sdp"
+                android:maxLines="1"
+                android:text="@={cVM.messageObservable}"
                 app:layout_constraintTop_toTopOf="@+id/txAddPhoto"
                 app:layout_constraintBottom_toBottomOf="@+id/txAddPhoto"
                 app:layout_constraintStart_toEndOf="@+id/txAddPhoto"
                 app:layout_constraintEnd_toStartOf="@+id/txSend"
-                android:textColor="@color/text_colour"
+                android:textColor="@color/light_gray"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/txAddAttachment"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_add_attachment"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,8 +120,8 @@
 
             <ImageView
                 android:id="@+id/txAddPhoto"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_add_photo"
                 app:layout_constraintTop_toTopOf="@+id/txAddAttachment"
                 app:layout_constraintBottom_toBottomOf="@+id/txAddAttachment"
@@ -128,9 +131,10 @@
 
             <ImageView
                 android:id="@+id/txSend"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_send_message"
+                android:onClick="@{() -> cVM.sendMessage()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_margin="@dimen/_5sdp"

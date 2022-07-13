@@ -24,27 +24,29 @@ public class FragmentViewProfileBindingImpl extends FragmentViewProfileBinding  
         sViewsWithIds.put(R.id.txHeader, 10);
         sViewsWithIds.put(R.id.txHeaderLast, 11);
         sViewsWithIds.put(R.id.txAboutText, 12);
-        sViewsWithIds.put(R.id.view1, 13);
-        sViewsWithIds.put(R.id.txDrink, 14);
-        sViewsWithIds.put(R.id.txDrinkSave, 15);
-        sViewsWithIds.put(R.id.clLayer, 16);
-        sViewsWithIds.put(R.id.imageDrink, 17);
-        sViewsWithIds.put(R.id.txDrinkName, 18);
-        sViewsWithIds.put(R.id.view2, 19);
-        sViewsWithIds.put(R.id.txFriends, 20);
-        sViewsWithIds.put(R.id.txViewFriends, 21);
-        sViewsWithIds.put(R.id.view3, 22);
-        sViewsWithIds.put(R.id.txAbout, 23);
-        sViewsWithIds.put(R.id.txInterestheading, 24);
-        sViewsWithIds.put(R.id.txInterest, 25);
-        sViewsWithIds.put(R.id.txIndentifyHeading, 26);
-        sViewsWithIds.put(R.id.txIndentify, 27);
-        sViewsWithIds.put(R.id.txHometownHeading, 28);
-        sViewsWithIds.put(R.id.txHometown, 29);
-        sViewsWithIds.put(R.id.txAgeHeading, 30);
-        sViewsWithIds.put(R.id.txAge, 31);
-        sViewsWithIds.put(R.id.glLeft, 32);
-        sViewsWithIds.put(R.id.glright, 33);
+        sViewsWithIds.put(R.id.txFriend, 13);
+        sViewsWithIds.put(R.id.txMessage, 14);
+        sViewsWithIds.put(R.id.view1, 15);
+        sViewsWithIds.put(R.id.txDrink, 16);
+        sViewsWithIds.put(R.id.txDrinkSave, 17);
+        sViewsWithIds.put(R.id.clLayer, 18);
+        sViewsWithIds.put(R.id.imageDrink, 19);
+        sViewsWithIds.put(R.id.txDrinkName, 20);
+        sViewsWithIds.put(R.id.view2, 21);
+        sViewsWithIds.put(R.id.txFriends, 22);
+        sViewsWithIds.put(R.id.txViewFriends, 23);
+        sViewsWithIds.put(R.id.view3, 24);
+        sViewsWithIds.put(R.id.txAbout, 25);
+        sViewsWithIds.put(R.id.txInterestheading, 26);
+        sViewsWithIds.put(R.id.txInterest, 27);
+        sViewsWithIds.put(R.id.txIndentifyHeading, 28);
+        sViewsWithIds.put(R.id.txIndentify, 29);
+        sViewsWithIds.put(R.id.txHometownHeading, 30);
+        sViewsWithIds.put(R.id.txHometown, 31);
+        sViewsWithIds.put(R.id.txAgeHeading, 32);
+        sViewsWithIds.put(R.id.txAge, 33);
+        sViewsWithIds.put(R.id.glLeft, 34);
+        sViewsWithIds.put(R.id.glright, 35);
     }
     // views
     @NonNull
@@ -55,43 +57,45 @@ public class FragmentViewProfileBindingImpl extends FragmentViewProfileBinding  
     // Inverse Binding Event Handlers
 
     public FragmentViewProfileBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 34, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 36, sIncludes, sViewsWithIds));
     }
     private FragmentViewProfileBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
-            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[16]
-            , (android.widget.GridLayout) bindings[32]
-            , (android.widget.GridLayout) bindings[33]
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[18]
+            , (android.widget.GridLayout) bindings[34]
+            , (android.widget.GridLayout) bindings[35]
             , (com.sdei.chafte.utils.custom.CircleImageView) bindings[9]
             , (android.widget.ImageView) bindings[4]
-            , (android.widget.ImageView) bindings[17]
+            , (android.widget.ImageView) bindings[19]
             , (android.widget.ImageView) bindings[7]
             , (android.widget.ImageView) bindings[6]
             , (androidx.recyclerview.widget.RecyclerView) bindings[1]
             , (androidx.recyclerview.widget.RecyclerView) bindings[2]
             , (android.widget.TextView) bindings[5]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[3]
-            , (android.widget.TextView) bindings[23]
+            , (android.widget.TextView) bindings[25]
             , (android.widget.EditText) bindings[12]
-            , (android.widget.TextView) bindings[31]
-            , (android.widget.TextView) bindings[30]
-            , (android.widget.TextView) bindings[14]
-            , (android.widget.TextView) bindings[18]
-            , (android.widget.TextView) bindings[15]
-            , (android.widget.TextView) bindings[8]
+            , (android.widget.TextView) bindings[33]
+            , (android.widget.TextView) bindings[32]
+            , (android.widget.TextView) bindings[16]
             , (android.widget.TextView) bindings[20]
+            , (android.widget.TextView) bindings[17]
+            , (android.widget.TextView) bindings[8]
+            , (android.widget.TextView) bindings[13]
+            , (android.widget.TextView) bindings[22]
             , (android.widget.EditText) bindings[10]
             , (android.widget.EditText) bindings[11]
+            , (android.widget.TextView) bindings[31]
+            , (android.widget.TextView) bindings[30]
             , (android.widget.TextView) bindings[29]
             , (android.widget.TextView) bindings[28]
             , (android.widget.TextView) bindings[27]
             , (android.widget.TextView) bindings[26]
-            , (android.widget.TextView) bindings[25]
-            , (android.widget.TextView) bindings[24]
-            , (android.widget.TextView) bindings[21]
-            , (android.view.View) bindings[13]
-            , (android.view.View) bindings[19]
-            , (android.view.View) bindings[22]
+            , (android.widget.TextView) bindings[14]
+            , (android.widget.TextView) bindings[23]
+            , (android.view.View) bindings[15]
+            , (android.view.View) bindings[21]
+            , (android.view.View) bindings[24]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

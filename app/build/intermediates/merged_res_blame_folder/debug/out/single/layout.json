@@ -232,6 +232,10 @@
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/my_event_item_adapter.xml"
     },
     {
+        "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/select_friends_layout.xml",
+        "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/select_friends_layout.xml"
+    },
+    {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_registration_front_page.xml",
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/fragment_registration_front_page.xml"
     },

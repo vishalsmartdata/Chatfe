@@ -110,6 +110,9 @@ interface ApiService {
     @POST("friends/send/friend/request")
     fun getSendRequest(@Header ("Authorization") authen:String?, @Body body: SendFriendRequestPojo): Call<ShowDataAndMessageModel>
 
+    @POST("friends/unfriend")
+    fun getUnfriend(@Header ("Authorization") authen:String?, @Body body: UnfriendPojo): Call<ShowDataAndMessageModel>
+
     @GET("room/get/rooms/joined/by/user")
     fun getJoinRoom(@Header ("Authorization") authen:String?): Call<JoinedRoomModel>
 

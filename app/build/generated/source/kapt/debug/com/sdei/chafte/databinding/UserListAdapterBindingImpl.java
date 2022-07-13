@@ -18,7 +18,7 @@ public class UserListAdapterBindingImpl extends UserListAdapterBinding implement
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback50;
+    private final android.view.View.OnClickListener mCallback51;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -39,7 +39,7 @@ public class UserListAdapterBindingImpl extends UserListAdapterBinding implement
         this.txUserName.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback50 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback51 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -160,7 +160,7 @@ public class UserListAdapterBindingImpl extends UserListAdapterBinding implement
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.clUserList.setOnClickListener(mCallback50);
+            this.clUserList.setOnClickListener(mCallback51);
         }
         if ((dirtyFlags & 0x9L) != 0) {
             // api target 1

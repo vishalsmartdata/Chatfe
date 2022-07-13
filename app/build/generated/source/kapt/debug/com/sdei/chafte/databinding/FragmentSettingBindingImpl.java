@@ -34,7 +34,7 @@ public class FragmentSettingBindingImpl extends FragmentSettingBinding implement
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback61;
+    private final android.view.View.OnClickListener mCallback62;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -65,7 +65,7 @@ public class FragmentSettingBindingImpl extends FragmentSettingBinding implement
         this.txSignOut.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback61 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback62 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -127,7 +127,7 @@ public class FragmentSettingBindingImpl extends FragmentSettingBinding implement
         if ((dirtyFlags & 0x2L) != 0) {
             // api target 1
 
-            this.txSignOut.setOnClickListener(mCallback61);
+            this.txSignOut.setOnClickListener(mCallback62);
         }
     }
     // Listener Stub Implementations

@@ -175,6 +175,8 @@ dependencies {
     //Socket
     implementation 'com.github.nkzawa:socket.io-client:0.3.0'
 
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8'
+
     implementation project(':weekview')
 }
 

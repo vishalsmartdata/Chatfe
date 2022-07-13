@@ -53,7 +53,7 @@ public abstract class ActivityChatBinding extends ViewDataBinding {
   public final ImageView txSend;
 
   @Bindable
-  protected ChatVm mHVM;
+  protected ChatVm mCVM;
 
   @Bindable
   protected RecyclerBindingList mList;
@@ -78,11 +78,11 @@ public abstract class ActivityChatBinding extends ViewDataBinding {
     this.txSend = txSend;
   }
 
-  public abstract void setHVM(@Nullable ChatVm hVM);
+  public abstract void setCVM(@Nullable ChatVm cVM);
 
   @Nullable
-  public ChatVm getHVM() {
-    return mHVM;
+  public ChatVm getCVM() {
+    return mCVM;
   }
 
   public abstract void setList(@Nullable RecyclerBindingList list);

@@ -80,6 +80,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:src="@drawable/ic_add_friend_white"
                     android:layout_margin="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:layout_height="@dimen/_18sdp"/>
 
 
@@ -171,7 +172,6 @@
                 android:textSize="@dimen/_16sdp"
                 />
 
-
             <EditText
                 android:id="@+id/txAboutText"
                 android:layout_width="0dp"
@@ -195,10 +195,53 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 />
 
+            <TextView
+                android:id="@+id/txFriend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txAboutText"
+                app:layout_constraintStart_toEndOf="@+id/glLeft"
+                android:text="@string/friend"
+                android:drawableRight="@drawable/ic_down_errow"
+                app:layout_constraintEnd_toStartOf="@+id/txMessage"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:background="@drawable/button_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/_16sdp"
+                />
+
+            <TextView
+                android:id="@+id/txMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txAboutText"
+                app:layout_constraintEnd_toStartOf="@+id/glright"
+                android:text="@string/message"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                app:layout_constraintStart_toEndOf="@+id/txFriend"
+                android:background="@drawable/transparent_bg"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/_16sdp"
+                />
+
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
-                app:layout_constraintTop_toBottomOf="@+id/txAboutText"
+                app:layout_constraintTop_toBottomOf="@+id/txFriend"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:background="@color/dark_black"
                 android:layout_height="1dp"/>

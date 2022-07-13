@@ -20,6 +20,7 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
     var app: Application? = null
     var logoutResponse: MutableLiveData<String>? = null
     var sendRequestResponse: MutableLiveData<String>? = null
+    var unFriendResponse: MutableLiveData<String>? = null
     var roomResponse: MutableLiveData<ArrayList<MyEventData>>? = null
     var userProfileReponse: MutableLiveData<UserProfileData>? = null
     var registrationReponse: MutableLiveData<String>? = null
@@ -45,6 +46,12 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
         registrationReponse = null
         registrationReponse = MutableLiveData()
         return registrationReponse
+    }
+
+    fun observerUnfriendResponse(): MutableLiveData<String>? {
+        unFriendResponse = null
+        unFriendResponse = MutableLiveData()
+        return unFriendResponse
     }
 
     fun observerFriendRequestResponse(): MutableLiveData<String>? {
@@ -270,6 +277,42 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
                             if (it.code.equals(200)) {
                                 //if (response.body()?.data?.size!! > 0)
                                 sendRequestResponse?.value = response.body()!!.data
+                            } else {
+                                errorResponse?.value =
+                                    app?.baseContext?.getString(R.string.data_not_found)
+                            }
+                        }
+                    }
+                    else -> {
+                        progressObserver?.value = false
+                        errorResponse?.value = response.message()
+                    }
+                }
+            }
+        })
+    }
+
+    fun getUnFriendRequest(authentication: String?, user_id: String,own_id: String) {
+        progressObserver?.value = true
+        var pojo= UnfriendPojo(user_id,own_id!!)
+        NetworkAdapter.getInstance().getNetworkServices()?.getUnfriend(authentication,pojo)?.enqueue(object :
+            Callback<ShowDataAndMessageModel> {
+            override fun onFailure(call: Call<ShowDataAndMessageModel>, t: Throwable) {
+                progressObserver?.value = false
+                errorResponse?.value = t.message
+            }
+
+            override fun onResponse(
+                call: Call<ShowDataAndMessageModel>,
+                response: Response<ShowDataAndMessageModel>
+            ) {
+                when (response.code()) {
+                    200 -> {
+                        progressObserver?.value = false
+                        response.body()?.let {
+                            if (it.code.equals(200)) {
+                                //if (response.body()?.data?.size!! > 0)
+                                unFriendResponse?.value = response.body()!!.message
                             } else {
                                 errorResponse?.value =
                                     app?.baseContext?.getString(R.string.data_not_found)

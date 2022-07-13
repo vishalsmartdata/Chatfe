@@ -73,7 +73,7 @@ fun xloadImages(
 
 @BindingAdapter("setUserProfImage")
 fun setUserProfImage(imageView: ImageView, url: String?) {
-    if(url!!.isNotEmpty()) {
+    if(!url.isNullOrBlank()) {
         Picasso.get()
             .load(url)
             .error(R.drawable.ic_launcher_background)
@@ -95,6 +95,23 @@ fun getDateShow(str: String): String? {
     try {
         var date= dateFormat.parse(str)
         val format = SimpleDateFormat("dd-MM-yyyy")
+        return format.format(date)
+
+    } catch (e: ParseException) {
+        return null
+    }
+}
+
+fun getDateWithServerTimeStamp(str: String): String? {
+    val dateFormat = SimpleDateFormat(
+        "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+        Locale.getDefault()
+    )
+    dateFormat.timeZone = TimeZone.getTimeZone("GMT")  // IMP !!!
+    try {
+        var date= dateFormat.parse(str)
+        // val format = SimpleDateFormat("dd/MM/yyy HH:mm a")
+        val format = SimpleDateFormat("HH:mm a")
         return format.format(date)
 
     } catch (e: ParseException) {

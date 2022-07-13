@@ -18,7 +18,7 @@ public class ProfileDrinkLayoutBindingImpl extends ProfileDrinkLayoutBinding imp
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback58;
+    private final android.view.View.OnClickListener mCallback59;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -37,7 +37,7 @@ public class ProfileDrinkLayoutBindingImpl extends ProfileDrinkLayoutBinding imp
         this.txdrinkName.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback58 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback59 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -166,7 +166,7 @@ public class ProfileDrinkLayoutBindingImpl extends ProfileDrinkLayoutBinding imp
         if ((dirtyFlags & 0x10L) != 0) {
             // api target 1
 
-            this.clParent.setOnClickListener(mCallback58);
+            this.clParent.setOnClickListener(mCallback59);
         }
     }
     // Listener Stub Implementations

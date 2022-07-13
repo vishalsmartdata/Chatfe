@@ -11,7 +11,7 @@
 
         <variable
                 name="model"
-                type="String" />
+                type="com.sdei.chafte.model.RecentSuggestion" />
 
         <variable
                 name="position"
@@ -24,16 +24,19 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRecentConnect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/black"
             android:orientation="vertical"
-            android:layout_margin="@dimen/_10sdp">
+        android:onClick="@{() -> callback.onItemClick(clRecentConnect, position)}"
+            android:layout_margin="@dimen/_2sdp">
 
         <com.sdei.chafte.utils.custom.CircleImageView
                 android:id="@+id/imProfile"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
+                setUserProfImage="@{model.profileImg}"
                 android:outlineAmbientShadowColor="@color/light_gray"
                 android:outlineSpotShadowColor="@color/black"
                 android:defaultFocusHighlightEnabled="true"
@@ -51,11 +54,11 @@
                 app:layout_constraintStart_toStartOf="@+id/imProfile"
                 app:layout_constraintEnd_toEndOf="@+id/imProfile"
                 android:gravity="center_vertical"
+                android:maxLines="10"
+                android:text="@{model.fname+' '+model.lname}"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/_12ssp"
-                android:onClick="@{() -> callback.onItemClick(textView5, position)}"
-                app:concatData="@{String.valueOf(position)}"
-                tools:text="hello" />
+                 />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

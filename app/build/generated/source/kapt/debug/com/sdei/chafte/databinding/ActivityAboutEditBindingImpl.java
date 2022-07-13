@@ -34,7 +34,7 @@ public class ActivityAboutEditBindingImpl extends ActivityAboutEditBinding imple
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback49;
+    private final android.view.View.OnClickListener mCallback50;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -145,7 +145,7 @@ public class ActivityAboutEditBindingImpl extends ActivityAboutEditBinding imple
         this.txContinue.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback49 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback50 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -273,7 +273,7 @@ public class ActivityAboutEditBindingImpl extends ActivityAboutEditBinding imple
 
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edHomeTown, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edHomeTownandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edNotListed, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edNotListedandroidTextAttrChanged);
-            this.txContinue.setOnClickListener(mCallback49);
+            this.txContinue.setOnClickListener(mCallback50);
         }
         if ((dirtyFlags & 0xeL) != 0) {
             // api target 1

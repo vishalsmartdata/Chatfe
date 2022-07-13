@@ -19,7 +19,7 @@ public class HomeSelectedItemAdapterBindingImpl extends HomeSelectedItemAdapterB
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback67;
+    private final android.view.View.OnClickListener mCallback69;
     @Nullable
     private final android.view.View.OnClickListener mCallback68;
     // values
@@ -49,8 +49,8 @@ public class HomeSelectedItemAdapterBindingImpl extends HomeSelectedItemAdapterB
         this.txdate.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback67 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback68 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback69 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback68 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -199,8 +199,8 @@ public class HomeSelectedItemAdapterBindingImpl extends HomeSelectedItemAdapterB
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.clParent.setOnClickListener(mCallback67);
-            this.imgJoin.setOnClickListener(mCallback68);
+            this.clParent.setOnClickListener(mCallback68);
+            this.imgJoin.setOnClickListener(mCallback69);
         }
         if ((dirtyFlags & 0x9L) != 0) {
             // api target 1
@@ -217,27 +217,6 @@ public class HomeSelectedItemAdapterBindingImpl extends HomeSelectedItemAdapterB
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 1: {
-                // localize variables for thread safety
-                // position
-                java.lang.Integer position = mPosition;
-                // callback
-                com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback callback = mCallback;
-                // callback != null
-                boolean callbackJavaLangObjectNull = false;
-
-
-
-                callbackJavaLangObjectNull = (callback) != (null);
-                if (callbackJavaLangObjectNull) {
-
-
-
-
-                    callback.onItemClick(clParent, position);
-                }
-                break;
-            }
             case 2: {
                 // localize variables for thread safety
                 // position
@@ -256,6 +235,27 @@ public class HomeSelectedItemAdapterBindingImpl extends HomeSelectedItemAdapterB
 
 
                     callback.onItemClick(imgJoin, position);
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // position
+                java.lang.Integer position = mPosition;
+                // callback
+                com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback callback = mCallback;
+                // callback != null
+                boolean callbackJavaLangObjectNull = false;
+
+
+
+                callbackJavaLangObjectNull = (callback) != (null);
+                if (callbackJavaLangObjectNull) {
+
+
+
+
+                    callback.onItemClick(clParent, position);
                 }
                 break;
             }

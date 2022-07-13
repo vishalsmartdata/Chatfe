@@ -77,6 +77,8 @@ com/sdei/chafte/databinding/ActivityFilterBinding.java
  com.sdei.chafte.databinding.ActivityFilterBinding
 com/sdei/chafte/databinding/UserFriendRequestAdapterBinding.java
  com.sdei.chafte.databinding.UserFriendRequestAdapterBinding
+com/sdei/chafte/databinding/SelectFriendsLayoutBinding.java
+ com.sdei.chafte.databinding.SelectFriendsLayoutBinding
 com/sdei/chafte/databinding/MyEventItemAdapterBinding.java
  com.sdei.chafte.databinding.MyEventItemAdapterBinding
 com/sdei/chafte/databinding/ActivityProfilePreviewBinding.java
@@ -228,6 +230,8 @@ com/sdei/chafte/databinding/HomeSelectedItemAdapterBinding.java
  com.sdei.chafte.databinding.HomeSelectedItemAdapterBinding
 com/sdei/chafte/databinding/FragmentAccountActivityBinding.java
  com.sdei.chafte.databinding.FragmentAccountActivityBinding
+com/sdei/chafte/databinding/SelectFriendsLayoutBindingImpl.java
+ com.sdei.chafte.databinding.SelectFriendsLayoutBindingImpl
 com/sdei/chafte/databinding/FragmentAccountVisibilityBinding.java
  com.sdei.chafte.databinding.FragmentAccountVisibilityBinding
 com/sdei/chafte/databinding/SortByAdapterBindingImpl.java
@@ -264,6 +268,7 @@ com/sdei/chafte/databinding/FragmentForgotPasswordBindingImpl.java
  com.sdei.chafte.databinding.FragmentForgotPasswordBindingImpl
 com/sdei/chafte/databinding/ActivityChatBindingImpl.java
  com.sdei.chafte.databinding.ActivityChatBindingImpl
+ com.sdei.chafte.databinding.ActivityChatBindingImpl$1
 com/sdei/chafte/databinding/FragmentFouthSlideBinding.java
  com.sdei.chafte.databinding.FragmentFouthSlideBinding
 com/sdei/chafte/utils/custom/blinkingloader/BlinkingView.java

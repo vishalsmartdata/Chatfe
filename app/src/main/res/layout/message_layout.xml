@@ -8,13 +8,15 @@
 
         <import type="android.view.View" />
 
+        <import type="com.sdei.chafte.utils.AppBindingKt" />
+
         <variable
             name="position"
             type="Integer" />
 
-        <!--<variable
+        <variable
             name="model"
-            type="com.sdei.totalcabmobility.model.MessageData" />-->
+            type="com.sdei.chafte.model.ReceiveMessageModelItem" />
 
     </data>
 
@@ -30,6 +32,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginLeft="@dimen/_30sdp"
             android:gravity="end"
+            android:visibility="@{model._me.equals(model.senderId)? View.VISIBLE: View.INVISIBLE}"
             android:orientation="vertical"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
@@ -67,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:text="dummy text"
+                android:text="@{model.message}"
                 android:background="@color/colorPrimary"
                 android:textColor="@color/white"
                 android:paddingRight="@dimen/_10sdp"
@@ -83,10 +86,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
-                android:text="dumy text"
                 app:layout_constraintTop_toBottomOf="@+id/cvCard"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:textColor="@color/light_gray"
+                android:text="@{AppBindingKt.getDateWithServerTimeStamp(model.createdAt)}"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -97,6 +101,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_30sdp"
+            android:visibility="@{model._me.equals(model.receiverId)? View.VISIBLE: View.INVISIBLE}"
             android:orientation="vertical"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
@@ -133,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/black"
-                android:text="dummy text"
+                android:text="@{model.message}"
                 android:paddingRight="@dimen/_10sdp"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_5sdp"
@@ -149,7 +154,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
-                android:text="dumy text"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@{AppBindingKt.getDateWithServerTimeStamp(model.createdAt)}"
                 app:layout_constraintTop_toBottomOf="@+id/cvReceiverCard"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textColor="@color/light_gray"

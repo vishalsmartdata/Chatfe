@@ -85,6 +85,9 @@ public abstract class FragmentViewProfileBinding extends ViewDataBinding {
   public final TextView txEditSave;
 
   @NonNull
+  public final TextView txFriend;
+
+  @NonNull
   public final TextView txFriends;
 
   @NonNull
@@ -110,6 +113,9 @@ public abstract class FragmentViewProfileBinding extends ViewDataBinding {
 
   @NonNull
   public final TextView txInterestheading;
+
+  @NonNull
+  public final TextView txMessage;
 
   @NonNull
   public final TextView txViewFriends;
@@ -141,10 +147,10 @@ public abstract class FragmentViewProfileBinding extends ViewDataBinding {
       RecyclerView recyclerDrink, RecyclerView recyclerFriendList, TextView title,
       ConstraintLayout topLayer, TextView txAbout, EditText txAboutText, TextView txAge,
       TextView txAgeHeading, TextView txDrink, TextView txDrinkName, TextView txDrinkSave,
-      TextView txEditSave, TextView txFriends, EditText txHeader, EditText txHeaderLast,
-      TextView txHometown, TextView txHometownHeading, TextView txIndentify,
+      TextView txEditSave, TextView txFriend, TextView txFriends, EditText txHeader,
+      EditText txHeaderLast, TextView txHometown, TextView txHometownHeading, TextView txIndentify,
       TextView txIndentifyHeading, TextView txInterest, TextView txInterestheading,
-      TextView txViewFriends, View view1, View view2, View view3) {
+      TextView txMessage, TextView txViewFriends, View view1, View view2, View view3) {
     super(_bindingComponent, _root, _localFieldCount);
     this.clLayer = clLayer;
     this.glLeft = glLeft;
@@ -166,6 +172,7 @@ public abstract class FragmentViewProfileBinding extends ViewDataBinding {
     this.txDrinkName = txDrinkName;
     this.txDrinkSave = txDrinkSave;
     this.txEditSave = txEditSave;
+    this.txFriend = txFriend;
     this.txFriends = txFriends;
     this.txHeader = txHeader;
     this.txHeaderLast = txHeaderLast;
@@ -175,6 +182,7 @@ public abstract class FragmentViewProfileBinding extends ViewDataBinding {
     this.txIndentifyHeading = txIndentifyHeading;
     this.txInterest = txInterest;
     this.txInterestheading = txInterestheading;
+    this.txMessage = txMessage;
     this.txViewFriends = txViewFriends;
     this.view1 = view1;
     this.view2 = view2;

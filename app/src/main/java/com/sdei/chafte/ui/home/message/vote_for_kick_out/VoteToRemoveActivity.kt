@@ -14,7 +14,7 @@ class VoteToRemoveActivity : BaseActivity<ActivityVoteToRemoveBinding, MessageVM
     override val layoutId: Int
         get() = R.layout.activity_vote_to_remove
     override var viewModel: MessageVM
-        get() = setUpVM(this, MessageVM(application))
+        get() = setUpVM(this, MessageVM(application,initialSocket()))
         set(value) {}
     override val context: Context
         get() = this

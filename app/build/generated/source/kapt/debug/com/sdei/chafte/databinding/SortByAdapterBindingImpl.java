@@ -18,7 +18,7 @@ public class SortByAdapterBindingImpl extends SortByAdapterBinding implements co
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback48;
+    private final android.view.View.OnClickListener mCallback49;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -35,7 +35,7 @@ public class SortByAdapterBindingImpl extends SortByAdapterBinding implements co
         this.textView5.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback48 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback49 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -148,7 +148,7 @@ public class SortByAdapterBindingImpl extends SortByAdapterBinding implements co
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.lnSortItem.setOnClickListener(mCallback48);
+            this.lnSortItem.setOnClickListener(mCallback49);
         }
         if ((dirtyFlags & 0x9L) != 0) {
             // api target 1

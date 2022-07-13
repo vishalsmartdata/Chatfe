@@ -148,6 +148,10 @@
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/drawable_ic_unfriend.xml.flat",
+        "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/drawable/ic_unfriend.xml"
+    },
+    {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/layout_invite_friends_adapter.xml.flat",
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/invite_friends_adapter.xml"
     },
@@ -280,6 +284,10 @@
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/layout_select_friends_layout.xml.flat",
+        "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/select_friends_layout.xml"
+    },
+    {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/layout_fragment_first_forgot_password.xml.flat",
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/fragment_first_forgot_password.xml"
     },
@@ -406,6 +414,10 @@
     {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/layout_activity_event_details.xml.flat",
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/layout/activity_event_details.xml"
+    },
+    {
+        "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/drawable_ic_down_errow.xml.flat",
+        "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/drawable/ic_down_errow.xml"
     },
     {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/anim_bounce_animation_200.xml.flat",
@@ -830,6 +842,10 @@
     {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/drawable_blank_bg.xml.flat",
         "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/drawable/blank_bg.xml"
+    },
+    {
+        "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/drawable_ic_block.xml.flat",
+        "source": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/src/main/res/drawable/ic_block.xml"
     },
     {
         "merged": "/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/res/merged/debug/layout_fragment_complete_forgot_password.xml.flat",

@@ -76,6 +76,8 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding, ProfileVM>(), Recycl
     var mCompressor: FileCompressor? = null
 
 
+
+
     override fun bindData() {
         binding.pvm = viewModel
     }
@@ -191,6 +193,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding, ProfileVM>(), Recycl
                     binding.txAge.setText(age)
                 }
             }
+
         })
 
         viewModel.observerImageUploadResponse()?.observe (this, Observer {

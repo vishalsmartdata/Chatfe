@@ -13,12 +13,9 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
         sIncludes = null;
-        sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imProfile, 2);
+        sViewsWithIds = null;
     }
     // views
-    @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     @Nullable
     private final android.view.View.OnClickListener mCallback13;
@@ -31,11 +28,12 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
     }
     private MessageBannerAdapterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (com.sdei.chafte.utils.custom.CircleImageView) bindings[2]
-            , (android.widget.TextView) bindings[1]
+            , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
+            , (com.sdei.chafte.utils.custom.CircleImageView) bindings[1]
+            , (android.widget.TextView) bindings[2]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
-        this.mboundView0.setTag(null);
+        this.clRecentConnect.setTag(null);
+        this.imProfile.setTag(null);
         this.textView5.setTag(null);
         setRootTag(root);
         // listeners
@@ -65,7 +63,7 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.model == variableId) {
-            setModel((java.lang.String) variable);
+            setModel((com.sdei.chafte.model.RecentSuggestion) variable);
         }
         else if (BR.position == variableId) {
             setPosition((java.lang.Integer) variable);
@@ -79,8 +77,13 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
             return variableSet;
     }
 
-    public void setModel(@Nullable java.lang.String Model) {
+    public void setModel(@Nullable com.sdei.chafte.model.RecentSuggestion Model) {
         this.mModel = Model;
+        synchronized(this) {
+            mDirtyFlags |= 0x1L;
+        }
+        notifyPropertyChanged(BR.model);
+        super.requestRebind();
     }
     public void setPosition(@Nullable java.lang.Integer Position) {
         this.mPosition = Position;
@@ -113,32 +116,47 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        java.lang.String stringValueOfPosition = null;
+        com.sdei.chafte.model.RecentSuggestion model = mModel;
         java.lang.Integer position = mPosition;
-        int androidxDatabindingViewDataBindingSafeUnboxPosition = 0;
+        java.lang.String modelFnameChar = null;
+        java.lang.String modelFname = null;
+        java.lang.String modelFnameCharModelLname = null;
+        java.lang.String modelProfileImg = null;
         com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback callback = mCallback;
+        java.lang.String modelLname = null;
 
-        if ((dirtyFlags & 0xaL) != 0) {
-
-
-
-                // read androidx.databinding.ViewDataBinding.safeUnbox(position)
-                androidxDatabindingViewDataBindingSafeUnboxPosition = androidx.databinding.ViewDataBinding.safeUnbox(position);
+        if ((dirtyFlags & 0x9L) != 0) {
 
 
-                // read String.valueOf(androidx.databinding.ViewDataBinding.safeUnbox(position))
-                stringValueOfPosition = java.lang.String.valueOf(androidxDatabindingViewDataBindingSafeUnboxPosition);
+
+                if (model != null) {
+                    // read model.fname
+                    modelFname = model.getFname();
+                    // read model.profileImg
+                    modelProfileImg = model.getProfileImg();
+                    // read model.lname
+                    modelLname = model.getLname();
+                }
+
+
+                // read (model.fname) + (' ')
+                modelFnameChar = (modelFname) + (' ');
+
+
+                // read ((model.fname) + (' ')) + (model.lname)
+                modelFnameCharModelLname = (modelFnameChar) + (modelLname);
         }
         // batch finished
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.textView5.setOnClickListener(mCallback13);
+            this.clRecentConnect.setOnClickListener(mCallback13);
         }
-        if ((dirtyFlags & 0xaL) != 0) {
+        if ((dirtyFlags & 0x9L) != 0) {
             // api target 1
 
-            com.sdei.chafte.utils.AppBindingKt.concatData(this.textView5, stringValueOfPosition);
+            com.sdei.chafte.utils.AppBindingKt.setUserProfImage(this.imProfile, modelProfileImg);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.textView5, modelFnameCharModelLname);
         }
     }
     // Listener Stub Implementations
@@ -160,7 +178,7 @@ public class MessageBannerAdapterBindingImpl extends MessageBannerAdapterBinding
 
 
 
-            callback.onItemClick(textView5, position);
+            callback.onItemClick(clRecentConnect, position);
         }
     }
     // dirty flag

@@ -3636,6 +3636,7 @@ drawable ic_added_in_room
 drawable ic_alarm
 drawable ic_back
 drawable ic_back_white_icon
+drawable ic_block
 drawable ic_calendar
 drawable ic_cam_select
 drawable ic_cancel
@@ -3644,6 +3645,7 @@ drawable ic_chat_icon
 drawable ic_clock_black_24dp
 drawable ic_cumminity_rules
 drawable ic_default_avatar
+drawable ic_down_errow
 drawable ic_edit
 drawable ic_facebook
 drawable ic_filter
@@ -3687,6 +3689,7 @@ drawable ic_switch_on
 drawable ic_tab_music
 drawable ic_thanks_join
 drawable ic_third_intro
+drawable ic_unfriend
 drawable ic_vote_to_kick
 drawable ic_watch
 drawable line_divider
@@ -3923,6 +3926,7 @@ id circular_progress_bar
 id clFriendList
 id clLayer
 id clParent
+id clRecentConnect
 id clUserList
 id clear_text
 id clip_horizontal
@@ -4510,6 +4514,7 @@ id txFemale
 id txFilter
 id txFirstName
 id txForgotPassword
+id txFriend
 id txFriendName
 id txFriendPublicRoom
 id txFriendRequest
@@ -4892,6 +4897,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout select_friend_layout
+layout select_friends_layout
 layout select_room_layout
 layout select_user_adapter
 layout sort_by_adapter
@@ -4985,6 +4991,7 @@ string are_you_interested_in_dating
 string are_you_sure_to_delete_this_room
 string back
 string birthday
+string block
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
 string cancel
@@ -5276,6 +5283,7 @@ string recent_connections
 string register
 string reject_request
 string religious_belief
+string request_sent
 string resend_code
 string resents
 string room_name
@@ -5311,6 +5319,7 @@ string the_lord_of_the_rings
 string transgender_female
 string transgender_male
 string unable_to_connect
+string unfriend
 string upcoming_room
 string update_profile_picture
 string update_room_successfully

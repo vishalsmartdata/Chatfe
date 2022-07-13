@@ -12,6 +12,7 @@ import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.sdei.chafte.R;
+import com.sdei.chafte.model.ReceiveMessageModelItem;
 import com.sdei.chafte.utils.custom.CircleImageView;
 import java.lang.Deprecated;
 import java.lang.Object;
@@ -38,6 +39,9 @@ public abstract class MessageLayoutBinding extends ViewDataBinding {
   @Bindable
   protected Integer mPosition;
 
+  @Bindable
+  protected ReceiveMessageModelItem mModel;
+
   protected MessageLayoutBinding(Object _bindingComponent, View _root, int _localFieldCount,
       CardView cvCard, CardView cvReceiverCard, CircleImageView imProfile,
       CircleImageView imgReceiverProfile, TextView txReceiverMessage, TextView txSenderMessage) {
@@ -55,6 +59,13 @@ public abstract class MessageLayoutBinding extends ViewDataBinding {
   @Nullable
   public Integer getPosition() {
     return mPosition;
+  }
+
+  public abstract void setModel(@Nullable ReceiveMessageModelItem model);
+
+  @Nullable
+  public ReceiveMessageModelItem getModel() {
+    return mModel;
   }
 
   @NonNull

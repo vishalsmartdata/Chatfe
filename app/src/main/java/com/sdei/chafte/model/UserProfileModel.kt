@@ -30,7 +30,10 @@ data class UserProfileData(
     val profileImg: ProfileImgX,
     val status: String,
     val updatedAt: String,
-    val username: String
+    val username: String,
+    val chatHeadId: String,
+    val requestStatus: String
+
 )
 
 data class UserFriendsArr(

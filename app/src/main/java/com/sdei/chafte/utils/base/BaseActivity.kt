@@ -68,6 +68,7 @@ abstract class BaseActivity<myBinding : ViewDataBinding, V : ViewModel> : AppCom
         this.mViewBinding = DataBindingUtil.setContentView(this, layoutId)
         this.mContext = context
         this.mViewModel = viewModel
+        if(!sessionManager.getvalue(SessionManager.USER_ID).equals(""))
         socketManager = SocketManager(sessionManager.getvalue(SessionManager.USER_ID))
         bindData()
     }
@@ -80,6 +81,13 @@ abstract class BaseActivity<myBinding : ViewDataBinding, V : ViewModel> : AppCom
     abstract fun bindData()
 
     abstract fun initListeners()
+
+    fun initialSocket(): SocketManager {
+        if(!sessionManager.getUserData(SessionManager.USER_ID).equals("")){
+            socketManager = SocketManager(sessionManager.getvalue(SessionManager.USER_ID))
+        }
+        return socketManager
+    }
 
     fun hideKeyboard() {
         val view = this.currentFocus

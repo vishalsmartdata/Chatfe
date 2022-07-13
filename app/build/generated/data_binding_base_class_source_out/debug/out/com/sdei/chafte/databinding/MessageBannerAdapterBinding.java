@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.sdei.chafte.R;
+import com.sdei.chafte.model.RecentSuggestion;
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback;
 import com.sdei.chafte.utils.custom.CircleImageView;
 import java.lang.Deprecated;
@@ -18,13 +20,16 @@ import java.lang.Object;
 
 public abstract class MessageBannerAdapterBinding extends ViewDataBinding {
   @NonNull
+  public final ConstraintLayout clRecentConnect;
+
+  @NonNull
   public final CircleImageView imProfile;
 
   @NonNull
   public final TextView textView5;
 
   @Bindable
-  protected String mModel;
+  protected RecentSuggestion mModel;
 
   @Bindable
   protected Integer mPosition;
@@ -33,16 +38,17 @@ public abstract class MessageBannerAdapterBinding extends ViewDataBinding {
   protected RecyclerCallback mCallback;
 
   protected MessageBannerAdapterBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      CircleImageView imProfile, TextView textView5) {
+      ConstraintLayout clRecentConnect, CircleImageView imProfile, TextView textView5) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.clRecentConnect = clRecentConnect;
     this.imProfile = imProfile;
     this.textView5 = textView5;
   }
 
-  public abstract void setModel(@Nullable String model);
+  public abstract void setModel(@Nullable RecentSuggestion model);
 
   @Nullable
-  public String getModel() {
+  public RecentSuggestion getModel() {
     return mModel;
   }
 

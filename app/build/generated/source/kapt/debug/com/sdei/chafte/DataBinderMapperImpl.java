@@ -72,6 +72,7 @@ import com.sdei.chafte.databinding.RowHomeListBindingImpl;
 import com.sdei.chafte.databinding.RowSideMenuBindingImpl;
 import com.sdei.chafte.databinding.SearchItemAdapterBindingImpl;
 import com.sdei.chafte.databinding.SelectFriendLayoutBindingImpl;
+import com.sdei.chafte.databinding.SelectFriendsLayoutBindingImpl;
 import com.sdei.chafte.databinding.SelectRoomLayoutBindingImpl;
 import com.sdei.chafte.databinding.SelectUserAdapterBindingImpl;
 import com.sdei.chafte.databinding.SortByAdapterBindingImpl;
@@ -222,21 +223,23 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_SELECTFRIENDLAYOUT = 66;
 
-  private static final int LAYOUT_SELECTROOMLAYOUT = 67;
+  private static final int LAYOUT_SELECTFRIENDSLAYOUT = 67;
 
-  private static final int LAYOUT_SELECTUSERADAPTER = 68;
+  private static final int LAYOUT_SELECTROOMLAYOUT = 68;
 
-  private static final int LAYOUT_SORTBYADAPTER = 69;
+  private static final int LAYOUT_SELECTUSERADAPTER = 69;
 
-  private static final int LAYOUT_TIMEITEMADAPTER = 70;
+  private static final int LAYOUT_SORTBYADAPTER = 70;
 
-  private static final int LAYOUT_USERFRIENDREQUESTADAPTER = 71;
+  private static final int LAYOUT_TIMEITEMADAPTER = 71;
 
-  private static final int LAYOUT_USERLISTADAPTER = 72;
+  private static final int LAYOUT_USERFRIENDREQUESTADAPTER = 72;
 
-  private static final int LAYOUT_VIEWSIDEPROFILE = 73;
+  private static final int LAYOUT_USERLISTADAPTER = 73;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(73);
+  private static final int LAYOUT_VIEWSIDEPROFILE = 74;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(74);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.activity_about_edit, LAYOUT_ACTIVITYABOUTEDIT);
@@ -305,6 +308,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.row_side_menu, LAYOUT_ROWSIDEMENU);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.search_item_adapter, LAYOUT_SEARCHITEMADAPTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.select_friend_layout, LAYOUT_SELECTFRIENDLAYOUT);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.select_friends_layout, LAYOUT_SELECTFRIENDSLAYOUT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.select_room_layout, LAYOUT_SELECTROOMLAYOUT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.select_user_adapter, LAYOUT_SELECTUSERADAPTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.sdei.chafte.R.layout.sort_by_adapter, LAYOUT_SORTBYADAPTER);
@@ -720,6 +724,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         }
         throw new IllegalArgumentException("The tag for select_friend_layout is invalid. Received: " + tag);
       }
+      case  LAYOUT_SELECTFRIENDSLAYOUT: {
+        if ("layout/select_friends_layout_0".equals(tag)) {
+          return new SelectFriendsLayoutBindingImpl(component, view);
+        }
+        throw new IllegalArgumentException("The tag for select_friends_layout is invalid. Received: " + tag);
+      }
       case  LAYOUT_SELECTROOMLAYOUT: {
         if ("layout/select_room_layout_0".equals(tag)) {
           return new SelectRoomLayoutBindingImpl(component, view);
@@ -828,7 +838,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(40);
+    static final SparseArray<String> sKeys = new SparseArray<String>(39);
 
     static {
       sKeys.put(1, "VRVM");
@@ -848,34 +858,33 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put(14, "fhVM");
       sKeys.put(15, "flVM");
       sKeys.put(16, "friendlist");
-      sKeys.put(17, "hVM");
-      sKeys.put(18, "itemsList");
-      sKeys.put(19, "list");
-      sKeys.put(20, "listItems");
-      sKeys.put(21, "listener");
-      sKeys.put(22, "mVM");
-      sKeys.put(23, "meVM");
-      sKeys.put(24, "model");
-      sKeys.put(25, "nVM");
-      sKeys.put(26, "pVM");
-      sKeys.put(27, "peoplelist");
-      sKeys.put(28, "position");
-      sKeys.put(29, "ppVM");
-      sKeys.put(30, "privateRoomlist");
-      sKeys.put(31, "recentList");
-      sKeys.put(32, "sVM");
-      sKeys.put(33, "searchlist");
-      sKeys.put(34, "sortlist");
-      sKeys.put(35, "timelist");
-      sKeys.put(36, "title");
-      sKeys.put(37, "toolbarModel");
-      sKeys.put(38, "vm");
-      sKeys.put(39, "vpVM");
+      sKeys.put(17, "itemsList");
+      sKeys.put(18, "list");
+      sKeys.put(19, "listItems");
+      sKeys.put(20, "listener");
+      sKeys.put(21, "mVM");
+      sKeys.put(22, "meVM");
+      sKeys.put(23, "model");
+      sKeys.put(24, "nVM");
+      sKeys.put(25, "pVM");
+      sKeys.put(26, "peoplelist");
+      sKeys.put(27, "position");
+      sKeys.put(28, "ppVM");
+      sKeys.put(29, "privateRoomlist");
+      sKeys.put(30, "recentList");
+      sKeys.put(31, "sVM");
+      sKeys.put(32, "searchlist");
+      sKeys.put(33, "sortlist");
+      sKeys.put(34, "timelist");
+      sKeys.put(35, "title");
+      sKeys.put(36, "toolbarModel");
+      sKeys.put(37, "vm");
+      sKeys.put(38, "vpVM");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(73);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(74);
 
     static {
       sKeys.put("layout/activity_about_edit_0", com.sdei.chafte.R.layout.activity_about_edit);
@@ -944,6 +953,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/row_side_menu_0", com.sdei.chafte.R.layout.row_side_menu);
       sKeys.put("layout/search_item_adapter_0", com.sdei.chafte.R.layout.search_item_adapter);
       sKeys.put("layout/select_friend_layout_0", com.sdei.chafte.R.layout.select_friend_layout);
+      sKeys.put("layout/select_friends_layout_0", com.sdei.chafte.R.layout.select_friends_layout);
       sKeys.put("layout/select_room_layout_0", com.sdei.chafte.R.layout.select_room_layout);
       sKeys.put("layout/select_user_adapter_0", com.sdei.chafte.R.layout.select_user_adapter);
       sKeys.put("layout/sort_by_adapter_0", com.sdei.chafte.R.layout.sort_by_adapter);

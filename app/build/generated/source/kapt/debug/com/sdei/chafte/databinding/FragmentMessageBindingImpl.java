@@ -136,13 +136,21 @@ public class FragmentMessageBindingImpl extends FragmentMessageBinding  {
         com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList<?> list = mList;
 
         if ((dirtyFlags & 0xdL) != 0) {
+
+
+            if ((dirtyFlags & 0xcL) != 0) {
+            }
         }
         // batch finished
+        if ((dirtyFlags & 0xcL) != 0) {
+            // api target 1
+
+            com.sdei.chafte.utils.common.recyclerviewbase.CustomBindingAdapterKt.setRecyclerLinearAdapter(this.recyclerViewItems, (com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList)null, com.sdei.chafte.R.layout.message_adapter, click, (java.lang.Object)null, (boolean)false, (boolean)false, (boolean)false, (boolean)false, (int)0, (java.lang.Object)null, (android.content.Context)null, (androidx.recyclerview.widget.LinearLayoutManager)null);
+        }
         if ((dirtyFlags & 0xdL) != 0) {
             // api target 1
 
-            com.sdei.chafte.utils.common.recyclerviewbase.CustomBindingAdapterKt.setRecyclerLinearAdapter(this.recyclerViewItems, list, com.sdei.chafte.R.layout.message_adapter, click, (java.lang.Object)null, (boolean)false, (boolean)false, (boolean)false, (boolean)false, (int)0, (java.lang.Object)null, (android.content.Context)null, (androidx.recyclerview.widget.LinearLayoutManager)null);
-            com.sdei.chafte.utils.common.recyclerviewbase.CustomBindingAdapterKt.setRecyclerLinearAdapter(this.recyclerViewTop, list, com.sdei.chafte.R.layout.message_banner_adapter, click, (java.lang.Object)null, (boolean)false, (boolean)false, (boolean)false, (boolean)false, (int)0, (java.lang.Object)null, (android.content.Context)null, (androidx.recyclerview.widget.LinearLayoutManager)null);
+            com.sdei.chafte.utils.common.recyclerviewbase.CustomBindingAdapterKt.setRecyclerLinearAdapter(this.recyclerViewTop, list, com.sdei.chafte.R.layout.message_banner_adapter, click, (java.lang.Object)null, (boolean)false, true, (boolean)false, (boolean)false, (int)0, (java.lang.Object)null, (android.content.Context)null, (androidx.recyclerview.widget.LinearLayoutManager)null);
         }
     }
     // Listener Stub Implementations

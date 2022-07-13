@@ -30,7 +30,7 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
     @Nullable
     private final android.view.View.OnClickListener mCallback55;
     @Nullable
-    private final android.view.View.OnClickListener mCallback52;
+    private final android.view.View.OnClickListener mCallback56;
     @Nullable
     private final android.view.View.OnClickListener mCallback54;
     @Nullable
@@ -63,10 +63,10 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
         this.txContinue.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback55 = new com.sdei.chafte.generated.callback.OnClickListener(this, 4);
-        mCallback52 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback54 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
-        mCallback53 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback55 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
+        mCallback56 = new com.sdei.chafte.generated.callback.OnClickListener(this, 4);
+        mCallback54 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback53 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -167,10 +167,10 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
         if ((dirtyFlags & 0x10L) != 0) {
             // api target 1
 
-            this.imageBack.setOnClickListener(mCallback52);
-            this.mboundView2.setOnClickListener(mCallback53);
-            this.mboundView3.setOnClickListener(mCallback54);
-            this.txContinue.setOnClickListener(mCallback55);
+            this.imageBack.setOnClickListener(mCallback53);
+            this.mboundView2.setOnClickListener(mCallback54);
+            this.mboundView3.setOnClickListener(mCallback55);
+            this.txContinue.setOnClickListener(mCallback56);
         }
         if ((dirtyFlags & 0x12L) != 0) {
             // api target 1
@@ -183,42 +183,6 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 4: {
-                // localize variables for thread safety
-                // vm != null
-                boolean vmJavaLangObjectNull = false;
-                // vm
-                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
-
-
-
-                vmJavaLangObjectNull = (vm) != (null);
-                if (vmJavaLangObjectNull) {
-
-
-
-                    vm.buttonClickForNext(6);
-                }
-                break;
-            }
-            case 1: {
-                // localize variables for thread safety
-                // vm != null
-                boolean vmJavaLangObjectNull = false;
-                // vm
-                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
-
-
-
-                vmJavaLangObjectNull = (vm) != (null);
-                if (vmJavaLangObjectNull) {
-
-
-
-                    vm.backButtonClick(6);
-                }
-                break;
-            }
             case 3: {
                 // localize variables for thread safety
                 // vm != null
@@ -237,6 +201,24 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
                 }
                 break;
             }
+            case 4: {
+                // localize variables for thread safety
+                // vm != null
+                boolean vmJavaLangObjectNull = false;
+                // vm
+                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
+
+
+
+                vmJavaLangObjectNull = (vm) != (null);
+                if (vmJavaLangObjectNull) {
+
+
+
+                    vm.buttonClickForNext(6);
+                }
+                break;
+            }
             case 2: {
                 // localize variables for thread safety
                 // vm != null
@@ -252,6 +234,24 @@ public class FragmentRegistrationAfterFouthPageBindingImpl extends FragmentRegis
 
 
                     vm.checkDating(mboundView2.getResources().getString(R.string.all));
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // vm != null
+                boolean vmJavaLangObjectNull = false;
+                // vm
+                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
+
+
+
+                vmJavaLangObjectNull = (vm) != (null);
+                if (vmJavaLangObjectNull) {
+
+
+
+                    vm.backButtonClick(6);
                 }
                 break;
             }

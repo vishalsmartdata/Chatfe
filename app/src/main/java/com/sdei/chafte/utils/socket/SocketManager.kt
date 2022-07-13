@@ -5,7 +5,10 @@ import android.content.Context
 import android.util.Log
 import com.github.nkzawa.socketio.client.IO
 import com.github.nkzawa.socketio.client.Socket
+
+
 import org.greenrobot.eventbus.EventBus
+import org.json.JSONArray
 
 import org.json.JSONObject
 import java.net.URISyntaxException
@@ -17,7 +20,10 @@ class SocketManager(var user_id: String?) {
             mSocket!!.connect()
             mSocket!!.on(
                 Socket.EVENT_CONNECT
-            ) { Log.e("CONNECT", "CONNECT") }.on(
+            ) {
+                Log.e("CONNECTWithSocket", "CONNECT")
+            }
+                .on(
                 "join"
             ) { args ->
                 val obj = args[0] as JSONObject
@@ -33,37 +39,27 @@ class SocketManager(var user_id: String?) {
             mSocket!!.on("isConnected") { args ->
                 val obj = args[0] as JSONObject
                 Log.e("isConnected", obj.toString() + "")
-            }.on("rideRequestStatus") { args ->
+            }.once("getAllChatHeads") { args ->
                 val obj = args[0] as JSONObject
-                Log.e("rideRequestStatus", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "AcceptandReject"))
-            }.on("driverStatus") { args ->
+                Log.e("getAllChatHeads", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "getAllChatHeads"))
+            }.once("getChatHeadId") { args ->
                 val obj = args[0] as String
-                Log.e("driverStatus", obj.toString() + "")
-            }.on("getMessage") { args ->
-                val obj = args[0]  as JSONObject
+                Log.e("getChatHeadId", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "getChatHeadId"))
+            }.once("getMessage") { args ->
+                val obj = args[0]  as JSONArray
                 Log.e("getMessage", obj.toString() + "")
                 EventBus.getDefault().post(MessageEvent(obj.toString(), "getMessage"))
-            }.on("driverCurrentLocation") { args ->
-                Log.e("driverCurrentLocation", args.toString() + "")
+            }.once("getChatHeadId") { args ->
+                Log.e("getChatHeadId", args.toString() + "")
                 val obj = args[0]  as JSONObject
-                Log.e("CurrentLocationRiderSide", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "driverCurrentLocation"))
-            }.on("tripstatus") { args ->
+                Log.e("getChatHeadId", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "getChatHeadId"))
+            }.on("receiveMessage") { args ->
                 val obj = args[0]  as JSONObject
-                Log.e("tripstatus_newTest", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "ridestatus"))
-            }.on("Ongoingdata")
-
-            { args ->
-                val obj = args[0]  as JSONObject
-                Log.e("Ongoingdata", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "Ongoingdata"))
-            }.on("riderOngoingdata")
-            { args ->
-                val obj = args[0]  as JSONObject
-                Log.e("riderOngoingdata", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "riderOngoingdata"))
+                Log.e("receiveMessage", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "receiveMessage"))
             }
     }
 
@@ -87,10 +83,11 @@ class SocketManager(var user_id: String?) {
 
     init {
         try {
-            mSocket = IO.socket("http://54.190.192.105:6172?userId="+user_id)
+            mSocket = IO.socket("http://54.190.192.105:6172")
         } catch (e: URISyntaxException) {
             e.printStackTrace()
         }
+
         connectUser()
     }
 }

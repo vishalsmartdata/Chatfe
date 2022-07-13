@@ -22,9 +22,9 @@ public class FragmentOtpForgotPasswordRegistrationBindingImpl extends FragmentOt
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback43;
+    private final android.view.View.OnClickListener mCallback45;
     @Nullable
-    private final android.view.View.OnClickListener mCallback42;
+    private final android.view.View.OnClickListener mCallback43;
     @Nullable
     private final android.view.View.OnClickListener mCallback44;
     // values
@@ -207,9 +207,9 @@ public class FragmentOtpForgotPasswordRegistrationBindingImpl extends FragmentOt
         this.txResentOtp.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback43 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
-        mCallback42 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback44 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
+        mCallback45 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
+        mCallback43 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback44 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -411,9 +411,9 @@ public class FragmentOtpForgotPasswordRegistrationBindingImpl extends FragmentOt
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edSecondDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edSecondDigitandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edfourthDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edfourthDigitandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edthirdDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edthirdDigitandroidTextAttrChanged);
-            this.imageBack.setOnClickListener(mCallback42);
-            this.txContinue.setOnClickListener(mCallback43);
-            this.txResentOtp.setOnClickListener(mCallback44);
+            this.imageBack.setOnClickListener(mCallback43);
+            this.txContinue.setOnClickListener(mCallback44);
+            this.txResentOtp.setOnClickListener(mCallback45);
         }
         if ((dirtyFlags & 0x124L) != 0) {
             // api target 1
@@ -435,7 +435,7 @@ public class FragmentOtpForgotPasswordRegistrationBindingImpl extends FragmentOt
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 2: {
+            case 3: {
                 // localize variables for thread safety
                 // vm != null
                 boolean vmJavaLangObjectNull = false;
@@ -470,7 +470,7 @@ public class FragmentOtpForgotPasswordRegistrationBindingImpl extends FragmentOt
                 }
                 break;
             }
-            case 3: {
+            case 2: {
                 // localize variables for thread safety
                 // vm != null
                 boolean vmJavaLangObjectNull = false;

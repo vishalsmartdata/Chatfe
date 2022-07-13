@@ -14,7 +14,7 @@ data class RoomData(
     val createdAt: String,
     val date: String,
     val duration: Float,
-    val image: String,
+    val image: String="",
     val roomName: String,
     val roomType: String,
     val startTime: String,

@@ -18,7 +18,7 @@ public class FriendsItemAdapterBindingImpl extends FriendsItemAdapterBinding imp
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback51;
+    private final android.view.View.OnClickListener mCallback52;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -39,7 +39,7 @@ public class FriendsItemAdapterBindingImpl extends FriendsItemAdapterBinding imp
         this.txUserName.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback51 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback52 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -163,7 +163,7 @@ public class FriendsItemAdapterBindingImpl extends FriendsItemAdapterBinding imp
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.imgCancel.setOnClickListener(mCallback51);
+            this.imgCancel.setOnClickListener(mCallback52);
         }
     }
     // Listener Stub Implementations

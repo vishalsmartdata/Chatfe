@@ -23,9 +23,9 @@ public class FragmentOtpForgotPasswordBindingImpl extends FragmentOtpForgotPassw
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback59;
-    @Nullable
     private final android.view.View.OnClickListener mCallback60;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback61;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -205,8 +205,8 @@ public class FragmentOtpForgotPasswordBindingImpl extends FragmentOtpForgotPassw
         this.txResentOtp.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback59 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback60 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback60 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback61 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -408,8 +408,8 @@ public class FragmentOtpForgotPasswordBindingImpl extends FragmentOtpForgotPassw
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edSecondDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edSecondDigitandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edfourthDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edfourthDigitandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edthirdDigit, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edthirdDigitandroidTextAttrChanged);
-            this.txContinue.setOnClickListener(mCallback59);
-            this.txResentOtp.setOnClickListener(mCallback60);
+            this.txContinue.setOnClickListener(mCallback60);
+            this.txResentOtp.setOnClickListener(mCallback61);
         }
         if ((dirtyFlags & 0x124L) != 0) {
             // api target 1

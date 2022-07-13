@@ -1,9 +1,11 @@
-#Thu Jul 07 15:11:09 IST 2022
-path.3=classes_0.dex
+#Wed Jul 13 10:41:39 IST 2022
+path.4=classes_0.dex
+path.3=classes3.dex
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
-base.3=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
+base.4=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
+base.3=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
 base.2=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 base.1=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
 base.0=/Users/priya.saini/Desktop/Priya Project/chafte_android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
@@ -11,3 +13,4 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
+renamed.4=classes5.dex

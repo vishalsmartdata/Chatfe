@@ -22,7 +22,7 @@ public class RecentSearchLayoutBindingImpl extends RecentSearchLayoutBinding imp
     @Nullable
     private final android.view.View.OnClickListener mCallback57;
     @Nullable
-    private final android.view.View.OnClickListener mCallback56;
+    private final android.view.View.OnClickListener mCallback58;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -47,8 +47,8 @@ public class RecentSearchLayoutBindingImpl extends RecentSearchLayoutBinding imp
         this.txdate.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback57 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
-        mCallback56 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback57 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback58 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -229,8 +229,8 @@ public class RecentSearchLayoutBindingImpl extends RecentSearchLayoutBinding imp
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.imgCancelItem.setOnClickListener(mCallback57);
-            this.recentSearchLt.setOnClickListener(mCallback56);
+            this.imgCancelItem.setOnClickListener(mCallback58);
+            this.recentSearchLt.setOnClickListener(mCallback57);
         }
         if ((dirtyFlags & 0x9L) != 0) {
             // api target 1
@@ -245,27 +245,6 @@ public class RecentSearchLayoutBindingImpl extends RecentSearchLayoutBinding imp
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 2: {
-                // localize variables for thread safety
-                // position
-                java.lang.Integer position = mPosition;
-                // callback
-                com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback callback = mCallback;
-                // callback != null
-                boolean callbackJavaLangObjectNull = false;
-
-
-
-                callbackJavaLangObjectNull = (callback) != (null);
-                if (callbackJavaLangObjectNull) {
-
-
-
-
-                    callback.onItemClick(imgCancelItem, position);
-                }
-                break;
-            }
             case 1: {
                 // localize variables for thread safety
                 // position
@@ -284,6 +263,27 @@ public class RecentSearchLayoutBindingImpl extends RecentSearchLayoutBinding imp
 
 
                     callback.onItemClick(recentSearchLt, position);
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // position
+                java.lang.Integer position = mPosition;
+                // callback
+                com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback callback = mCallback;
+                // callback != null
+                boolean callbackJavaLangObjectNull = false;
+
+
+
+                callbackJavaLangObjectNull = (callback) != (null);
+                if (callbackJavaLangObjectNull) {
+
+
+
+
+                    callback.onItemClick(imgCancelItem, position);
                 }
                 break;
             }

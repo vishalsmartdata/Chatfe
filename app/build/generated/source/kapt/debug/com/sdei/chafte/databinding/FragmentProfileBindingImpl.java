@@ -46,7 +46,7 @@ public class FragmentProfileBindingImpl extends FragmentProfileBinding implement
     @Nullable
     private final android.view.View.OnClickListener mCallback47;
     @Nullable
-    private final android.view.View.OnClickListener mCallback45;
+    private final android.view.View.OnClickListener mCallback48;
     @Nullable
     private final android.view.View.OnClickListener mCallback46;
     // values
@@ -214,9 +214,9 @@ public class FragmentProfileBindingImpl extends FragmentProfileBinding implement
         this.txHeaderLast.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback47 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
-        mCallback45 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback46 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback47 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback48 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
+        mCallback46 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -434,10 +434,10 @@ public class FragmentProfileBindingImpl extends FragmentProfileBinding implement
         if ((dirtyFlags & 0x80L) != 0) {
             // api target 1
 
-            this.imgDrinkEdit.setOnClickListener(mCallback46);
+            this.imgDrinkEdit.setOnClickListener(mCallback47);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txAboutText, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txAboutTextandroidTextAttrChanged);
-            this.txDrinkSave.setOnClickListener(mCallback47);
-            this.txEditSave.setOnClickListener(mCallback45);
+            this.txDrinkSave.setOnClickListener(mCallback48);
+            this.txEditSave.setOnClickListener(mCallback46);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txHeader, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txHeaderandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.txHeaderLast, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, txHeaderLastandroidTextAttrChanged);
         }
@@ -471,6 +471,23 @@ public class FragmentProfileBindingImpl extends FragmentProfileBinding implement
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
+            case 2: {
+                // localize variables for thread safety
+                // pVM
+                com.sdei.chafte.ui.home.profile.ProfileVM pVM = mPVM;
+                // pVM != null
+                boolean pVMJavaLangObjectNull = false;
+
+
+
+                pVMJavaLangObjectNull = (pVM) != (null);
+                if (pVMJavaLangObjectNull) {
+
+
+                    pVM.getAllDrink();
+                }
+                break;
+            }
             case 3: {
                 // localize variables for thread safety
                 // pVM
@@ -502,23 +519,6 @@ public class FragmentProfileBindingImpl extends FragmentProfileBinding implement
 
 
                     pVM.getUpdateProfile();
-                }
-                break;
-            }
-            case 2: {
-                // localize variables for thread safety
-                // pVM
-                com.sdei.chafte.ui.home.profile.ProfileVM pVM = mPVM;
-                // pVM != null
-                boolean pVMJavaLangObjectNull = false;
-
-
-
-                pVMJavaLangObjectNull = (pVM) != (null);
-                if (pVMJavaLangObjectNull) {
-
-
-                    pVM.getAllDrink();
                 }
                 break;
             }

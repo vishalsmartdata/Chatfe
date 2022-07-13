@@ -45,6 +45,9 @@
             android:name="com.sdei.chafte.ui.home.filter.FilterActivity"
             android:exported="false" />
         <activity
+            android:name="com.sdei.chafte.ui.home.message.chat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name="com.sdei.chafte.ui.home.setting.webview.WebViewActivity"
             android:exported="false" />
         <activity

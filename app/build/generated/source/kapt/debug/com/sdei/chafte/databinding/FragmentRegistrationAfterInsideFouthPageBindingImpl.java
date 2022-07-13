@@ -30,7 +30,7 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
     @Nullable
     private final android.view.View.OnClickListener mCallback64;
     @Nullable
-    private final android.view.View.OnClickListener mCallback62;
+    private final android.view.View.OnClickListener mCallback66;
     @Nullable
     private final android.view.View.OnClickListener mCallback63;
     // values
@@ -98,10 +98,10 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
         this.txContinue.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback65 = new com.sdei.chafte.generated.callback.OnClickListener(this, 4);
-        mCallback64 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
-        mCallback62 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
-        mCallback63 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback65 = new com.sdei.chafte.generated.callback.OnClickListener(this, 3);
+        mCallback64 = new com.sdei.chafte.generated.callback.OnClickListener(this, 2);
+        mCallback66 = new com.sdei.chafte.generated.callback.OnClickListener(this, 4);
+        mCallback63 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -235,10 +235,10 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edHomeTown, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edHomeTownandroidTextAttrChanged);
-            this.imageBack.setOnClickListener(mCallback62);
-            this.mboundView2.setOnClickListener(mCallback63);
-            this.mboundView3.setOnClickListener(mCallback64);
-            this.txContinue.setOnClickListener(mCallback65);
+            this.imageBack.setOnClickListener(mCallback63);
+            this.mboundView2.setOnClickListener(mCallback64);
+            this.mboundView3.setOnClickListener(mCallback65);
+            this.txContinue.setOnClickListener(mCallback66);
         }
         if ((dirtyFlags & 0x24L) != 0) {
             // api target 1
@@ -251,24 +251,6 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 4: {
-                // localize variables for thread safety
-                // vm != null
-                boolean vmJavaLangObjectNull = false;
-                // vm
-                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
-
-
-
-                vmJavaLangObjectNull = (vm) != (null);
-                if (vmJavaLangObjectNull) {
-
-
-
-                    vm.buttonClickForNext(7);
-                }
-                break;
-            }
             case 3: {
                 // localize variables for thread safety
                 // vm != null
@@ -287,24 +269,6 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
                 }
                 break;
             }
-            case 1: {
-                // localize variables for thread safety
-                // vm != null
-                boolean vmJavaLangObjectNull = false;
-                // vm
-                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
-
-
-
-                vmJavaLangObjectNull = (vm) != (null);
-                if (vmJavaLangObjectNull) {
-
-
-
-                    vm.backButtonClick(7);
-                }
-                break;
-            }
             case 2: {
                 // localize variables for thread safety
                 // vm != null
@@ -320,6 +284,42 @@ public class FragmentRegistrationAfterInsideFouthPageBindingImpl extends Fragmen
 
 
                     vm.checkHomeTown(mboundView2.getResources().getString(R.string.all));
+                }
+                break;
+            }
+            case 4: {
+                // localize variables for thread safety
+                // vm != null
+                boolean vmJavaLangObjectNull = false;
+                // vm
+                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
+
+
+
+                vmJavaLangObjectNull = (vm) != (null);
+                if (vmJavaLangObjectNull) {
+
+
+
+                    vm.buttonClickForNext(7);
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // vm != null
+                boolean vmJavaLangObjectNull = false;
+                // vm
+                com.sdei.chafte.ui.authentication.registration.RegistrationVM vm = mVm;
+
+
+
+                vmJavaLangObjectNull = (vm) != (null);
+                if (vmJavaLangObjectNull) {
+
+
+
+                    vm.backButtonClick(7);
                 }
                 break;
             }

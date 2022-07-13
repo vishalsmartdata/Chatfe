@@ -41,7 +41,7 @@ public class ActivityCreateEventBindingImpl extends ActivityCreateEventBinding i
     private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback66;
+    private final android.view.View.OnClickListener mCallback67;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -202,7 +202,7 @@ public class ActivityCreateEventBindingImpl extends ActivityCreateEventBinding i
         this.txSubmit.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback66 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
+        mCallback67 = new com.sdei.chafte.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -456,7 +456,7 @@ public class ActivityCreateEventBindingImpl extends ActivityCreateEventBinding i
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edAbout, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edAboutandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edEmails, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edEmailsandroidTextAttrChanged);
             androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher(this.edRoomName, (androidx.databinding.adapters.TextViewBindingAdapter.BeforeTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged)null, (androidx.databinding.adapters.TextViewBindingAdapter.AfterTextChanged)null, edRoomNameandroidTextAttrChanged);
-            this.txSubmit.setOnClickListener(mCallback66);
+            this.txSubmit.setOnClickListener(mCallback67);
         }
         if ((dirtyFlags & 0x181L) != 0) {
             // api target 1
