@@ -35,9 +35,11 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="login">Login</string>
     <string name="sign_in">Sign in</string>
-    <string name="accept_request">Accept</string>
+    <string name="accept">Accept</string>
+    <string name="accept_request">Accept Request</string>
+    <string name="reject_request">Reject Request</string>
     <string name="join">Join</string>
-    <string name="reject_request">Reject</string>
+    <string name="reject">Reject</string>
     <string name="submit">Submit</string>
 
     <string name="upload_image">Upload Image</string>
@@ -279,7 +281,8 @@
     <string name="about">About</string>
     <string name="drink">Drink</string>
     <string name="friend">Friends</string>
-    <string name="request_sent">Request Sent</string>
+    <string name="request_sent">Requested</string>
+    <string name="accept_reject">Accept/Reject</string>
     <string name="unfriend">Unfriend</string>
     <string name="block">block</string>
     <string name="choose_friend">Invite Friends</string>

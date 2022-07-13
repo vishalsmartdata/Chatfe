@@ -79,7 +79,7 @@
             android:paddingStart="@dimen/_12sdp"
             android:paddingRight="@dimen/_12sdp"
             android:textSize="@dimen/_12ssp"
-            android:text="@string/accept_request"
+            android:text="@string/accept"
             android:textColor="@color/white" />
 
         <TextView
@@ -99,7 +99,7 @@
             android:paddingStart="@dimen/_12sdp"
             android:paddingRight="@dimen/_12sdp"
             android:textSize="@dimen/_12ssp"
-            android:text="@string/reject_request"
+            android:text="@string/reject"
             android:textColor="@color/white" />
 
         <View

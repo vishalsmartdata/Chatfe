@@ -25,6 +25,7 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
     var userProfileReponse: MutableLiveData<UserProfileData>? = null
     var registrationReponse: MutableLiveData<String>? = null
     var accountVisibilityReponse: MutableLiveData<AccountVisibilityData>? = null
+    var requestResponse: MutableLiveData<String>? = null
 
     init {
         app = application
@@ -35,6 +36,12 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
         logoutResponse = null
         logoutResponse = MutableLiveData()
         return logoutResponse
+    }
+
+    fun observerRequestResponse(): MutableLiveData<String>? {
+        requestResponse = null
+        requestResponse = MutableLiveData()
+        return requestResponse
     }
 
     fun observerAccpuntVisibilityResponse(): MutableLiveData<AccountVisibilityData>? {
@@ -313,6 +320,78 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
                             if (it.code.equals(200)) {
                                 //if (response.body()?.data?.size!! > 0)
                                 unFriendResponse?.value = response.body()!!.message
+                            } else {
+                                errorResponse?.value =
+                                    app?.baseContext?.getString(R.string.data_not_found)
+                            }
+                        }
+                    }
+                    else -> {
+                        progressObserver?.value = false
+                        errorResponse?.value = response.message()
+                    }
+                }
+            }
+        })
+    }
+
+    fun getAcceptRequest(authentication: String?, _id: String) {
+        progressObserver?.value = true
+        var detail= DetailPojo(_id)
+        NetworkAdapter.getInstance().getNetworkServices()?.getAcceptRequest(authentication,detail)?.enqueue(object :
+            Callback<SendOtpResponse> {
+            override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
+                progressObserver?.value = false
+                errorResponse?.value = t.message
+            }
+
+            override fun onResponse(
+                call: Call<SendOtpResponse>,
+                response: Response<SendOtpResponse>
+            ) {
+                when (response.code()) {
+                    200 -> {
+                        progressObserver?.value = false
+                        response.body()?.let {
+                            if (it.code.equals(200)) {
+                                //if (response.body()?.data?.size!! > 0)
+                                requestResponse?.value = response.body()!!.data
+                            } else {
+                                errorResponse?.value =
+                                    app?.baseContext?.getString(R.string.data_not_found)
+                            }
+                        }
+                    }
+                    else -> {
+                        progressObserver?.value = false
+                        errorResponse?.value = response.message()
+                    }
+                }
+            }
+        })
+    }
+
+    fun getRejectRequest(authentication: String?, _id: String) {
+        progressObserver?.value = true
+        var detail= DetailPojo(_id)
+        NetworkAdapter.getInstance().getNetworkServices()?.getRejectRequest(authentication,detail)?.enqueue(object :
+            Callback<SendOtpResponse> {
+            override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
+                progressObserver?.value = false
+                errorResponse?.value = t.message
+            }
+
+            override fun onResponse(
+                call: Call<SendOtpResponse>,
+                response: Response<SendOtpResponse>
+            ) {
+                when (response.code()) {
+                    200 -> {
+                        progressObserver?.value = false
+                        response.body()?.let {
+                            if (it.code.equals(200)) {
+                                //if (response.body()?.data?.size!! > 0)
+                                requestResponse?.value = response.body()!!.data
                             } else {
                                 errorResponse?.value =
                                     app?.baseContext?.getString(R.string.data_not_found)

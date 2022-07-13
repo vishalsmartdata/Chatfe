@@ -202,6 +202,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txAboutText"
                 app:layout_constraintStart_toEndOf="@+id/glLeft"
                 android:text="@string/friend"
+                android:maxLines="1"
                 android:drawableRight="@drawable/ic_down_errow"
                 app:layout_constraintEnd_toStartOf="@+id/txMessage"
                 android:paddingTop="@dimen/_5sdp"

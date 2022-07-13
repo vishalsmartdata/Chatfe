@@ -47,7 +47,7 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
     val bindingFriendListList = RecyclerBindingList<FriendsArr>()
 
     var user_id=""
-    var isFriendRequest=false
+
     var requestStatus=""
     var chatHeadId=""
     var user_name=""
@@ -79,7 +79,7 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
             }
         }
         binding.txFriend.setOnClickListener {
-            if(!isFriendRequest) {
+            if(requestStatus.equals("")) {
                 viewModel.getSendRequest(
                     getData(SessionManager.AUTHENTICATION),
                     user_id,
@@ -87,10 +87,11 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
                 )
              //   setSelectionType(false)
 
-            }else{
-                if(!requestStatus.equals("PendingTOAccept")) {
+            }else if(requestStatus.equals("Confirmed")){
                     setSelectionType(true)
-                }
+            }
+            else if(requestStatus.equals("PendingTOAccept")){
+                    setSelectionType(false)
             }
         }
 
@@ -137,22 +138,21 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
             binding.txIndentify.setText(it.gender.gen)
             binding.txHometown.setText(it.hometown.homeTown)
 
-             isFriendRequest= it.isFriendRequest
             requestStatus= it.requestStatus
-            if(it.isFriendRequest){
-                if(requestStatus.equals("PendingTOAccept")){
-                    binding.txFriend.setText(resources.getString(R.string.request_sent))
-                    binding.imgAddFriend.setImageDrawable(getDrawable(R.drawable.ic_add_friend_white))
-                }
-                else {
-                    binding.txFriend.setText(resources.getString(R.string.friend))
-                    binding.imgAddFriend.setImageDrawable(getDrawable(R.drawable.ic_add_friend_blue))
-                }
-            }else{
-                //binding.txFriend.setText(resources.getString(R.string.friend))
-               binding.txFriend.setText(resources.getString(R.string.add_friend))
-                binding.imgAddFriend.setImageDrawable(getDrawable(R.drawable.ic_add_friend_white))
+
+            if(requestStatus.equals("")){
+                binding.txFriend.setText(resources.getString(R.string.add_friend))
             }
+            else if(requestStatus.equals("Pending")){
+                binding.txFriend.setText(resources.getString(R.string.request_sent))
+            }
+            else if(requestStatus.equals("PendingTOAccept")){
+                binding.txFriend.setText(resources.getString(R.string.accept_reject))
+            }
+            else if(requestStatus.equals("Confirmed")){
+                binding.txFriend.setText(resources.getString(R.string.friend))
+            }
+
 
             if(it.dob.birthdate!=null) {
                 var select_date = getDateShow(it.dob.birthdate)
@@ -172,6 +172,11 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
 
             user_name=it.fname+" "+it.lname
             chatHeadId=it.chatHeadId
+        })
+
+        viewModel.observerRequestResponse()?.observe(this,{
+            showSnackBar(binding.root, it, false)
+            viewModel.getProfile(getData(SessionManager.AUTHENTICATION), user_id)
         })
 
         viewModel.observerFriendRequestResponse()?.observe (this, Observer {
@@ -228,22 +233,22 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
             binding.txPublic.setText(resources.getString(R.string.unfriend))
         }else{
             binding.txPublic.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_add_friend_white, 0, 0, 0);
-            binding.txPublic.setText(resources.getString(R.string.friends))
+            binding.txPublic.setText(resources.getString(R.string.accept_request))
+            binding.txPrivate.setText(resources.getString(R.string.reject_request))
         }
         binding.imgCancel.setOnClickListener {
             selectRoomDialog.dismiss()
         }
         binding.txPrivate.setOnClickListener {
             selectRoomDialog.dismiss()
+            if(!type){
+                viewModel.getRejectRequest(getData(SessionManager.AUTHENTICATION),user_id)
+            }
         }
         binding.txPublic.setOnClickListener {
             selectRoomDialog.dismiss()
             if(!type){
-                viewModel.getSendRequest(
-                    getData(SessionManager.AUTHENTICATION),
-                    user_id,
-                    getData(SessionManager.USER_ID)!!
-                )
+                viewModel.getAcceptRequest(getData(SessionManager.AUTHENTICATION),user_id)
             }else{
                 viewModel.getUnFriendRequest(
                     getData(SessionManager.AUTHENTICATION),
