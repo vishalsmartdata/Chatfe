@@ -8,6 +8,7 @@ import com.sdei.chafte.databinding.FragmentRegistrationFirstpageBinding
 import com.sdei.chafte.databinding.FragmentRegistrationSecondpageBinding
 import com.sdei.chafte.ui.authentication.login.LoginVM
 import com.sdei.chafte.utils.base.BaseFragment
+import com.sdei.chafte.utils.hideSoftKey
 import java.util.*
 
 class RegistrationDateOfBirthFragment :  BaseFragment<FragmentRegistrationSecondpageBinding, RegistrationVM>() {
@@ -23,6 +24,7 @@ class RegistrationDateOfBirthFragment :  BaseFragment<FragmentRegistrationSecond
     override fun bindData() {
 
         binding.vm = viewModel
+
 
     }
 

@@ -1,13 +1,17 @@
 package com.sdei.chafte.ui.authentication.registration
 
+import android.content.Context
 import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.content.getSystemService
 import androidx.lifecycle.Observer
 import com.sdei.chafte.R
-import com.sdei.chafte.databinding.FragmentRegistrationFirstpageBinding
 import com.sdei.chafte.databinding.FragmentRegistrationFrontPageBinding
 import com.sdei.chafte.utils.base.BaseFragment
-import android.text.method.PasswordTransformationMethod
-import android.util.Log
+
 
 class RegistrationUsernamePasswordFragment: BaseFragment<FragmentRegistrationFrontPageBinding, RegistrationVM>() {
     override val layoutId: Int
@@ -22,6 +26,12 @@ class RegistrationUsernamePasswordFragment: BaseFragment<FragmentRegistrationFro
 
     override fun bindData() {
         binding.vm = viewModel
+    binding.frontpage.setOnClickListener{
+        hideSoftKey()
+    }
+        binding.parent.setOnClickListener{
+            hideSoftKey()
+        }
 
         viewModel.observerVerifyUsernameResponse()?.observe (this, Observer {
            // viewModel.buttonClickForNext(0)
@@ -55,7 +65,14 @@ class RegistrationUsernamePasswordFragment: BaseFragment<FragmentRegistrationFro
         })
 
     }
-
+ fun hideSoftKey(){
+     val inputService=  Context.INPUT_METHOD_SERVICE
+     val view: View = requireActivity().currentFocus!!
+     if (view != null) {
+         val imm: InputMethodManager? = requireContext().getSystemService(inputService) as InputMethodManager
+         imm?.hideSoftInputFromWindow(view.getWindowToken(), 0)
+     }
+ }
     override fun initListeners() {
 
     }

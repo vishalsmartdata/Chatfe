@@ -29,6 +29,7 @@ import com.sdei.chafte.databinding.FragmentRegistrationAfterInsideFouthPageBindi
 import com.sdei.chafte.databinding.FragmentRegistrationFirstpageBinding
 import com.sdei.chafte.utils.ImageFilepath
 import com.sdei.chafte.utils.base.BaseFragment
+import com.sdei.chafte.utils.hideSoftKey
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.IOException
@@ -47,6 +48,15 @@ class RegistrationHometownFragment: BaseFragment<FragmentRegistrationAfterInside
     override fun bindData() {
 
         binding.vm = viewModel
+
+
+
+        binding.parent.setOnClickListener{
+            hideSoftKey(requireActivity())
+        }
+        binding.imageBack.setOnClickListener{
+            hideSoftKey(requireActivity())
+        }
 
     }
 

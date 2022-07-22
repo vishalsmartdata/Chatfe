@@ -1,6 +1,7 @@
 package com.sdei.chafte.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.view.ViewGroup
@@ -8,15 +9,26 @@ import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import android.view.Gravity
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
 fun Snackbar.withColor(@ColorInt colorInt: Int): Snackbar {
     this.view.setBackgroundColor(colorInt)
     return this
+}
+ fun hideSoftKey(context: Activity) {
+    val inputService=  Context.INPUT_METHOD_SERVICE
+    val view: View = context.currentFocus!!
+    if (view != null) {
+        val imm: InputMethodManager? = context.getSystemService(inputService) as InputMethodManager
+        imm?.hideSoftInputFromWindow(view.getWindowToken(), 0)
+    }
+
 }
 
 fun Activity.showError(message: String, viewGroup: ViewGroup) {

@@ -43,6 +43,7 @@ import com.facebook.login.LoginManager
 import java.lang.NullPointerException
 import com.facebook.AccessToken
 import com.sdei.chafte.ui.home.HomeActivity
+import com.sdei.chafte.utils.hideSoftKey
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -69,6 +70,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginVM>() {
 
     override fun bindData() {
         binding.vm = viewModel
+        binding.parent.setOnClickListener{
+            hideSoftKey(requireActivity())
+        }
+        binding.login.setOnClickListener{
+            hideSoftKey(requireActivity())
+        }
 
         binding.txRegister.setOnClickListener {
             navigateActivity(RegistrationActivity(), null)

@@ -14,7 +14,7 @@ import com.sdei.chafte.ui.authentication.registration.RegistrationActivity
 import com.sdei.chafte.utils.base.BaseActivity
 import com.sdei.chafte.utils.base.BaseFragment
 import com.sdei.chafte.utils.base.BaseVM
-
+//13072205075
 class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding, ForgotPasswordVM>() {
     override val layoutId: Int
         get() = R.layout.fragment_change_password
