@@ -13,10 +13,10 @@
                 name="position"
                 type="Integer" />
 
-        <!--<variable
-                name="model"
-                type="com.sdei.totalcabmobility.model.CompletedUpcomingData" />
--->
+        <variable
+            name="model"
+            type="com.sdei.chafte.model.ConversationResult" />
+
         <variable
                 name="callback"
                 type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
@@ -35,9 +35,10 @@
 
                 <com.sdei.chafte.utils.custom.CircleImageView
                         android:id="@+id/imgSliderPic"
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_margin="@dimen/_10sdp"
+                        setUserProfImage="@{model.receiverData.profileImg}"
                         app:layout_constraintTop_toTopOf="parent"
                         android:src="@drawable/demo_item_image"
                         app:layout_constraintStart_toStartOf="parent"
@@ -51,10 +52,10 @@
                 app:layout_constraintLeft_toRightOf="@+id/imgSliderPic"
                 app:layout_constraintBottom_toTopOf="@+id/txdate"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:text="Avergers Endgame"
+            android:text="@{model.receiverData.receiverFirstName+' '+model.receiverData.receiverLastName}"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_14sdp"
                 />
         <TextView
                 android:id="@+id/txdate"
@@ -63,9 +64,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/txHeader"
                 app:layout_constraintStart_toEndOf="@+id/imgSliderPic"
                 app:layout_constraintBottom_toBottomOf="@+id/imgSliderPic"
-                android:text="text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
+                android:text="@{model.msg}"
+                android:textColor="@color/light_divider"
+                android:textSize="@dimen/_12sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 />
 
@@ -76,8 +77,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/txdate"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="9pm"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/light_divider"
+                android:textSize="@dimen/_12sdp"
                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 />

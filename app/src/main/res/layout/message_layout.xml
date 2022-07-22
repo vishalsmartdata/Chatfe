@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -18,9 +19,14 @@
             name="model"
             type="com.sdei.chafte.model.ReceiveMessageModelItem" />
 
+        <variable
+            name="callback"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:background="@color/text_colour"
         android:padding="@dimen/_2sdp"
@@ -32,6 +38,8 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginLeft="@dimen/_30sdp"
             android:gravity="end"
+            android:id="@+id/clRightMessage"
+            android:onClick="@{() -> callback.onItemClick(clRightMessage, position)}"
             android:visibility="@{model._me.equals(model.senderId)? View.VISIBLE: View.INVISIBLE}"
             android:orientation="vertical"
             android:layout_marginRight="@dimen/_5sdp"
@@ -43,6 +51,7 @@
                 android:id="@+id/imProfile"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
+                setUserProfImage="@{model.image}"
                 android:outlineAmbientShadowColor="@color/light_gray"
                 android:outlineSpotShadowColor="@color/black"
                 android:defaultFocusHighlightEnabled="true"
@@ -52,16 +61,29 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:srcCompat="@drawable/ic_default_avatar" />
 
+            <TextView
+                android:id="@+id/txEmojiReceive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.reactions.size() > 0? model.reactions.get(0).reaction : @string/message}"
+                android:visibility="@{model.reactions.size()>0? View.VISIBLE: View.INVISIBLE}"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@+id/imProfile"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/circle_background"
+                />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:elevation="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
                 android:orientation="vertical"
-                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 app:layout_constraintEnd_toStartOf="@+id/imProfile"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txEmojiReceive"
                 app:cardCornerRadius="@dimen/_10sdp"
                 >
 
@@ -71,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:text="@{model.message}"
+                android:visibility="@{model.messageType.equals(@string/message_text)? View.VISIBLE: View.GONE }"
                 android:background="@color/colorPrimary"
                 android:textColor="@color/white"
                 android:paddingRight="@dimen/_10sdp"
@@ -79,6 +102,17 @@
                 android:paddingBottom="@dimen/_5sdp"
                 android:textSize="@dimen/_14ssp"
                 />
+
+                <ImageView
+                    android:id="@+id/imgChoose"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="fitXY"
+                    setUserProfImage="@{model.message}"
+                    android:visibility="@{model.messageType.equals(@string/image)? View.VISIBLE: View.GONE }"
+                    android:background="@drawable/blank_bg"
+                    />
+
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -103,14 +137,18 @@
             android:layout_marginRight="@dimen/_30sdp"
             android:visibility="@{model._me.equals(model.receiverId)? View.VISIBLE: View.INVISIBLE}"
             android:orientation="vertical"
+            android:id="@+id/clLeftMessage"
+            android:onClick="@{() -> callback.onItemClick(clLeftMessage, position)}"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_height="wrap_content">
+
 
             <com.sdei.chafte.utils.custom.CircleImageView
                 android:id="@+id/imgReceiverProfile"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
+                setUserProfImage="@{model.image}"
                 android:outlineAmbientShadowColor="@color/light_gray"
                 android:outlineSpotShadowColor="@color/black"
                 android:defaultFocusHighlightEnabled="true"
@@ -120,18 +158,21 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:srcCompat="@drawable/ic_default_avatar" />
 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvReceiverCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:elevation="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:background="@color/black"
                 android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 app:layout_constraintStart_toEndOf="@+id/imgReceiverProfile"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txEmoji"
                 app:cardCornerRadius="@dimen/_10sdp"
                 >
+
             <TextView
                 android:id="@+id/txReceiverMessage"
                 android:layout_width="wrap_content"
@@ -139,6 +180,7 @@
                 android:orientation="vertical"
                 android:background="@color/black"
                 android:text="@{model.message}"
+                android:visibility="@{model.messageType.equals(@string/message_text)? View.VISIBLE: View.GONE }"
                 android:paddingRight="@dimen/_10sdp"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_5sdp"
@@ -147,7 +189,30 @@
                 android:textSize="@dimen/_14ssp"
                 />
 
+                <ImageView
+                    android:id="@+id/imgReceiverChoose"
+                    setUserProfImage="@{model.message}"
+                    android:layout_width="252dp"
+                    android:layout_height="256dp"
+                    android:background="@drawable/blank_bg"
+                    android:scaleType="fitXY"
+                    android:visibility="@{model.messageType.equals(@string/image)? View.VISIBLE: View.GONE }" />
+
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.reactions.size() > 0? model.reactions.get(0).reaction : @string/message}"
+                android:visibility="@{model.reactions.size()>0? View.VISIBLE: View.INVISIBLE}"
+                app:layout_constraintTop_toTopOf="parent"
+               android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@+id/imgReceiverProfile"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/circle_background"
+                />
+
 
             <TextView
                 android:layout_width="wrap_content"

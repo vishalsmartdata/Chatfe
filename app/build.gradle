@@ -64,7 +64,23 @@ android {
     repositories {
         mavenCentral()
     }
+
+    android {
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/license.txt'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/NOTICE.txt'
+            exclude 'META-INF/notice.txt'
+            exclude 'META-INF/ASL2.0'
+            exclude("META-INF/*.kotlin_module")
+        }
+    }
 }
+
+
 
 dependencies {
 
@@ -95,7 +111,7 @@ dependencies {
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
 
     // Live Data ...
@@ -175,9 +191,13 @@ dependencies {
     //Socket
     implementation 'com.github.nkzawa:socket.io-client:0.3.0'
 
+
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8'
 
     implementation project(':weekview')
+
+    implementation 'com.github.pgreze:android-reactions:1.6'
+    implementation 'org.apache.commons:commons-lang3:3.6'
 }
 
 apply plugin: 'com.google.gms.google-services'

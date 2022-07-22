@@ -12,7 +12,7 @@ class TheBlizzardActvity : BaseActivity<ActivityProfilePreviewBinding, ProfilePr
     override val layoutId: Int
         get() = R.layout.activity_profile_preview
     override var viewModel: ProfilePreviewVM
-        get() = setUpVM(this, ProfilePreviewVM(application))
+        get() = setUpVM(this, ProfilePreviewVM(application,initialSocket()))
         set(value) {}
     override val context: Context
         get() = this

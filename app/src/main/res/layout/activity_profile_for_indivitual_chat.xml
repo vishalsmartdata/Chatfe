@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="ppVM"
+            type="com.sdei.chafte.ui.home.message.profile_preview.ProfilePreviewVM"/>
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/topLayer"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:src="@drawable/ic_back"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Priya Saini"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="@id/imageBack"
+                app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageBack"
+                android:paddingLeft="@dimen/_5sdp"
+                />
+
+            <ImageView
+                android:id="@+id/imgMoreOption"
+                android:layout_width="@dimen/_18sdp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/more_option_icon"
+                app:tint="@color/white"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_height="@dimen/_18sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.sdei.chafte.utils.custom.CircleImageView
+            android:id="@+id/imProfile"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:outlineAmbientShadowColor="@color/light_gray"
+            android:outlineSpotShadowColor="@color/black"
+            android:defaultFocusHighlightEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/topLayer"
+            android:layout_marginTop="@dimen/_35sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/ic_default_avatar" />
+
+        <TextView
+            android:id="@+id/txName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/imProfile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="----"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            />
+
+        <TextView
+            android:id="@+id/txHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="----"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textColor="@color/divider"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
+            />
+
+        <TextView
+            android:id="@+id/txDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="----"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/divider"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            />
+
+        <TextView
+            android:id="@+id/txTextHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txAddFriend"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:text="@string/start_messaging_to_begin_your_conversation"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/divider"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
+            />
+
+        <TextView
+            android:id="@+id/txAddFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/rlBottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:text="@string/add_friend"
+            android:alpha=".5"
+            android:drawableTint="@color/colorPrimary"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableLeft="@drawable/ic_add_friend_white"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:background="@drawable/transparent_bg"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/colorPrimary"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rlBottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blank_bg"
+                android:hint="@string/message"
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
+                android:maxLines="1"
+                android:text="@={ppVM.messageObservable}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txAddPhoto"
+                app:layout_constraintEnd_toStartOf="@+id/txSend"
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/txAddAttachment"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_add_attachment"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/_5sdp"
+                />
+
+            <ImageView
+                android:id="@+id/txAddPhoto"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_add_photo"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@+id/txAddAttachment"
+                app:layout_constraintBottom_toBottomOf="@+id/txAddAttachment"
+                app:layout_constraintStart_toEndOf="@+id/txAddAttachment"
+                android:layout_marginLeft="@dimen/_15sdp"
+                />
+
+            <ImageView
+                android:id="@+id/txSend"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_send_message"
+                android:onClick="@{() -> ppVM.getChatHeadsId()}"
+                app:layout_constraintBottom_toBottomOf="@+id/txMessage"
+                app:layout_constraintTop_toTopOf="@+id/txMessage"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/_5sdp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

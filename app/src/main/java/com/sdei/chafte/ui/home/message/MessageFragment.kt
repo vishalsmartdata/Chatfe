@@ -11,10 +11,12 @@ import com.sdei.chafte.R
 import com.sdei.chafte.databinding.FragmentMessageBinding
 import com.sdei.chafte.databinding.FragmentSearchBinding
 import com.sdei.chafte.model.CategoryData
+import com.sdei.chafte.model.ConversationResult
 import com.sdei.chafte.model.RecentSuggestion
 import com.sdei.chafte.ui.authentication.forgot_password.ForgotPasswordActivity
 import com.sdei.chafte.ui.home.HomeActivity
 import com.sdei.chafte.ui.home.message.chat.ChatActivity
+import com.sdei.chafte.ui.home.message.profile_preview.ProfileForIndivitualChatActivity
 import com.sdei.chafte.ui.home.search.SearchVm
 import com.sdei.chafte.utils.base.BaseFragment
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList
@@ -44,7 +46,9 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(), Recyc
     var eventListen=false
 
     val recentSuggestion = ArrayList<RecentSuggestion>()
+    val conversationResult = ArrayList<ConversationResult>()
     private val bindList = RecyclerBindingList<RecentSuggestion>()
+    private val conversationList = RecyclerBindingList<ConversationResult>()
 
     override fun bindData() {
         binding.mvm = viewModel
@@ -69,6 +73,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(), Recyc
             try {
                 var jsonObject = JSONObject(event.message)
                 var recentConnection = jsonObject.getJSONArray("recentSuggestions")
+                var conversatingReseult = jsonObject.getJSONArray("conversationResult")
                 if (recentConnection != null) {
                         val mapper = ObjectMapper().registerModule(KotlinModule())
                         try {
@@ -77,14 +82,25 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(), Recyc
                         } catch (e: java.lang.Exception) {
                             e.printStackTrace()
                         }
+                       try {
+                            val recentConnect: ArrayList<ConversationResult> = mapper.readValue(conversatingReseult.toString())
+                           conversationResult.addAll(recentConnect)
+                        } catch (e: java.lang.Exception) {
+                            e.printStackTrace()
+                        }
                         //val jsonObject: JSONObject = recentConnection.getJSONObject(i)
                         //  recentSuggestion.add(recentConnection.get(i))
                 }
 
                 Log.e("recentSuggestion", " " + recentSuggestion.size + " ")
+                Log.e("conversationResult", " " + conversationResult.size + " ")
                 //   recentSuggestion.addAll(recentConnection)
                 bindList.itemsList = recentSuggestion
                 binding?.list = bindList
+                binding?.click = this
+
+                conversationList.itemsList = conversationResult
+                binding?.conversactionlist = conversationList
                 binding?.click = this
             } catch (ex: Exception) {
                 Log.v("TEST", "Exception1: " + ex.message)
@@ -95,9 +111,17 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(), Recyc
 
     override fun onItemClick(view: View?, position: Int) {
         if(view?.id == R.id.clRecentConnect){
-           /* val bundle = Bundle()
-            bundle.putString("key", "About")
-            navigateActivity(ChatActivity(),bundle)*/
+            val bundle = Bundle()
+            bundle.putString("recentUserId", recentSuggestion[position]._id)
+            navigateActivity(ProfileForIndivitualChatActivity(),bundle)
+        }
+        if(view?.id == R.id.clLayer){
+            val bundle = Bundle()
+            bundle.putString("userId", conversationResult[position].receiverData.receiverId)
+            bundle.putString("chatheadId", conversationResult[position]._id)
+            bundle.putString("user_name", conversationResult[position].receiverData.receiverFirstName+" "+conversationResult[position].receiverData.receiverLastName)
+            bundle.putString("user_image", conversationResult[position].receiverData.profileImg)
+            navigateActivity(ChatActivity(),bundle)
         }
     }
 

@@ -1,8 +1,10 @@
 package com.sdei.chafte.ui.home.create_event
 
 import android.app.Application
+import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.sdei.chafte.R
@@ -13,6 +15,8 @@ import com.sdei.chafte.pojoclasses.IMDBSearchPojo
 import com.sdei.chafte.pojoclasses.UpdateRoomPojo
 import com.sdei.chafte.repository.networkoperator.NetworkAdapter
 import com.sdei.chafte.utils.base.BaseVM
+import com.sdei.chafte.utils.localToUTC
+
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -22,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.lang.Exception
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -211,6 +216,7 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     fun doCreateEventProcess() {
         var roomname = ""
         var about = ""
@@ -245,6 +251,8 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
         when (selected_category_id.isNotEmpty() && roomname.isNotEmpty() && date.isNotEmpty() && start_time.isNotEmpty()
                  && !duration.equals("Select Duration Hours") && about.isNotEmpty() && imagePath.isNotEmpty() ) {
             true -> {
+                var dateTime= localToUTC(date+start_time)
+
                 progressObserver?.value = true
                 if(!edit_room) {
                     var createRoomPojo = CreateRoomPojo(
@@ -310,6 +318,7 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
                             }
                         })
                 }else{
+
                     var createRoomPojo = UpdateRoomPojo(
                         about,
                         selected_category_id,

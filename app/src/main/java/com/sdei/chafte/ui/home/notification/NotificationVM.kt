@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.sdei.chafte.R
 import com.sdei.chafte.model.*
+import com.sdei.chafte.pojoclasses.AcceptRejectPojo
 
 import com.sdei.chafte.pojoclasses.DetailPojo
 import com.sdei.chafte.pojoclasses.JoinRoomPojo
@@ -80,7 +81,7 @@ class NotificationVM(application: Application) : BaseVM(application) {
 
     fun getAcceptRequest(authentication: String?, _id: String) {
         progressObserver?.value = true
-        var detail= DetailPojo(_id)
+        var detail= AcceptRejectPojo(_id,"","")
         NetworkAdapter.getInstance().getNetworkServices()?.getAcceptRequest(authentication,detail)?.enqueue(object :
             Callback<SendOtpResponse> {
             override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
@@ -116,7 +117,7 @@ class NotificationVM(application: Application) : BaseVM(application) {
 
     fun getRejectRequest(authentication: String?, _id: String) {
         progressObserver?.value = true
-        var detail= DetailPojo(_id)
+        var detail= AcceptRejectPojo(_id,"","")
         NetworkAdapter.getInstance().getNetworkServices()?.getRejectRequest(authentication,detail)?.enqueue(object :
             Callback<SendOtpResponse> {
             override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {

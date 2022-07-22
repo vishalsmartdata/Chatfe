@@ -16,7 +16,7 @@ import com.bekawestberg.loopinglayout.library.LoopingLayoutManager
  */
 
 @BindingAdapter(
-    "recyclerLinearAdapter", "layout", "onItemClickListener", "viewModel", "itemDecor", "horizontal", "grid","looping", "numColumn", "subViewAdapter", "context", "layoutManager",
+    "recyclerLinearAdapter", "layout", "onItemClickListener", "viewModel", "itemDecor", "horizontal", "grid","looping", "numColumn", "subViewAdapter", "context", "layoutManager","showFromEnd",
     requireAll = false
 )
 fun setRecyclerLinearAdapter(
@@ -33,6 +33,7 @@ fun setRecyclerLinearAdapter(
     subViewAdapter: Any?,
     context: Context?,
     manager: LinearLayoutManager?,
+    showFromEnd: Boolean
 ) {
     var numColumn = numColumn
 
@@ -86,6 +87,8 @@ fun setRecyclerLinearAdapter(
         )
         view.adapter = adapter
         list.adapter = adapter
-
+        if(showFromEnd){
+            view.smoothScrollToPosition(adapter.getItemCount())
+        }
     }
 }

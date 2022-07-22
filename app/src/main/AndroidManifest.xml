@@ -35,8 +35,14 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.message.chat.ChatActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
-
+        <activity
+            android:name=".ui.home.message.profile_preview.ProfileForIndivitualChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.message.profile_preview.ProfilePreviewActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.home.setting.webview.WebViewActivity"
             android:exported="false" />

@@ -80,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/block"
                 android:textSize="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 android:drawableTint="@color/light_divider"
                 android:textColor="@color/white"
                 android:layout_marginTop="@dimen/_14sdp"

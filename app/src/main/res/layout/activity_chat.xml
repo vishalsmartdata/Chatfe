@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
 
@@ -20,13 +21,13 @@
             name="click"
             type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback" />
 
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
+        android:id="@+id/activityRootView"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,13 +51,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Priya Saini"
-                android:textSize="@dimen/_18ssp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
                 android:layout_marginLeft="@dimen/_10sdp"
                 app:layout_constraintTop_toTopOf="@id/imageBack"
-                app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+                app:layout_constraintBottom_toTopOf="@+id/txTyping"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/imageBack"
+                android:paddingLeft="@dimen/_5sdp"
+                />
+            <TextView
+                android:id="@+id/txTyping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/typing"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toEndOf="@+id/imageBack"
+                android:paddingTop="@dimen/_2sdp"
                 android:paddingLeft="@dimen/_5sdp"
                 />
 
@@ -78,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout="@{R.layout.message_layout}"
+            app:showFromEnd="@{true}"
             app:onItemClickListener="@{click}"
             app:recyclerLinearAdapter="@{list}"
             app:layout_constraintTop_toBottomOf="@+id/topLayer"
@@ -90,6 +108,17 @@
             android:orientation="horizontal"
             android:padding="@dimen/_5sdp"
             android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgChoose"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_200sdp"
+                android:padding="@dimen/_10sdp"
+                android:visibility="gone"
+                android:background="@drawable/blank_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txAddPhoto"
+                app:layout_constraintEnd_toStartOf="@+id/txSend"/>
 
             <EditText
                 android:id="@+id/txMessage"
@@ -113,7 +142,7 @@
                 android:layout_width="@dimen/_22sdp"
                 android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_add_attachment"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="@dimen/_5sdp"
                 />
@@ -135,7 +164,7 @@
                 android:layout_height="@dimen/_22sdp"
                 android:src="@drawable/ic_send_message"
                 android:onClick="@{() -> cVM.sendMessage()}"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_margin="@dimen/_5sdp"
                 />
@@ -143,4 +172,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

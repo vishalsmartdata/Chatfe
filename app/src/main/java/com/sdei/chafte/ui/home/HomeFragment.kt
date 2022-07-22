@@ -37,6 +37,9 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.sdei.chafte.model.CreateRoomData
 import com.sdei.chafte.model.JoinData
+import com.sdei.chafte.utils.getLocalToUTCTimezoneString
+
+import com.sdei.chafte.utils.localToUTC
 import java.text.SimpleDateFormat
 
 /**
@@ -78,6 +81,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(), RecyclerCallba
 
     override fun initListeners() {
 
+      var text  = localToUTC("2022-07-21 06:00PM")
+        Log.e("localUTC",text!!)
+        var change=getLocalToUTCTimezoneString(text)
+        Log.e("changeinlocal",change!!)
         viewModel.tokenObserve()?.observe(this, Observer {
             baseActivity.logout(activity)
         })

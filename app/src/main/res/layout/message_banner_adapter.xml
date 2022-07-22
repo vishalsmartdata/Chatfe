@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:background="@color/black"
             android:orientation="vertical"
+        android:padding="@dimen/_5sdp"
         android:onClick="@{() -> callback.onItemClick(clRecentConnect, position)}"
             android:layout_margin="@dimen/_2sdp">
 

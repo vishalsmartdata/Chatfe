@@ -68,8 +68,8 @@ abstract class BaseActivity<myBinding : ViewDataBinding, V : ViewModel> : AppCom
         this.mViewBinding = DataBindingUtil.setContentView(this, layoutId)
         this.mContext = context
         this.mViewModel = viewModel
-        if(!sessionManager.getvalue(SessionManager.USER_ID).equals(""))
-        socketManager = SocketManager(sessionManager.getvalue(SessionManager.USER_ID))
+       /* if(!sessionManager.getvalue(SessionManager.USER_ID).equals(""))
+        socketManager = SocketManager(sessionManager.getvalue(SessionManager.USER_ID))*/
         bindData()
     }
 

@@ -22,6 +22,10 @@ import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback
 import com.sdei.chafte.utils.setDateInterval
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import com.squareup.picasso.Picasso
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding, EventDetailVm>() , RecyclerCallback {
     override val binding: ActivityEventDetailsBinding
@@ -81,7 +85,27 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding, EventDeta
 
             binding.txHeader.setText(it.roomName)
             binding.txAboutText.setText(it.about)
-            binding.txdate.setText(setDateInterval(it.startTime,it.duration,it.date))
+
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+            dateFormat.timeZone = TimeZone.getTimeZone("GMT")  // IMP !!!
+            try {
+                var date= dateFormat.parse(it.date)
+                val format = SimpleDateFormat("dd-MM-yyyy")
+               var selecteddate=  format.format(date)
+                val c = Calendar.getInstance().time
+                val todayDate = format.format(c)
+                Log.e("selecteddate",selecteddate+" todayDate "+todayDate)
+
+                if(selecteddate.equals(todayDate)){
+                    binding.txdate.setText("Today From "+setDateInterval(it.startTime,it.duration,it.date))
+                }else{
+                    binding.txdate.setText(setDateInterval(it.startTime,it.duration,it.date))
+                }
+
+            } catch (e: ParseException) {
+                 Log.e("eMessage",e.stackTrace.toString())
+            }
+
              hasRoomJoin=it.hasRoomJoined
             if(it.hasRoomJoined){
                 binding.imgAdd.setImageDrawable(resources.getDrawable(R.drawable.ic_added_in_room))
@@ -148,10 +172,7 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding, EventDeta
         if(getIntent().getStringExtra("key").equals("setting")){
             binding.imgAdd.visibility=View.GONE
             viewModel.getMyRoomDetails(getData(SessionManager.AUTHENTICATION)!!,room_id)
-          //  binding.imgDelete.visibility=View.VISIBLE
         }else{
-           // binding.imgAdd.visibility=View.GONE
-          //     binding.imgDelete.visibility=View.GONE
             viewModel.getRoomDetails(getData(SessionManager.AUTHENTICATION)!!,room_id)
         }
 

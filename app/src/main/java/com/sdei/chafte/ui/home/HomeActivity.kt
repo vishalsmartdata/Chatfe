@@ -37,6 +37,7 @@ import com.sdei.chafte.utils.base.BaseVM
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import com.squareup.picasso.Picasso
+import java.util.*
 
 /**
  * Created by Vishal Sharma on 2019-12-06.
@@ -178,6 +179,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, BaseVM>(), RecyclerCallba
                 getData(SessionManager.USER_IMAGE)!!, R.id.profile_navigation, R.drawable.ic_default_avatar
             )
         }
+
     }
 
     private fun setSelectionRoom() {

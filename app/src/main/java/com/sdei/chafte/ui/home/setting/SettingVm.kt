@@ -26,6 +26,7 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
     var registrationReponse: MutableLiveData<String>? = null
     var accountVisibilityReponse: MutableLiveData<AccountVisibilityData>? = null
     var requestResponse: MutableLiveData<String>? = null
+    var blockResponse: MutableLiveData<String>? = null
 
     init {
         app = application
@@ -42,6 +43,12 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
         requestResponse = null
         requestResponse = MutableLiveData()
         return requestResponse
+    }
+
+    fun observerBlockResponse(): MutableLiveData<String>? {
+        blockResponse = null
+        blockResponse = MutableLiveData()
+        return blockResponse
     }
 
     fun observerAccpuntVisibilityResponse(): MutableLiveData<AccountVisibilityData>? {
@@ -172,6 +179,45 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
                                 if (it.code.equals(200)) {
                                     //if (response.body()?.data?.size!! > 0)
                                     accountVisibilityReponse?.value = response.body()!!.data
+                                } else {
+                                    errorResponse?.value = app?.baseContext?.getString(R.string.data_not_found)
+                                }
+                            }
+                        }
+                        else -> {
+                            progressObserver?.value = false
+                            try {
+                                val jObjError = JSONObject(response.errorBody()!!.string())
+                                errorResponse?.value = jObjError.getString("message")
+                            } catch (e: Exception) {
+                                Toast.makeText(app?.baseContext, e.message, Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    }
+                }
+            })
+    }
+
+    fun getBlockUser(user_id: String) {
+
+        progressObserver?.value = true
+        var detailPojo= UserBlockPojo(user_id!!)
+        NetworkAdapter.getInstance().getNetworkServices()?.getBlockUser(authentication_token,detailPojo)
+            ?.enqueue(object :
+                Callback<SendOtpResponse> {
+                override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
+                    progressObserver?.value = false
+                    errorResponse?.value = t.message
+                }
+
+                override fun onResponse(call: Call<SendOtpResponse>, response: Response<SendOtpResponse>) {
+                    when (response.code()) {
+                        200 -> {
+                            progressObserver?.value = false
+                            response.body()?.let {
+                                if (it.code.equals(200)) {
+                                    //if (response.body()?.data?.size!! > 0)
+                                    blockResponse?.value = response.body()!!.data
                                 } else {
                                     errorResponse?.value = app?.baseContext?.getString(R.string.data_not_found)
                                 }
@@ -335,9 +381,9 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
         })
     }
 
-    fun getAcceptRequest(authentication: String?, _id: String) {
+    fun getAcceptRequest(authentication: String?, user_id: String,own_id: String) {
         progressObserver?.value = true
-        var detail= DetailPojo(_id)
+        var detail= AcceptRejectPojo("",own_id,user_id)
         NetworkAdapter.getInstance().getNetworkServices()?.getAcceptRequest(authentication,detail)?.enqueue(object :
             Callback<SendOtpResponse> {
             override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
@@ -371,9 +417,9 @@ class SettingVm (application: Application,authentication: String?) : BaseVM(appl
         })
     }
 
-    fun getRejectRequest(authentication: String?, _id: String) {
+    fun getRejectRequest(authentication: String?, user_id: String,own_id: String) {
         progressObserver?.value = true
-        var detail= DetailPojo(_id)
+        var detail= AcceptRejectPojo("",own_id,user_id)
         NetworkAdapter.getInstance().getNetworkServices()?.getRejectRequest(authentication,detail)?.enqueue(object :
             Callback<SendOtpResponse> {
             override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {

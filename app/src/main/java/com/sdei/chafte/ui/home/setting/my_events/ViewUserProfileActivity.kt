@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
 import android.view.*
+import android.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.sdei.chafte.R
@@ -51,6 +52,7 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
     var requestStatus=""
     var chatHeadId=""
     var user_name=""
+    var user_image=""
 
 
     override fun bindData() {
@@ -66,6 +68,9 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
         })
         user_id= getIntent().getStringExtra("user_id")!!
         viewModel.getProfile(getData(SessionManager.AUTHENTICATION), user_id)
+        binding.imgMoreOption.setOnClickListener {
+            showPopup(binding.imgMoreOption)
+        }
     }
 
     override fun initListeners() {
@@ -100,6 +105,7 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
             bundle.putString("userId", user_id)
             bundle.putString("chatheadId", chatHeadId)
             bundle.putString("user_name", user_name)
+            bundle.putString("user_image", user_image)
             navigateActivity(ChatActivity(),bundle)
         }
 
@@ -170,6 +176,7 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
                 }
             }
 
+            user_image=it.profileImg.image
             user_name=it.fname+" "+it.lname
             chatHeadId=it.chatHeadId
         })
@@ -177,6 +184,11 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
         viewModel.observerRequestResponse()?.observe(this,{
             showSnackBar(binding.root, it, false)
             viewModel.getProfile(getData(SessionManager.AUTHENTICATION), user_id)
+        })
+
+        viewModel.observerBlockResponse()?.observe(this,{
+            showSnackBar(binding.root, it, false)
+            finish()
         })
 
         viewModel.observerFriendRequestResponse()?.observe (this, Observer {
@@ -190,8 +202,6 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
         viewModel.observerUnfriendResponse()?.observe (this, Observer {
             showSnackBar(binding.root, it.toString(), false)
             viewModel.getProfile(getData(SessionManager.AUTHENTICATION), user_id)
-           /* isFriendRequest=true
-                binding.imgAddFriend.setImageDrawable(getDrawable(R.drawable.ic_add_friend_white))*/
         })
 
         binding.txViewFriends.setOnClickListener {
@@ -242,13 +252,15 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
         binding.txPrivate.setOnClickListener {
             selectRoomDialog.dismiss()
             if(!type){
-                viewModel.getRejectRequest(getData(SessionManager.AUTHENTICATION),user_id)
+                viewModel.getRejectRequest(getData(SessionManager.AUTHENTICATION),user_id,getData(SessionManager.USER_ID)!!)
+            }else{
+                viewModel.getBlockUser(user_id)
             }
         }
         binding.txPublic.setOnClickListener {
             selectRoomDialog.dismiss()
             if(!type){
-                viewModel.getAcceptRequest(getData(SessionManager.AUTHENTICATION),user_id)
+                viewModel.getAcceptRequest(getData(SessionManager.AUTHENTICATION),user_id,getData(SessionManager.USER_ID)!!)
             }else{
                 viewModel.getUnFriendRequest(
                     getData(SessionManager.AUTHENTICATION),
@@ -259,6 +271,22 @@ class ViewUserProfileActivity : BaseActivity<FragmentViewProfileBinding, Setting
         }
         selectRoomDialog?.window!!.setBackgroundDrawableResource(R.color.black)
         selectRoomDialog.show()
+    }
+
+    fun showPopup(v : View){
+        val popup = PopupMenu(this, v)
+        val inflater: MenuInflater = popup.menuInflater
+        inflater.inflate(R.menu.block_menu, popup.menu)
+        popup.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.block-> {
+                    viewModel.getBlockUser(user_id)
+                }
+
+            }
+            true
+        }
+        popup.show()
     }
 
 }

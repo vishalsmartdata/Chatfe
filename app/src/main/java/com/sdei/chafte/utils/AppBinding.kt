@@ -33,8 +33,14 @@ import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.lang.RuntimeException
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -132,6 +138,35 @@ fun getDateShowPerClient(str: String): String? {
     }
 }
 
+ fun localToUTC(dateTime: String): String? {
+     val formatterLocal = SimpleDateFormat("yyyy-MM-dd hh:mma")
+     val formatterUtc = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+     formatterLocal.timeZone = TimeZone.getDefault()
+     formatterUtc.timeZone = TimeZone.getTimeZone("UTC")
+     var date: Date? = null
+     date = try {
+         formatterLocal.parse(dateTime)
+     } catch (e: ParseException) {
+         throw RuntimeException(e)
+     }
+     return formatterUtc.format(date)
+ }
+
+ fun getLocalToUTCTimezoneString(input: String): String? {
+    val formatterUTC = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    val formatterLocalFormat = SimpleDateFormat("yyyy-MM-ddhh:mma")
+    formatterUTC.timeZone = TimeZone.getTimeZone("UTC")
+    formatterLocalFormat.timeZone = TimeZone.getDefault()
+    var date: Date? = null
+    date = try {
+        formatterUTC.parse(input)
+    } catch (e: ParseException) {
+        throw RuntimeException(e)
+    }
+    return formatterLocalFormat.format(date)
+}
+
+
 public fun getCalculatedAge(year: Int, month: Int, day: Int): String? {
     val dob = Calendar.getInstance()
     val today = Calendar.getInstance()
@@ -146,18 +181,15 @@ public fun getCalculatedAge(year: Int, month: Int, day: Int): String? {
 
 
 fun setDateInterval (start: String ,duration: Float,date: String): String? {
-    val date = date.split("T").toTypedArray()[0]
+    /*val date = date.split("T").toTypedArray()[0]
     val time = start.toUpperCase()
-
-    val dateString = date + time
+*/
+    val dateString = getLocalToUTCTimezoneString(date)
 
     var dateAfterAddTime: Date? = null
-    if(!dateString.contains(":")){
+    if(!dateString!!.contains(":")){
         val inputDate = SimpleDateFormat("yyyy-MM-ddhhaa").parse(dateString)
          dateAfterAddTime = Date(inputDate.time + (duration * 60 * 60 * 1000).toLong())
-    }else{
-        val otherDate = SimpleDateFormat("yyyy-MM-ddHH:mma").parse(dateString)
-        dateAfterAddTime = Date(otherDate.time + (duration * 60 * 60 * 1000).toLong())
     }
     val format = SimpleDateFormat("h:mm")
     val cal = Calendar.getInstance()

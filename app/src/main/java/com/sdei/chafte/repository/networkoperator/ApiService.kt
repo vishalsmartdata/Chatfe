@@ -65,6 +65,9 @@ interface ApiService {
    @POST("room/delete")
     fun getDeleteRoom(@Header ("Authorization") authen:String?,@Body body: DetailPojo): Call<SendOtpResponse>
 
+    @POST("user/block")
+    fun getBlockUser(@Header ("Authorization") authen:String?,@Body body: UserBlockPojo): Call<SendOtpResponse>
+
     @POST("room/get/user/list/with/room/details")
     fun getMyRoomDetails(@Header ("Authorization") authen:String?,@Body body: DetailPojo): Call<MyEventDetailModel>
 
@@ -93,7 +96,7 @@ interface ApiService {
     fun getUserNotification(@Header ("Authorization") authen:String?): Call<NotificationModel>
 
     @POST("friends/accept/friend/request")
-    fun getAcceptRequest(@Header ("Authorization") authen:String?,@Body body: DetailPojo): Call<SendOtpResponse>
+    fun getAcceptRequest(@Header ("Authorization") authen:String?,@Body body: AcceptRejectPojo): Call<SendOtpResponse>
 
     @POST("recent/search/")
     fun getAddSearchPeople(@Header ("Authorization") authen:String?,@Body body: RecentUserAddPojo): Call<RecentUserResponse>
@@ -102,10 +105,13 @@ interface ApiService {
     fun getAddSearchRoom(@Header ("Authorization") authen:String?,@Body body: RecentRoomAddPojo): Call<RecentUserResponse>
 
     @POST("friends/reject/friend/request")
-    fun getRejectRequest(@Header ("Authorization") authen:String?,@Body body: DetailPojo): Call<SendOtpResponse>
+    fun getRejectRequest(@Header ("Authorization") authen:String?,@Body body: AcceptRejectPojo): Call<SendOtpResponse>
 
     @POST("friends/get/user/profile")
     fun getUserProfile(@Header ("Authorization") authen:String?, @Body body: DetailPojo): Call<UserProfileModel>
+
+    @POST("authentication/get/recent/suggestion/user/data")
+    fun getRecentUserProfile(@Header ("Authorization") authen:String?, @Body body: RecentUserProfile): Call<RecentSuggestionModel>
 
     @POST("friends/send/friend/request")
     fun getSendRequest(@Header ("Authorization") authen:String?, @Body body: SendFriendRequestPojo): Call<ShowDataAndMessageModel>

@@ -9,12 +9,13 @@ import com.github.nkzawa.socketio.client.Socket
 
 import org.greenrobot.eventbus.EventBus
 import org.json.JSONArray
+import org.json.JSONException
 
 import org.json.JSONObject
 import java.net.URISyntaxException
 
-class SocketManager(var user_id: String?) {
-    var mSocket: Socket? = null
+ class SocketManager(var user_id: String?) {
+     var mSocket: Socket? = null
     fun connectUser() {
         if (!mSocket!!.connected()){
             mSocket!!.connect()
@@ -29,7 +30,16 @@ class SocketManager(var user_id: String?) {
                 val obj = args[0] as JSONObject
                 Log.e("join", obj.toString())
             }
-            mSocket!!.emit("join", user_id)
+            val jsonObject = JSONObject()
+            try {
+                jsonObject.put("userId", user_id)
+               // emitKeyValue("join", jsonObject)
+                mSocket!!.emit("join", jsonObject)
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+            Log.e("join_event", user_id+"")
+
         }
         manageEvents()
     }
@@ -43,10 +53,6 @@ class SocketManager(var user_id: String?) {
                 val obj = args[0] as JSONObject
                 Log.e("getAllChatHeads", obj.toString() + "")
                 EventBus.getDefault().post(MessageEvent(obj.toString(), "getAllChatHeads"))
-            }.once("getChatHeadId") { args ->
-                val obj = args[0] as String
-                Log.e("getChatHeadId", obj.toString() + "")
-                EventBus.getDefault().post(MessageEvent(obj.toString(), "getChatHeadId"))
             }.once("getMessage") { args ->
                 val obj = args[0]  as JSONArray
                 Log.e("getMessage", obj.toString() + "")
@@ -60,6 +66,14 @@ class SocketManager(var user_id: String?) {
                 val obj = args[0]  as JSONObject
                 Log.e("receiveMessage", obj.toString() + "")
                 EventBus.getDefault().post(MessageEvent(obj.toString(), "receiveMessage"))
+            }.on("typingStatus"){ args ->
+                val obj = args[0]  as JSONObject
+                Log.e("typingStatus", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "typingStatus"))
+            }.on("workingStatus"){ args ->
+                val obj = args[0]  as JSONObject
+                Log.e("workingStatus", obj.toString() + "")
+                EventBus.getDefault().post(MessageEvent(obj.toString(), "workingStatus"))
             }
     }
 
