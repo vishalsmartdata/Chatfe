@@ -19,8 +19,10 @@ import com.sdei.chafte.model.JoinRoomData
 import com.sdei.chafte.ui.home.HomeActivity
 import com.sdei.chafte.ui.home.event_detail.EventDetailsActivity
 import com.sdei.chafte.utils.base.BaseFragment
+import com.sdei.chafte.utils.getCalFromUTCTimezoneString
 import com.sdei.chafte.utils.getCalendarData
 import com.sdei.chafte.utils.setDateInterval
+import com.sdei.chafte.utils.setNewDateInterval
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import java.text.DateFormat
 import java.text.Format
@@ -200,16 +202,16 @@ class CalendarWeekFragment : BaseFragment<FragmentCalendarWeekBinding, CalendarW
             val events: MutableList<WeekViewEvent> = ArrayList()
 
             joinRoomList.forEachIndexed { index, item ->
-                var startTime = getCalendarData(item.roomId.startTime,item.roomId.date)
-                var endTime = startTime.clone() as Calendar
-                if(!item.roomId.duration.toString().contains(".")){
+                var startTime = getCalFromUTCTimezoneString(item.roomId.startDate)
+                var endTime = getCalFromUTCTimezoneString(item.roomId.endDate)
+                /*if(!item.roomId.duration.toString().contains(".")){
                     endTime.add(Calendar.HOUR_OF_DAY, item.roomId.duration.toInt())
                 }else {
                     var hours = item.roomId.duration - 0.5
                     endTime.add(Calendar.HOUR_OF_DAY, hours.toInt())
                     endTime.add(Calendar.MINUTE, 30)
-                }
-                var event = WeekViewEvent(index.toLong(), item.roomId.roomName+"\n"+setDateInterval(item.roomId.startTime,item.roomId.duration,item.roomId.date), startTime, endTime)
+                }*/
+                var event = WeekViewEvent(index.toLong(), item.roomId.roomName+"\n"+setNewDateInterval(item.roomId.startDate,item.roomId.endDate), startTime, endTime)
                 event.color = resources.getColor(R.color.colorPrimary)
                 events.add(event)
             }

@@ -1,5 +1,6 @@
 package com.sdei.chafte.utils.base
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -76,6 +77,12 @@ abstract class BaseActivity<myBinding : ViewDataBinding, V : ViewModel> : AppCom
     override fun onStart() {
         super.onStart()
         initListeners()
+    }
+
+    fun hideKeyboard(view: View) {
+
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     abstract fun bindData()

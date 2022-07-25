@@ -27,6 +27,7 @@ import com.sdei.chafte.ui.home.HomeActivity
 import com.sdei.chafte.utils.base.BaseActivity
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback
+import com.sdei.chafte.utils.getCalFromUTCTimezoneString
 import com.sdei.chafte.utils.getCalendarData
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import java.util.*
@@ -152,23 +153,16 @@ class NotificationActivity : BaseActivity<ActivityNotificationBinding, Notificat
             .withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                     if (report.areAllPermissionsGranted()) {
-                        var startTime = getCalendarData(it.roomId.startTime,it.roomId.date)
-                        var endTime = startTime.clone() as Calendar
-                        if(!it.roomId.duration.toString().contains(".")) {
-                            endTime.add(Calendar.HOUR_OF_DAY, it.roomId.duration.toInt())
-                        }
-                        else {
-                            var hours = it.roomId.duration - 0.5
-                            endTime.add(Calendar.HOUR_OF_DAY, hours.toInt())
-                            endTime.add(Calendar.MINUTE, 30)
-                        }
+                        var startTime = getCalFromUTCTimezoneString(it.roomId.startDate)
+                        var endTime = getCalFromUTCTimezoneString(it.roomId.endDate)
+
                         // endTime.add(Calendar.HOUR_OF_DAY, it.roomId.duration.toInt())
 
                         val cr: ContentResolver = mContext.getContentResolver()
                         val timeZone = TimeZone.getDefault()
                         val values = ContentValues().apply {
-                            put(CalendarContract.Events.DTSTART, startTime.timeInMillis)
-                            put(CalendarContract.Events.DTEND, endTime.timeInMillis)
+                            put(CalendarContract.Events.DTSTART, startTime?.timeInMillis)
+                            put(CalendarContract.Events.DTEND, endTime?.timeInMillis)
                             put(CalendarContract.Events.TITLE, it.roomId.roomName)
                             put(CalendarContract.Events.DESCRIPTION, it.roomId.about)
                             put(CalendarContract.Events.CALENDAR_ID, 1)

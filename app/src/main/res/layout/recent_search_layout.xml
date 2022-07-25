@@ -85,7 +85,7 @@
             app:layout_constraintStart_toEndOf="@+id/cvCard"
             app:layout_constraintBottom_toBottomOf="@+id/cvCard"
             android:visibility="@{model.type.equals(@string/user) ? View.GONE : View.VISIBLE}"
-            android:text="@{model.startTime+' '+model.endTime}"
+            android:text="@{AppBindingKt.setNewDateInterval(model.startDate,model.endDate) }"
             android:textColor="@color/light_gray"
             android:textSize="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_10sdp"

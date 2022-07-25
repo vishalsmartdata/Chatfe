@@ -37,6 +37,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.sdei.chafte.model.CreateRoomData
 import com.sdei.chafte.model.JoinData
+import com.sdei.chafte.utils.getCalFromUTCTimezoneString
 import com.sdei.chafte.utils.getLocalToUTCTimezoneString
 
 import com.sdei.chafte.utils.localToUTC
@@ -81,10 +82,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(), RecyclerCallba
 
     override fun initListeners() {
 
-      var text  = localToUTC("2022-07-21 06:00PM")
+      var text  = localToUTC("07/21/2022 06:30PM")
         Log.e("localUTC",text!!)
-        var change=getLocalToUTCTimezoneString(text)
-        Log.e("changeinlocal",change!!)
+     //   var change=getLocalToUTCTimezoneString(text)
+        var change=getCalFromUTCTimezoneString(text)
+        Log.e("changeinlocal",change.toString())
         viewModel.tokenObserve()?.observe(this, Observer {
             baseActivity.logout(activity)
         })
@@ -102,7 +104,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(), RecyclerCallba
 
         viewModel.getAllCategory()
         viewModel.observerCategoryResponse()?.observe (this, Observer {
-            viewModel.getAllRoom(baseActivity.getData(SessionManager.AUTHENTICATION),selected_category_id,selected_start_time,selected_sort_by,selected_date,free_on_calenndar)
+           viewModel.getAllRoom(baseActivity.getData(SessionManager.AUTHENTICATION),selected_category_id,selected_start_time,selected_sort_by,selected_date,free_on_calenndar)
             categorylist.addAll(it)
             bindList.itemsList = categorylist
             binding?.list = bindList
@@ -189,22 +191,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>(), RecyclerCallba
             .withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                     if (report.areAllPermissionsGranted()) {
-                        var startTime = getCalendarData(it.roomId.startTime,it.roomId.date)
-                        var endTime = startTime.clone() as Calendar
-                        if(!it.roomId.duration.toString().contains(".")) {
+                        var startTime = getCalFromUTCTimezoneString(it.roomId.startDate)
+                        var endTime = getCalFromUTCTimezoneString(it.roomId.endDate)
+                       /* var startTime = getCalendarData(it.roomId.startTime,it.roomId.date)
+                        var endTime = startTime.clone() as Calendar*/
+                        /*if(!it.roomId.duration.toString().contains(".")) {
                             endTime.add(Calendar.HOUR_OF_DAY, it.roomId.duration.toInt())
                         }
                         else {
                             var hours = it.roomId.duration - 0.5
                             endTime.add(Calendar.HOUR_OF_DAY, hours.toInt())
                             endTime.add(Calendar.MINUTE, 30)
-                        }
+                        }*/
 
                         val cr: ContentResolver = baseActivity.mContext.getContentResolver()
                         val timeZone = TimeZone.getDefault()
                         val values = ContentValues().apply {
-                            put(CalendarContract.Events.DTSTART, startTime.timeInMillis)
-                            put(CalendarContract.Events.DTEND, endTime.timeInMillis)
+                            put(CalendarContract.Events.DTSTART, startTime?.timeInMillis)
+                            put(CalendarContract.Events.DTEND, endTime?.timeInMillis)
                             put(CalendarContract.Events.TITLE, it.roomId.roomName)
                             put(CalendarContract.Events.DESCRIPTION, it.roomId.about)
                             put(CalendarContract.Events.CALENDAR_ID, 1)

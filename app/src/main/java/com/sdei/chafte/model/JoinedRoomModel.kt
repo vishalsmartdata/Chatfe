@@ -9,12 +9,12 @@ data class JoinedRoomModel(
 data class JoinRoomData(
     val __v: Int,
     val _id: String,
+    val addedBy: String,
     val createdAt: String,
-    val joinStatus: Boolean,
+    val hasRoomJoined: Boolean,
     val roomId: RoomId,
     val status: String,
-    val updatedAt: String,
-    val userId: String
+    val updatedAt: String
 )
 
 data class RoomId(
@@ -24,12 +24,13 @@ data class RoomId(
     val categoryId: String,
     val createdAt: String,
     val createdBy: String,
-    val date: String,
-    val duration: Float,
+    val duration: Double,
+    val endDate: String,
     val image: String,
+    val roomClass: String,
     val roomName: String,
     val roomType: String,
-    val startTime: String,
+    val startDate: String,
     val status: String,
     val updatedAt: String
 )

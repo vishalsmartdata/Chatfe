@@ -300,7 +300,7 @@ override fun onItemClick(view: View?, position: Int) {
 
     }
     if (view?.id == R.id.searchLt) {
-        var recentUserAddPojo= RecentRoomAddPojo(searchList[position]._id,searchList[position].endDate,searchList[position].endTime,searchList[position].image,searchList[position].roomName,searchList[position].startDate,searchList[position].startTime,searchList[position].roomClass)
+        var recentUserAddPojo= RecentRoomAddPojo(searchList[position]._id,searchList[position].endDate,"",searchList[position].image,searchList[position].roomName,searchList[position].startDate,"",searchList[position].roomClass)
         viewModel.getAddSearchRoom(baseActivity.getData(SessionManager.AUTHENTICATION),recentUserAddPojo)
     }
     if (view?.id == R.id.peopleLt) {

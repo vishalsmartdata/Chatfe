@@ -139,7 +139,13 @@ fun getDateShowPerClient(str: String): String? {
 }
 
  fun localToUTC(dateTime: String): String? {
-     val formatterLocal = SimpleDateFormat("yyyy-MM-dd hh:mma")
+      var formatterLocal= SimpleDateFormat("MM/dd/yyyy hhaa")
+     if(!dateTime.contains(":")) {
+         formatterLocal = SimpleDateFormat("MM/dd/yyyy hhaa")
+     }else{
+         formatterLocal=  SimpleDateFormat("MM/dd/yyyy hh:mma")
+     }
+    // var formatterLocal= SimpleDateFormat("MM/dd/yyyy hh:mma")
      val formatterUtc = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
      formatterLocal.timeZone = TimeZone.getDefault()
      formatterUtc.timeZone = TimeZone.getTimeZone("UTC")
@@ -166,6 +172,23 @@ fun getDateShowPerClient(str: String): String? {
     return formatterLocalFormat.format(date)
 }
 
+fun getCalFromUTCTimezoneString(input: String): Calendar? {
+    val formatterUTC = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    val formatterLocalFormat = SimpleDateFormat("yyyy-MM-ddhh:mma")
+    formatterUTC.timeZone = TimeZone.getTimeZone("UTC")
+    formatterLocalFormat.timeZone = TimeZone.getDefault()
+    var date: Date? = null
+    date = try {
+        formatterUTC.parse(input)
+    } catch (e: ParseException) {
+        throw RuntimeException(e)
+    }
+    var localDate= formatterLocalFormat.parse(formatterLocalFormat.format(date))
+    val cal = Calendar.getInstance()
+    cal.setTime(localDate)
+    return cal
+}
+
 
 public fun getCalculatedAge(year: Int, month: Int, day: Int): String? {
     val dob = Calendar.getInstance()
@@ -179,25 +202,49 @@ public fun getCalculatedAge(year: Int, month: Int, day: Int): String? {
     return ageInt.toString()
 }
 
+fun setDateInterval (start: String ): String? {
 
-fun setDateInterval (start: String ,duration: Float,date: String): String? {
-    /*val date = date.split("T").toTypedArray()[0]
-    val time = start.toUpperCase()
-*/
-    val dateString = getLocalToUTCTimezoneString(date)
+    val dateString = getLocalToUTCTimezoneString(start)
 
     var dateAfterAddTime: Date? = null
-    if(!dateString!!.contains(":")){
-        val inputDate = SimpleDateFormat("yyyy-MM-ddhhaa").parse(dateString)
-         dateAfterAddTime = Date(inputDate.time + (duration * 60 * 60 * 1000).toLong())
-    }
-    val format = SimpleDateFormat("h:mm")
-    val cal = Calendar.getInstance()
+
+        val inputDate = SimpleDateFormat("yyyy-MM-ddhh:mma").parse(dateString)
+        dateAfterAddTime = Date(inputDate.time)
+
+    val format = SimpleDateFormat("h:mma")
+    /*val cal = Calendar.getInstance()
     cal.setTime(dateAfterAddTime)
     val am_pm: Int = cal.get(Calendar.AM_PM)
-    val amOrpm = if (am_pm == Calendar.AM) "AM" else "PM"
+    val amOrpm = if (am_pm == Calendar.AM) "AM" else "PM"*/
     var txt= format.format(dateAfterAddTime)
-    return start+" - "+txt+amOrpm
+    return txt
+}
+
+
+fun setNewDateInterval (startDate: String ,EndDate: String): String? {
+
+    if(!startDate.equals("") && !EndDate.equals("")) {
+        val startDate = getLocalToUTCTimezoneString(startDate)
+        val EndDate = getLocalToUTCTimezoneString(EndDate)
+
+        var startTime: Date? = null
+        var endTime: Date? = null
+
+        val inputDate1 = SimpleDateFormat("yyyy-MM-ddhh:mma").parse(startDate)
+        startTime = Date(inputDate1.time)
+
+        val inputDate2 = SimpleDateFormat("yyyy-MM-ddhh:mma").parse(EndDate)
+        endTime = Date(inputDate2.time)
+
+        val format = SimpleDateFormat("h:mma")
+
+        var start_time = format.format(startTime)
+        var end_time = format.format(endTime)
+
+        return start_time + " - " + end_time
+    }else{
+        return ""
+    }
 }
 
 fun getCalendarData (start: String ,date: String): Calendar {

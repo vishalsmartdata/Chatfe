@@ -39,12 +39,9 @@ import com.sdei.chafte.model.CategoryData
 import com.sdei.chafte.model.CreateRoomData
 import com.sdei.chafte.model.FriendListData
 import com.sdei.chafte.ui.home.HomeActivity
-import com.sdei.chafte.utils.FileCompressor
-import com.sdei.chafte.utils.ImageFilepath
 import com.sdei.chafte.utils.base.BaseActivity
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback
-import com.sdei.chafte.utils.getCalendarData
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
@@ -56,6 +53,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import android.R.attr.data
 import android.R.attr.data
+import com.sdei.chafte.utils.*
 
 class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEventVm>() , RecyclerCallback {
     override val binding: ActivityCreateEventBinding
@@ -107,9 +105,10 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
             binding.imgEvent.visibility= View.VISIBLE
             binding.edRoomName.setText(roomdetail.roomName)
             binding.edAbout.setText(roomdetail.about)
-            val date = roomdetail.date.split("T").toTypedArray()[0]
+
+            val date = getLocalToUTCTimezoneString(roomdetail.startDate)
             try {
-                val inputDate = SimpleDateFormat("yyyy-MM-dd").parse(date)
+                val inputDate = SimpleDateFormat("yyyy-MM-ddhh:mma").parse(date)
                 val format = SimpleDateFormat("MM/dd/yyyy").format(inputDate)
                 viewModel.dateObserver.set(format)
                 binding.txDateSelected.setText(format)
@@ -126,14 +125,14 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
             binding.spDuration.setSelection(spinnerPosition)
 
             for (i in timelist.indices) {
-                if(roomdetail.startTime.equals(timelist[i].title)){
+                if(setDateInterval(roomdetail.startDate).equals(timelist[i].title)){
                     timelist[i].selected = true
                 }else {
                     timelist[i].selected = false
                 }
             }
             bindTimeList.notifyDataChange()
-            viewModel.start_time= roomdetail.startTime
+            viewModel.start_time= setDateInterval(roomdetail.startDate)!!
 
             for (i in categorylist.indices){
                 if(roomdetail.categoryId.equals(categorylist[i]._id)){
@@ -452,23 +451,23 @@ class CreateEventActivity : BaseActivity<ActivityCreateEventBinding, CreateEvent
                 override fun onPermissionsChecked(report: MultiplePermissionsReport){
                     // check if all permissions are granted
                     if (report.areAllPermissionsGranted()) {
-                        var startTime = getCalendarData(it.startTime,it.date)
-                        var endTime = startTime.clone() as Calendar
-                        if(!it.duration.toString().contains(".")) {
+                        var startTime = getCalFromUTCTimezoneString(it.startDate)
+                        var endTime = getCalFromUTCTimezoneString(it.endDate)
+                        /*if(!it.duration.toString().contains(".")) {
                             endTime.add(Calendar.HOUR_OF_DAY, it.duration.toInt())
                         }
                         else {
                             var hours = it.duration - 0.5
                             endTime.add(Calendar.HOUR_OF_DAY, hours.toInt())
                             endTime.add(Calendar.MINUTE, 30)
-                        }
+                        }*/
                      //   endTime.add(Calendar.HOUR_OF_DAY, it.duration)
 
                         val cr: ContentResolver =mContext.getContentResolver()
                         val timeZone = TimeZone.getDefault()
                         val values = ContentValues().apply {
-                            put(CalendarContract.Events.DTSTART, startTime.timeInMillis)
-                            put(CalendarContract.Events.DTEND, endTime.timeInMillis)
+                            put(CalendarContract.Events.DTSTART, startTime?.timeInMillis)
+                            put(CalendarContract.Events.DTEND, endTime?.timeInMillis)
                             put(CalendarContract.Events.TITLE, it.roomName)
                             put(CalendarContract.Events.DESCRIPTION, it.about)
                             put(CalendarContract.Events.CALENDAR_ID, 1)

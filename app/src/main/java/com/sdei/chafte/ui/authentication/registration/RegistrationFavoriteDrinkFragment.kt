@@ -22,6 +22,8 @@ class RegistrationFavoriteDrinkFragment  : BaseFragment<FragmentRegistrationFout
         get() = setUpBinding()
         set(value) {}
 
+    val bindingList = RecyclerBindingList<DrinkModel>()
+
     var arrayList = ArrayList<DrinkModel>()
 
     override fun bindData() {
@@ -41,7 +43,7 @@ class RegistrationFavoriteDrinkFragment  : BaseFragment<FragmentRegistrationFout
 
 
         viewModel.observerDrinkResponse()?.observe (this, Observer {
-            val bindingList = RecyclerBindingList<DrinkModel>()
+
             arrayList.addAll(it)
             bindingList.itemsList = arrayList
             binding?.list = bindingList
@@ -56,7 +58,16 @@ class RegistrationFavoriteDrinkFragment  : BaseFragment<FragmentRegistrationFout
     override fun onItemClick(view: View?, position: Int) {
         if (view?.id == R.id.clParent) {
             viewModel.drinkObserver.set(arrayList.get(position)._id)
-            viewModel.buttonClickForNext(0)
+       //     viewModel.buttonClickForNext(0)
+            for (i in arrayList.indices) {
+                if(position==i){
+                    arrayList[i].isSelected=true
+                }else {
+                    arrayList[i].isSelected=false
+                }
+            }
+            bindingList.notifyDataChange()
+
         }
     }
 

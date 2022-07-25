@@ -65,6 +65,7 @@ class RegistrationUsernamePasswordFragment: BaseFragment<FragmentRegistrationFro
         })
 
     }
+
  fun hideSoftKey(){
      val inputService=  Context.INPUT_METHOD_SERVICE
      val view: View = requireActivity().currentFocus!!

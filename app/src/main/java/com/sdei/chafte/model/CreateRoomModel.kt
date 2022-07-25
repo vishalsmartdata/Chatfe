@@ -1,5 +1,4 @@
 package com.sdei.chafte.model
-
 data class CreateRoomModel(
     val code: Int,
     val `data`: CreateRoomData,
@@ -7,6 +6,31 @@ data class CreateRoomModel(
     val message: String
 )
 
+data class CreateRoomData(
+    val __v: Int,
+    val _id: String,
+    val about: String,
+    val categoryId: String,
+    val createdAt: String,
+    val createdBy: String,
+    val duration: Double,
+    val endDate: String,
+    val image: String,
+    val roomClass: String,
+    val roomName: String,
+    val roomType: String,
+    val startDate: String,
+    val status: String,
+    val updatedAt: String
+)
+/*data class CreateRoomModel(
+    *//*val code: Int,
+    val `data`: CreateRoomData,
+    val status: String,
+    val message: String*//*
+)*/
+
+/*
 data class CreateRoomData(
     val __v: Int,
     val _id: String,
@@ -22,4 +46,4 @@ data class CreateRoomData(
     val startTime: String,
     val status: String,
     val updatedAt: String
-)
+)*/

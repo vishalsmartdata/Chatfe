@@ -1,10 +1,12 @@
 package com.sdei.chafte.ui.authentication.registration
 
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import com.sdei.chafte.R
@@ -28,6 +30,10 @@ class RegistrationOTPVerificationFragment : BaseFragment<FragmentOtpForgotPasswo
     override fun bindData() {
 
         binding.vm = viewModel
+
+        binding.parent.setOnClickListener{
+            hideSoftKey()
+        }
 
         viewModel.observerVerifyOtpResponse()?.observe (this, Observer {
             Log.e("otp_response",""+it)
@@ -54,6 +60,15 @@ class RegistrationOTPVerificationFragment : BaseFragment<FragmentOtpForgotPasswo
 
     override fun initListeners() {
 
+    }
+
+    fun hideSoftKey(){
+        val inputService=  Context.INPUT_METHOD_SERVICE
+        val view: View = requireActivity().currentFocus!!
+        if (view != null) {
+            val imm: InputMethodManager? = requireContext().getSystemService(inputService) as InputMethodManager
+            imm?.hideSoftInputFromWindow(view.getWindowToken(), 0)
+        }
     }
 }
 
@@ -96,5 +111,6 @@ class GenericTextWatcher internal constructor(private val currentView: View, pri
         arg3: Int
     ) { // TODO Auto-generated method stub
     }
+
 
 }

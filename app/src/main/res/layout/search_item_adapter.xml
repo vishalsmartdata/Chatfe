@@ -84,7 +84,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txHeader"
                 app:layout_constraintStart_toEndOf="@+id/cvCard"
                 app:layout_constraintBottom_toBottomOf="@+id/cvCard"
-            android:text="@{AppBindingKt.setDateInterval(model.startTime,model.duration,model.date)}"
+            android:text="@{AppBindingKt.setNewDateInterval(model.startDate,model.endDate)}"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/_12sdp"
                 android:layout_marginLeft="@dimen/_10sdp"

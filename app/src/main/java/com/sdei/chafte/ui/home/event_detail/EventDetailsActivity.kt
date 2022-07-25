@@ -19,7 +19,10 @@ import com.sdei.chafte.ui.home.setting.my_events.ViewUserProfileActivity
 import com.sdei.chafte.utils.base.BaseActivity
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList
 import com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback
+import com.sdei.chafte.utils.getCalFromUTCTimezoneString
+import com.sdei.chafte.utils.getLocalToUTCTimezoneString
 import com.sdei.chafte.utils.setDateInterval
+import com.sdei.chafte.utils.setNewDateInterval
 import com.sdei.totalcabmobility.utils.common.localsavedata.SessionManager
 import com.squareup.picasso.Picasso
 import java.text.ParseException
@@ -86,25 +89,20 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding, EventDeta
             binding.txHeader.setText(it.roomName)
             binding.txAboutText.setText(it.about)
 
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-            dateFormat.timeZone = TimeZone.getTimeZone("GMT")  // IMP !!!
-            try {
-                var date= dateFormat.parse(it.date)
-                val format = SimpleDateFormat("dd-MM-yyyy")
-               var selecteddate=  format.format(date)
-                val c = Calendar.getInstance().time
-                val todayDate = format.format(c)
-                Log.e("selecteddate",selecteddate+" todayDate "+todayDate)
+               var selectedCalendar= getCalFromUTCTimezoneString(it.startDate)
+                val todayCal = Calendar.getInstance().time
 
-                if(selecteddate.equals(todayDate)){
-                    binding.txdate.setText("Today From "+setDateInterval(it.startTime,it.duration,it.date))
+                Log.e("selecteddate",selectedCalendar.toString()+" todayDate "+todayCal)
+            val format = SimpleDateFormat("yyyy-MM-dd")
+               var today_date= format.format(todayCal)
+                var selected_date= format.format(selectedCalendar?.time)
+
+                if(selected_date.equals(today_date)){
+                    binding.txdate.setText("Today From "+setNewDateInterval(it.startDate,it.endDate))
                 }else{
-                    binding.txdate.setText(setDateInterval(it.startTime,it.duration,it.date))
+                    binding.txdate.setText(setNewDateInterval(it.startDate,it.endDate))
                 }
 
-            } catch (e: ParseException) {
-                 Log.e("eMessage",e.stackTrace.toString())
-            }
 
              hasRoomJoin=it.hasRoomJoined
             if(it.hasRoomJoined){
@@ -144,8 +142,19 @@ class EventDetailsActivity : BaseActivity<ActivityEventDetailsBinding, EventDeta
 
             binding.txHeader.setText(roomdetail.roomName)
             binding.txAboutText.setText(roomdetail.about)
-            binding.txdate.setText(setDateInterval(roomdetail.startTime,roomdetail.duration,roomdetail.date))
+            var selectedCalendar= getCalFromUTCTimezoneString(roomdetail.startDate)
+            val todayCal = Calendar.getInstance().time
 
+            Log.e("selecteddate",selectedCalendar.toString()+" todayDate "+todayCal)
+            val format = SimpleDateFormat("yyyy-MM-dd")
+            var today_date= format.format(todayCal)
+            var selected_date= format.format(selectedCalendar?.time)
+
+            if(selected_date.equals(today_date)){
+                binding.txdate.setText("Today From "+setNewDateInterval(roomdetail.startDate,roomdetail.endDate))
+            }else{
+                binding.txdate.setText(setNewDateInterval(roomdetail.startDate,roomdetail.endDate))
+            }
             userList.clear()
             it.userData.forEachIndexed { index, item ->
                 if(!item._id.equals(getData(SessionManager.USER_ID))){

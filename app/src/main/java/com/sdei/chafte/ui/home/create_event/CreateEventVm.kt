@@ -216,7 +216,6 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
         })
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     fun doCreateEventProcess() {
         var roomname = ""
         var about = ""
@@ -251,18 +250,18 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
         when (selected_category_id.isNotEmpty() && roomname.isNotEmpty() && date.isNotEmpty() && start_time.isNotEmpty()
                  && !duration.equals("Select Duration Hours") && about.isNotEmpty() && imagePath.isNotEmpty() ) {
             true -> {
-                var dateTime= localToUTC(date+start_time)
+
+                var dateTime= localToUTC(date+" "+start_time)
 
                 progressObserver?.value = true
                 if(!edit_room) {
                     var createRoomPojo = CreateRoomPojo(
                         about,
                         selected_category_id,
-                        date,
+                        dateTime!!,
                         duration,
                         roomname,
                         key_value!!,
-                        start_time,
                         imagePath!!,
                         room_type,
                         emails,
@@ -322,11 +321,10 @@ class CreateEventVm (application: Application,key:String?,authen:String?) : Base
                     var createRoomPojo = UpdateRoomPojo(
                         about,
                         selected_category_id,
-                        date,
+                        dateTime!!,
                         duration,
                         roomname,
                         key_value!!,
-                        start_time,
                         imagePath!!,
                         room_type,
                         emails,

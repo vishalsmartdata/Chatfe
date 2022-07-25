@@ -22,6 +22,9 @@ fun Snackbar.withColor(@ColorInt colorInt: Int): Snackbar {
     return this
 }
  fun hideSoftKey(context: Activity) {
+
+   /*  val inputMethodManager = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)*/
     val inputService=  Context.INPUT_METHOD_SERVICE
     val view: View = context.currentFocus!!
     if (view != null) {

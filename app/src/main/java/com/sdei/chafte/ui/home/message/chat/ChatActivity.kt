@@ -330,67 +330,6 @@ class ChatActivity : BaseActivity<ActivityChatBinding, ChatVm>(), RecyclerCallba
         builder.show()
     }
 
-    private fun requestCalendarPermission(it: CreateRoomData) {
-        Dexter.withActivity(this)
-            .withPermissions(
-                Manifest.permission.READ_CALENDAR,
-                Manifest.permission.WRITE_CALENDAR,
-            )
-            .withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport){
-                    // check if all permissions are granted
-                    if (report.areAllPermissionsGranted()) {
-                        var startTime = getCalendarData(it.startTime,it.date)
-                        var endTime = startTime.clone() as Calendar
-                        if(!it.duration.toString().contains(".")) {
-                            endTime.add(Calendar.HOUR_OF_DAY, it.duration.toInt())
-                        }
-                        else {
-                            var hours = it.duration - 0.5
-                            endTime.add(Calendar.HOUR_OF_DAY, hours.toInt())
-                            endTime.add(Calendar.MINUTE, 30)
-                        }
-                        //   endTime.add(Calendar.HOUR_OF_DAY, it.duration)
-
-                        val cr: ContentResolver =mContext.getContentResolver()
-                        val timeZone = TimeZone.getDefault()
-                        val values = ContentValues().apply {
-                            put(CalendarContract.Events.DTSTART, startTime.timeInMillis)
-                            put(CalendarContract.Events.DTEND, endTime.timeInMillis)
-                            put(CalendarContract.Events.TITLE, it.roomName)
-                            put(CalendarContract.Events.DESCRIPTION, it.about)
-                            put(CalendarContract.Events.CALENDAR_ID, 1)
-                            put(CalendarContract.Events.EVENT_TIMEZONE, timeZone.id)
-                        }
-                        val uri: Uri? = cr.insert(CalendarContract.Events.CONTENT_URI, values)
-                        val eventID: Long = uri?.lastPathSegment!!.toLong()
-                        Log.e("eventID",eventID.toString())
-
-                        val bundle = Bundle()
-                        bundle.putString("key", "login")
-                        navigateActivity(HomeActivity(),bundle)
-                        finish()
-                    }
-                    if (report.isAnyPermissionPermanentlyDenied) {
-                        showSettingsDialog()
-                    }
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest>,
-                    token: PermissionToken
-                ) {
-                    token.continuePermissionRequest()
-                }
-            })
-            .withErrorListener { error: DexterError? ->
-                Toast.makeText(baseContext, "Error occurred! ", Toast.LENGTH_SHORT)
-                    .show()
-            }
-            .onSameThread()
-            .check()
-    }
-
     private fun requestStoragePermission(isCamera: Boolean) {
         Dexter.withActivity(this)
             .withPermissions(

@@ -147,11 +147,13 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding, ProfileVM>(), Recycl
                 binding.txViewFriends.visibility=View.GONE
             }
 
-            Picasso.get()
-                .load(it.profileImg.image)
-                .error(R.drawable.ic_launcher_background)
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(binding.imProfile)
+            if(!it.profileImg.image.equals("")) {
+                Picasso.get()
+                    .load(it.profileImg.image)
+                    .error(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(binding.imProfile)
+            }
 
             baseActivity.saveData(SessionManager.USER_IMAGE, it.profileImg.image)
 
