@@ -165,4 +165,10 @@ interface ApiService {
     @POST("upload")
     fun getUpload(@Part image: MultipartBody.Part): Call<ImageUploadModel>
 
+    @GET("user/block")
+    fun getBlockedUser(@Header ("Authorization") authen:String?): Call<BlockList>
+
+    @PUT("user/unblock")
+    fun getUnBlockUser(@Header ("Authorization") authen:String?, @Body body: Unblock): Call<UnblockUser>
+
 }

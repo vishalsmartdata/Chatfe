@@ -179,6 +179,23 @@
             />
 
         <TextView
+            android:id="@+id/txBlocklist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blocklist"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_baseline_block_24"
+            android:drawablePadding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:drawableTint="@color/divider"
+            app:layout_constraintStart_toEndOf="@+id/glLeft"
+            app:layout_constraintTop_toBottomOf="@+id/txMyEvents"
+            />
+
+        <TextView
             android:id="@+id/txSignOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

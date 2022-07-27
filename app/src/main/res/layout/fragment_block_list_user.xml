@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.sdei.chafte.R" />
+        <import type="android.view.View" />
+        <variable
+            name="blVM"
+            type="com.sdei.chafte.ui.home.setting.blockListUser.BlockListVm"/>
+        <variable
+            name="listItem"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerBindingList"/>
+
+        <variable
+            name="click"
+            type="com.sdei.chafte.utils.common.recyclerviewbase.RecyclerCallback"/>
+
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/ic_cancel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/blocklist_user"
+                    android:id="@+id/txBlocklistUser"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imgCancel"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgCancel"
+                    app:layout_constraintStart_toEndOf="@+id/imgCancel" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSelectedItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout="@{R.layout.blockist_user_adapter}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    app:onItemClickListener="@{click}"
+                    app:recyclerLinearAdapter="@{listItem}"
+                    app:layout_constraintTop_toBottomOf="@+id/txBlocklistUser"
+                    android:orientation="horizontal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

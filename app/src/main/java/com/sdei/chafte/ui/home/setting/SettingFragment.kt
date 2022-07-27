@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.sdei.chafte.R
 import com.sdei.chafte.databinding.FragmentSettingBinding
 import com.sdei.chafte.ui.home.setting.accountVisibility.AccountVisibilityFragment
+import com.sdei.chafte.ui.home.setting.blockListUser.BlockListUserFragment
 import com.sdei.chafte.ui.home.setting.my_events.MyEventsFragmemt
 import com.sdei.chafte.ui.home.setting.settingActivity.ActivitySettingFragment
 import com.sdei.chafte.ui.home.setting.webview.WebViewActivity
@@ -14,8 +15,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingVm>() {
     override val layoutId: Int
         get() = R.layout.fragment_setting
     override var viewModel: SettingVm
-        get() = setUpVM(activity as SettingActivity, SettingVm(baseActivity.application,baseActivity.getData(
-            SessionManager.AUTHENTICATION)))
+        get() = setUpVM(
+            activity as SettingActivity, SettingVm(baseActivity.application,baseActivity.getData(
+                SessionManager.AUTHENTICATION))
+        )
         set(value) {}
     override var binding: FragmentSettingBinding
         get() = setUpBinding()
@@ -59,6 +62,10 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingVm>() {
         }
         binding.txActivity.setOnClickListener {
             openFragmentReplaceNoAnim(R.id.settingContainer, ActivitySettingFragment(), "", false)
+        }
+
+        binding.txBlocklist.setOnClickListener {
+            openFragmentReplaceNoAnim(R.id.settingContainer, BlockListUserFragment(),"",false)
         }
         binding.txCommunityRules.setOnClickListener {
             baseActivity.navigateActivity(WebViewActivity(),null)

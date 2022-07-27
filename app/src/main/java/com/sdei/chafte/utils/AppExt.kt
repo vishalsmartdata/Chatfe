@@ -26,7 +26,7 @@ fun Snackbar.withColor(@ColorInt colorInt: Int): Snackbar {
    /*  val inputMethodManager = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
      inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)*/
     val inputService=  Context.INPUT_METHOD_SERVICE
-    val view: View = context.currentFocus!!
+    val view: View? = context.currentFocus
     if (view != null) {
         val imm: InputMethodManager? = context.getSystemService(inputService) as InputMethodManager
         imm?.hideSoftInputFromWindow(view.getWindowToken(), 0)
